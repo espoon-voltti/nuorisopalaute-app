@@ -6,7 +6,7 @@ variable "region" {
 
 variable "name" {
   description = "The name of the product/stack"
-  default     = "[[PROJECT]]-base"
+  default     = "nuorisopalaute-base"
 }
 
 variable "businessUnit" {
@@ -16,7 +16,7 @@ variable "businessUnit" {
 
 variable "service_name" {
   description = "The name of the product/stack"
-  default     = "[[PROJECT]]"
+  default     = "nuorisopalaute"
 }
 
 # Stack specific configuration

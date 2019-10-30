@@ -3,7 +3,7 @@ terraform {
   backend "s3" {
     bucket         = "voltti-sst-infra-state"
     profile        = "voltti-sst"
-    key            = "[[PROJECT]]-app.tfstate"
+    key            = "nuorisopalaute-app.tfstate"
     dynamodb_table = "voltti-sst-terraform"
     region         = "eu-west-1"
   }

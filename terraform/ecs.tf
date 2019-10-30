@@ -1,11 +1,11 @@
 locals {
-  rds_url = "jdbc:postgresql://${data.terraform_remote_state.base.[[PROJECT]]-db_internal_address}:5432/[[PROJECT]]_service"
+  rds_url = "jdbc:postgresql://${data.terraform_remote_state.base.nuorisopalaute-db_internal_address}:5432/nuorisopalaute_service"
 }
 
-module [[PROJECT]]_service {
-  name         = "[[PROJECT]]-service"
-  docker_image = "[[PROJECT]]/service"
-  docker_tag   = "${local.[[PROJECT]]-service_version}"
+module nuorisopalaute_service {
+  name         = "nuorisopalaute-service"
+  docker_image = "nuorisopalaute/service"
+  docker_tag   = "${local.nuorisopalaute-service_version}"
 
   health_check_path = "/actuator/health"
   desired_count     = "${var.desired_count[terraform.workspace]}"
@@ -28,10 +28,10 @@ module [[PROJECT]]_service {
       FLYWAY_URL = "${local.rds_url}"
     },
     {
-      FLYWAY_PLACEHOLDERS_MIGRATION_USER = "[[PROJECT]]_service_migration"
+      FLYWAY_PLACEHOLDERS_MIGRATION_USER = "nuorisopalaute_service_migration"
     },
     {
-      FLYWAY_PLACEHOLDERS_APPLICATION_USER = "[[PROJECT]]_service_application"
+      FLYWAY_PLACEHOLDERS_APPLICATION_USER = "nuorisopalaute_service_application"
     },
   ]
 

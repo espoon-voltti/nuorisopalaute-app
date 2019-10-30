@@ -1,0 +1,101 @@
+@import "global.scss";
+
+.header {
+	display:flex;
+	height:120px;
+	padding: 20px;
+	align-items: center;
+}
+
+.logo-container a {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.logo {
+	height:60px;
+	margin: 0 40px 6px 10px;
+}
+
+.title {
+	font-family: Montserrat-Light, sans-serif;
+	text-decoration: none;
+	margin-top: 5px;
+}
+
+.nav-container {
+	display:flex;
+	height:120px;
+	padding: 20px 0 20px 20px;
+	align-items: center;
+	width: 100%;
+}
+
+.nav-menu {
+	margin-left: 80px;
+	display:flex;
+}
+
+.nav-menu a {
+	color: $headline-color;
+	font-family: Montserrat-Regular;
+	font-size: 15px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: 50px;
+	line-height: 40px;
+	padding:0 10px;
+	display:inline-block;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-bottom: 5px solid transparent;
+}
+
+.nav-menu a {
+	padding-top: 11px;
+}
+
+.nav-menu a:hover {
+	border-bottom: 5px solid $primary-blue;
+	text-decoration: none;
+}
+
+.nav-menu li a.selected, .nav-menu--language li.selected {
+	font-weight: bold;
+}
+
+.nav-menu li a.selected{
+	border-bottom: 5px solid $primary-blue;	
+}
+
+.nav-menu--language {
+	margin-left: auto;
+	display: flex;
+	align-self: flex-start;
+}
+
+.nav-menu--language li {
+	text-transform: none;
+	margin: 0;
+	color: $headline-color;
+	font-family: Montserrat-Regular;
+	font-size: 15px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	text-align: center;
+	vertical-align: middle;
+	padding:0 10px;
+	
+}
+.nav-menu--language a {
+	color: $headline-color;
+	text-decoration: none;
+}
+
+.nav-menu--language a:hover {
+	text-decoration: underline;
+}
