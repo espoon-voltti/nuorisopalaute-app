@@ -13,9 +13,9 @@ router.get("/api/test", async (ctx) => {
 	ctx.body = await Test(ctx);
 })
 
-router.get("*", async (ctx) => {
-	ctx.body = ctx.url
-})
+router.get("/api/health", async ctx => {
+	ctx.body = "healthy";
+});
 
 const routes = router.routes()
 
