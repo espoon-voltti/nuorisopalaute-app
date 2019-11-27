@@ -35,7 +35,8 @@
 	},
 	"scripts": {
 		"watch-server": "nodemon --watch 'src/**/*' -e ts,tsx --exec ts-node ./src/index.ts",
-		"test": "tsc --skipLibCheck && ava"
+		"test": "tsc --skipLibCheck && ava",
+		"start": "ts-node ./src/index.ts"
 	},
 	"ava": {
 		"files": [

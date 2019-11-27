@@ -11,7 +11,7 @@ variable "name" {
 
 variable "businessUnit" {
   description = "Used for AWS billing"
-  default     = "sito"
+  default     = "koha"
 }
 
 variable "service_name" {
