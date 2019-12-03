@@ -1,46 +1,46 @@
 module.exports = {
-	"env": {
-		"browser": true,
-		"es6": true
+	env: {
+		browser: true,
+		es6: true,
 	},
-	"extends": [
+	extends: [
 		"eslint:recommended",
-		"plugin:@typescript-eslint/eslint-recommended",
-		'prettier/@typescript-eslint',
-		'plugin:prettier/recommended',
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended",
 	],
-	"globals": {
-		"Atomics": "readonly",
-		"SharedArrayBuffer": "readonly"
-	},
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaFeatures": {
-			"jsx": true
+	settings: {
+		react: {
+			pragma: "React",
+			version: "detect",
 		},
-		"ecmaVersion": 2018,
-		"sourceType": "module"
 	},
-	"plugins": [
-		"react",
-		"@typescript-eslint"
-	],
-	"rules": {
-		"indent": [
+	globals: {
+		Atomics: "readonly",
+		SharedArrayBuffer: "readonly",
+	},
+	parser: "@typescript-eslint/parser",
+	parserOptions: {
+		ecmaFeatures: {
+			jsx: true,
+		},
+		ecmaVersion: 2018,
+		sourceType: "module",
+	},
+	plugins: ["react", "@typescript-eslint", "prettier", "react-hooks"],
+	rules: {
+		"react/prop-types": ["off"],
+		"linebreak-style": ["error", "unix"],
+		quotes: ["error", "double"],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "error",
+		"@typescript-eslint/explicit-function-return-type": [
 			"error",
-			"tab"
+			{
+				allowExpressions: true,
+				allowTypedFunctionExpressions: true,
+			},
 		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		],
-		"quotes": [
-			"error",
-			"double"
-		],
-		"semi": [
-			"error",
-			"never"
-		]
-	}
-}
+	},
+};
