@@ -23,25 +23,27 @@ const PageLanding: FC = () => {
 			</header>
 			
 			<div className="jumbotron">
-				<h1 className="jumbotron-header">Välitä <br />ja vaikuta</h1>
-				<p className="jumbotron-text">Mikä on sinulle tärkeää?</p>
-				<div className="jumbotron-btns">
-					<a className="btn" onClick={(): void => {
-							const url = "/palaute";
-							history.push(url);
+				<div className="jumbotron-content">
+					<h1 className="jumbotron-header">Välitä <br />ja vaikuta</h1>
+					<p className="jumbotron-text">Mikä on sinulle tärkeää?</p>
+					<div className="jumbotron-btns">
+						<a className="btn" onClick={(): void => {
+								const url = "/palaute";
+								history.push(url);
 
-							axios
-								.get(config.API_URL + "/test")
-								.then(function(response: any) {
-									console.log(response);
-								})
-								.catch((error: Error) => {
-									console.error(error.message);
-									throw error;
-								});
-						}}>Anna palautetta</a>
-					<span className="jumbotron-text btn-divader">tai</span>
-					<a className="btn btn-secondary">Jätä aloite</a>
+								axios
+									.get(config.API_URL + "/test")
+									.then(function(response: any) {
+										console.log(response);
+									})
+									.catch((error: Error) => {
+										console.error(error.message);
+										throw error;
+									});
+							}}>Anna palautetta</a>
+						<span className="jumbotron-text btn-divader">tai</span>
+						<a className="btn btn-secondary">Jätä aloite</a>
+					</div>
 				</div>
 			</div>
 			<section className="content-block">
