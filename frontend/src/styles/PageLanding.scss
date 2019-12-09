@@ -13,6 +13,10 @@
 	align-items: center;
 	height: calc(100vh - 100px);
 	text-align: center;
+	margin-bottom: 50px;
+	@media only screen and (max-width: 640px) {
+		height: calc(100vh - 25px);
+	}
 }
 
 .jumbotron-content {
@@ -29,6 +33,10 @@
 	font-weight: bold;
 	color: $text-color-light;
 	line-height: 120px;
+	@media only screen and (max-width: 640px) {
+		font-size: 60px;
+		line-height: 60px;
+	}
 }
 
 .jumbotron-text {
@@ -36,12 +44,21 @@
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 28px;
-	margin: 25px 0 40px 0;
+	margin: 15px 0 25px 0;
 }
 
 .jumbotron-btns {
 	display: flex;
 	align-items: center;
+	@media only screen and (max-width: 640px) {
+		display:block;
+		.btn {
+			display: block;
+		}
+		.btn-divader {
+			margin: 10px 0;
+		}
+	}
 }
 
 .btn-divader {
@@ -89,14 +106,17 @@
 .teaser-container {
 	display: flex;
 	justify-content: center;
-	margin: 70px 0;
 }
 
 
 .teaser-container {
+	display:flex;
 	flex-wrap: wrap;
 	max-width: 1200px;
 	margin:0 auto;
+	@media only screen and (max-width: 640px) {
+		display: block;
+	}
 }
 
 .teaser {
@@ -107,6 +127,9 @@
 	border-radius: $border-radius;
 	background-color: #F2F7FB;
 	margin: 25px 35px;
+	@media only screen and (max-width: 640px) {
+		margin: 20px 10px;
+	}
 }
 
 .teaser .btn {
@@ -126,14 +149,22 @@
 .teaser--highlight {
 	max-width: 335px;
 	margin: 10px;
+	@media only screen and (max-width: 640px) {
+		max-width: 450px;
+		margin: 20px 10px;
+	}
 }
 
 .teaser__header {
 	text-align: center;
+
 }
 
 .teaser--highlight .teaser__header {
 	min-height:65px;
+	@media only screen and (max-width: 640px) {
+		min-height: auto;
+	}
 }
 
 .teaser__image {
