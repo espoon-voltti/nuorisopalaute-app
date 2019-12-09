@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41">
+  <g fill="none" fill-rule="evenodd" stroke="#FFF">
+    <g stroke-linecap="round" stroke-linejoin="round" transform="translate(9.226 14.465)">
+      <line x2="20.997" y1=".525" y2=".525"/>
+      <line x2="20.997" y1="5.774" y2="5.774"/>
+      <line x2="20.997" y1="11.024" y2="11.024"/>
+    </g>
+    <circle cx="19.724" cy="20.37" r="19.185"/>
+  </g>
+</svg>

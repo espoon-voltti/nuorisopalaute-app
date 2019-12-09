@@ -53,7 +53,6 @@ table {
 body {
 	font-family: Montserrat, sans-serif;
 	font-size: 15px;
-	background: #000;
 }
 
 p { 
@@ -85,8 +84,8 @@ h3 {
 	color: $text-color;
 	font-size: 22px;
 	font-family: Open-sans, sans-serif;
-	font-weight: 300;
-	line-height: 27px;
+	font-weight: 500;
+	line-height: 32px;
 	margin-bottom: 20px;
 }
 
@@ -106,4 +105,11 @@ a:hover {
 
 .content-block {
 	margin: 70px 0;
+}
+
+#footer {
+	height: 100px;
+	background-color: #fff;
+	display: block;
+	text-align: center;
 }

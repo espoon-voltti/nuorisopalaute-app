@@ -1,5 +1,8 @@
 @import "variables.scss";
 
+#landing {
+	background-color: #000;
+}
 
 .jumbotron {
 	background: transparent url('/hero-image.jpg') center center no-repeat;
@@ -108,6 +111,7 @@
 
 .teaser .btn {
 	width: 400px;
+	max-width: 100%;
 	margin-top: auto;
 }
 
@@ -128,8 +132,16 @@
 	text-align: center;
 }
 
+.teaser--highlight .teaser__header {
+	min-height:65px;
+}
+
 .teaser__image {
 	margin:10px 0 40px 0;
+}
+
+.teaser--highlight .teaser__text {
+	margin-bottom:0;
 }
 
 .teaser__text--ingress {
@@ -147,3 +159,22 @@
 	text-align: center;
 	color: $text-color-light;
 }
+
+.initiative-list {
+	color: $text-color-light;
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 25px 25px 70px 25px;
+}
+
+.initiative-list LI {
+	line-height: 24px;
+	font-weight: 500;
+	margin-bottom: 1.5em;
+}
+.initiative-list .date {
+	font-size: 14px;
+	color: #e2e2e2;
+	display: block;
+}
+

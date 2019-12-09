@@ -27,6 +27,7 @@ const App: React.FC = () => {
 								component={() => <PageError error="404" />}
 							/>
 						</Switch>
+						<footer id="footer">Footer</footer>
 					</main>
 				</Router>
 			</div>

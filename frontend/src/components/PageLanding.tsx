@@ -11,15 +11,9 @@ const PageLanding: FC = () => {
 		<div id="landing">
 			<header className="header">
 				<a href="#"><img src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
-				<div className="menu">
-					<a href="#">Palaute</a>
-					<a href="#">Aloite</a>
-				</div>
-				<div className="lang-menu">
-					<a href="#">FI</a> | 
-					<a href="#">SV</a> | 
-					<a href="#">EN</a>
-				</div>
+				<nav>
+				<img src="/icon-menu.svg" />
+				</nav>
 			</header>
 			
 			<div className="jumbotron">
@@ -68,43 +62,43 @@ const PageLanding: FC = () => {
 				<h2 className="section-header">Mitä palautteilla on saatu aikaan?</h2>
 				<div className="teaser-container teaser-container--feedbacks">
 					<div className="teaser teaser--highlight">
-						<h3>Karaokea kavereiden kanssa!</h3>
-						<img src="" />
+						<h3 className="teaser__header">Karaokea kavereiden kanssa!</h3>
+						<img className="teaser__image" src="/icon-mic.svg" alt="" />
 						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
 					<div className="teaser teaser--highlight">
-						<h3>Karaokea kavereiden kanssa!</h3>
-						<img src="" />
+						<h3  className="teaser__header">Kätevämmin konserttiin!</h3>
+						<img className="teaser__image" src="/icon-tickets.svg" alt="" />
+						<p className="teaser__text">Palautteiden ansiosta Itsenäisyyspäivän konserttilippuja saa nyt myös sähköisesti Lippupisteen kautta.</p>
+					</div>
+					<div className="teaser teaser--highlight">
+						<h3 className="teaser__header">Lasereita eläimetkään eivät säiky</h3>
+						<img className="teaser__image" src="/icon-fireworks.svg" alt="" />
+						<p className="teaser__text">Uuden vuoden lasershow on vastaus myös kuntalaispalautteisiin, joissa toivottiin vähemmän häiriötä raketeista.</p>
+					</div>
+					<div className="teaser teaser--highlight">
+						<h3 className="teaser__header">Karaokea kavereiden kanssa!</h3>
+						<img className="teaser__image" src="/icon-mic.svg" alt="" />
 						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
 					<div className="teaser teaser--highlight">
-						<h3>Karaokea kavereiden kanssa!</h3>
-						<img src="" />
-						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
-					</div>
-					<div className="teaser teaser--highlight">
-						<h3>Karaokea kavereiden kanssa!</h3>
-						<img src="" />
-						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
-					</div>
-					<div className="teaser teaser--highlight">
-						<h3>Karaokea kavereiden kanssa!</h3>
-						<img src="" />
+						<h3 className="teaser__header">Karaokea kavereiden kanssa!</h3>
+						<img className="teaser__image" src="/icon-mic.svg" alt="" />
 						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
 				</div>
 			</section>
 			<section className="content-block">
-				<h2>Nuorten tekemät aloitteet</h2>
-				<dl className="initiative-list">
-					<li>Ruotsinkielen opetuksen muuttaminen   4.12.2019</li>
-					<li>Riistaruokapäiviä kouluihin 23.11.2019</li>
-					<li>Matematiikan maksutonta tukiopetusta 16-19 -vuotiaille, sisältäen lukion! 23.11.2019</li>
-					<li>Pakkoruotsi 23.11.2019</li>
-					<li>Metroihin usb laturi paikat 23.11.2019</li>
-					<li>Helsingin kaupunki voisi tarjota ilmaisia lajittelupisteitä asuinalueille 23.11.2019</li>
-					<li>Pelitietokoneet Leppävaaran nuorisotalolle. 23.11.2019</li>
-				</dl>
+				<h2 className="section-header">Nuorten tekemät aloitteet</h2>
+				<ul className="initiative-list">
+					<li>Ruotsinkielen opetuksen muuttaminen   <span className="date">4.12.2019</span></li>
+					<li>Riistaruokapäiviä kouluihin  <span className="date">23.11.2019</span></li>
+					<li>Matematiikan maksutonta tukiopetusta 16-19 -vuotiaille, sisältäen lukion!  <span className="date">23.11.2019</span></li>
+					<li>Pakkoruotsi  <span className="date">23.11.2019</span></li>
+					<li>Metroihin usb laturi paikat  <span className="date">23.11.2019</span></li>
+					<li>Helsingin kaupunki voisi tarjota ilmaisia lajittelupisteitä asuinalueille  <span className="date">23.11.2019</span></li>
+					<li>Pelitietokoneet Leppävaaran nuorisotalolle.  <span className="date">23.11.2019</span></li>
+				</ul>
 			</section>
 		</div>
 	);
