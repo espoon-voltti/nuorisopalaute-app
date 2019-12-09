@@ -1,22 +1,138 @@
 @import "variables.scss";
 
+
+.jumbotron {
+	background: transparent url('/hero-image.jpg') center center no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: calc(100vh - 100px);
+	text-align: center;
+}
+
+.jumbotron-header {
+	font-size: 120px;
+	font-weight: bold;
+	color: $text-color-light;
+	line-height: 123px;
+}
+
+.jumbotron-text {
+	color: $text-color-light;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 28px;
+}
+
+.jumbotron-btns {
+	display: flex;
+	align-items: center;
+}
+
+.btn-divader {
+	text-align: center;
+	width: 70px;
+	display: inline-block;
+}
+
+.btn {
+	padding: 12px;
+	border: 1px solid $text-color-light;
+	background-color:  $text-color-light;
+	color: $text-color;
+	max-width: 400px;
+	width: 275px;
+	white-space: nowrap;
+	user-select: none;
+	font-weight: 500;
+	font-size: 14px;
+	font-family: Montserrat, sans-serif;
+	text-transform: uppercase;
+	border-radius: $border-radius;
+	text-align: center;
+}
+
+.btn:hover {
+	text-decoration: none;
+	background-color: $pink;
+	border-color: $pink;
+	transition: all 0.2s ease-in-out;
+	color: $text-color-light;
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: $text-color-light;
+}
+
+.btn-secondary--dark {
+	color: $text-color;
+	border-color: $text-color;
+}
+
 .teaser-container {
 	display: flex;
 	justify-content: center;
 	margin: 70px 0;
 }
 
+
+.teaser-container {
+	flex-wrap: wrap;
+	max-width: 1200px;
+	margin:0 auto;
+}
+
 .teaser {
 	display:flex;
 	flex-direction: column;
 	max-width: 450px;
+	padding: 30px 25px 40px 25px;
+	border-radius: $border-radius;
+	background-color: #F2F7FB;
+}
+
+.teaser .btn {
+	width: 400px;
+	margin-top: auto;
 }
 
 .teaser--feedback {
 	background: #F2F7FB;
-	border-radius: $border-radius;
+	margin-right: 70px;
 }
 
 .teaser--initiative {
 	background: #403F76;
 }  
+
+.teaser--highlight {
+	max-width: 335px;
+	margin: 10px;
+}
+
+.teaser__header {
+	text-align: center;
+}
+
+.teaser__image {
+	margin:10px 0 40px 0;
+}
+
+.teaser__text--ingress {
+	font-size: 19px;
+	font-weight: 500;
+	line-height: 29px;
+}
+
+.margin-bottom {
+	margin-bottom:40px;
+}
+
+
+.section-header {
+	text-align: center;
+	color: $text-color-light;
+}

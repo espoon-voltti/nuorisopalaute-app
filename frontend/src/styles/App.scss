@@ -2,9 +2,11 @@
 
 .header {
 	display:flex;
-	height:120px;
 	padding: 20px;
 	align-items: center;
+	position: absolute;
+	width: 100%;
+	justify-content: space-between;
 }
 
 .logo-container a {

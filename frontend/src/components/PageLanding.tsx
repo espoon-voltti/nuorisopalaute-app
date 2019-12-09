@@ -9,77 +9,90 @@ const PageLanding: FC = () => {
 
 	return (
 		<div id="landing">
-			<div className="menu">
-				<button
-					className="btn landing-cta"
-					onClick={(): void => {
-						const url = "/palaute";
-						history.push(url);
-
-						axios
-							.get(config.API_URL + "/test")
-							.then(function(response: any) {
-								console.log(response);
-							})
-							.catch((error: Error) => {
-								console.error(error.message);
-								throw error;
-							});
-					}}
-				>
-					Anna palautetta
-				</button>
-			</div>
-			<div className="jumbotron">
-				<h1>Välitä <br />ja vaikuta</h1>
-				<p>Mikä on sinulle tärkeää?</p>
-				<a className="btn">Anna palautetta</a>
-				<span>tai</span>
-				<a className="btn btn-secondary">Jätä aloite</a>
-			</div>
-			<section className="teaser-container">
-				<div className="teaser teaser--feedback">
-					<h2>Palaute</h2>
-					<p className="teaser-text teaser-text--ingress">Onko lenkkitiellä kaatunut puu? Puuttuuko lähikirjastosta joku kaipaamasi opus? Haluatko kiittää tai antaa meille risuja?</p>
-					<p className="teaser-text">Palaute on nopea ja kevyt keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. Palautetta voit jättää anonyymisti.</p> 
-					<a className="btn btn-secondary">Anna palautetta</a>
+			<header className="header">
+				<a href="#"><img src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
+				<div className="menu">
+					<a href="#">Palaute</a>
+					<a href="#">Aloite</a>
 				</div>
-				<div className="teaser teaser--initiative">
-					<h2>Aloite</h2>
-					<p className="teaser-text teaser-text--ingress">Järeämpi keino saada muutosta aikaan.</p>
-					<p className="teaser-text">Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin ja pelkkä palautteen jättäminen ei tunnu riittävältä ratkaisulta?  Aloite rullaa byrokratian rattaissa hitaasti mutta varmasti eteenpäin.</p> 
-					<a className="btn btn-secondary">Anna palautetta</a>
+				<div className="lang-menu">
+					<a href="#">FI</a> | 
+					<a href="#">SV</a> | 
+					<a href="#">EN</a>
+				</div>
+			</header>
+			
+			<div className="jumbotron">
+				<h1 className="jumbotron-header">Välitä <br />ja vaikuta</h1>
+				<p className="jumbotron-text">Mikä on sinulle tärkeää?</p>
+				<div className="jumbotron-btns">
+					<a className="btn" onClick={(): void => {
+							const url = "/palaute";
+							history.push(url);
+
+							axios
+								.get(config.API_URL + "/test")
+								.then(function(response: any) {
+									console.log(response);
+								})
+								.catch((error: Error) => {
+									console.error(error.message);
+									throw error;
+								});
+						}}>Anna palautetta</a>
+					<span className="jumbotron-text btn-divader">tai</span>
+					<a className="btn btn-secondary">Jätä aloite</a>
+				</div>
+			</div>
+			<section className="content-block">
+				<div className="teaser-container">
+					<div className="teaser teaser--feedback">
+						<h2 className="teaser__header">Palaute</h2>
+						<img className="teaser__image" src="/human-yellow.svg" alt="" />
+						<p className="teaser__text teaser__text--ingress">Onko lenkkitiellä kaatunut puu? Puuttuuko lähikirjastosta joku kaipaamasi opus? Haluatko kiittää tai antaa meille risuja?</p>
+						<p className="teaser__text margin-bottom">Palaute on nopea ja kevyt keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. Palautetta voit jättää anonyymisti.</p> 
+						<a className="btn btn-secondary btn-secondary--dark">Anna palautetta</a>
+					</div>
+					<div className="teaser teaser--initiative">
+						<h2 className="teaser__header text-light">Aloite</h2>
+						<img className="teaser__image" src="/human-blue.svg" alt="" />
+						<p className="teaser__text teaser__text--ingress text-light">Järeämpi keino saada muutosta aikaan.</p>
+						<p className="teaser__text text-light margin-bottom">Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin ja pelkkä palautteen jättäminen ei tunnu riittävältä ratkaisulta?  Aloite rullaa byrokratian rattaissa hitaasti mutta varmasti eteenpäin.</p> 
+						<a className="btn btn-secondary">Anna palautetta</a>
+					</div>
 				</div>
 			</section>
-				<h2>Mitä palautteilla on saatu aikaan?</h2>
-				<div className="teaser-container">
-					<div className="teaser">
+			<section className="content-block">
+				<h2 className="section-header">Mitä palautteilla on saatu aikaan?</h2>
+				<div className="teaser-container teaser-container--feedbacks">
+					<div className="teaser teaser--highlight">
 						<h3>Karaokea kavereiden kanssa!</h3>
 						<img src="" />
-						<p className="teaser-text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
+						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
-					<div className="teaser">
+					<div className="teaser teaser--highlight">
 						<h3>Karaokea kavereiden kanssa!</h3>
 						<img src="" />
-						<p className="teaser-text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
+						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
-					<div className="teaser">
+					<div className="teaser teaser--highlight">
 						<h3>Karaokea kavereiden kanssa!</h3>
 						<img src="" />
-						<p className="teaser-text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
+						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
-					<div className="teaser">
+					<div className="teaser teaser--highlight">
 						<h3>Karaokea kavereiden kanssa!</h3>
 						<img src="" />
-						<p className="teaser-text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
+						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
-					<div className="teaser">
+					<div className="teaser teaser--highlight">
 						<h3>Karaokea kavereiden kanssa!</h3>
 						<img src="" />
-						<p className="teaser-text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
+						<p className="teaser__text">Palautteiden innoittamana olemme lisänneet karaoketoimintaa Espoon kirjastoissa.</p>
 					</div>
 				</div>
-			<section>
+			</section>
+			<section className="content-block">
 				<h2>Nuorten tekemät aloitteet</h2>
 				<dl className="initiative-list">
 					<li>Ruotsinkielen opetuksen muuttaminen   4.12.2019</li>
