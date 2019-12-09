@@ -14,35 +14,36 @@ const PageFeedback: FC = () => {
 	};
 
 	return (
-		<div id="feedback">
-			<div className="menu">
-				<div className="feedback-header">Boldattua tekstiä?</div>
-				<div className="feedback-pic-1">Tähän toi kuva?</div>
-				<div className="bold-paragraph">
-					Onko lenkkitielle kaatunut puu? Tässä boldattua selitystä.
-				</div>
-				<div className="paragraph">
-					Palaute on aloitetta nopeampi keino..
-				</div>
-				<div className="feedback-small-header">Palaute</div>
-				<div className="paragraph">
-					Ethän koskaan kirjoita henkilötieto.ds.adsa...
-				</div>
-				<input
-					type="text"
-					name="feedback-text"
-					placeholder="kaikenlaista palautetta tähän"
+		<div className="form-container">
+				<h1 className="form-header">Anna palautetta Espoon kaupungin palveluista</h1>
+				<img className="form-image" src="/human-yellow.svg" alt="" />
+				<p className="form-ingress">
+					Onko lenkkitiellä kaatunut puu? Puuttuuko lähikirjastosta joku kaipaamasi opus? Haluatko kiittää tai antaa meille risuja?  
+
+				</p>
+				<p>
+					Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. 
+				</p>
+				<h2 className="form-subheader">Palaute</h2>
+				<p>
+					Ethän koskaan kirjoita palautteeseesi henkilötunnustasi, pankkitilisi numeroa, terveystietoja tms. arkaluonteista tietoa.
+				</p>
+				<textarea
+					className="textarea"
+					required
+					placeholder="Kiitos, kommentti, kysymys, moite..."
 				/>
-				<div className="feedback-very-small-header">Liitteet</div>
-				<div className="paragraph">voit liittää yhden tai..</div>
+				<p className="form-label">Liitteet</p>
+				<p>Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.</p>
 				<input
 					type="file"
 					name="attachments"
 					id="attachments"
-					className="attachments"
+					className="file-input"
 					onChange={handleFile}
 					multiple
 				/>
+				<p className="disclaimer">Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx</p>
 				<br />
 				Palautteeni saa julkaista
 				<Checkbox
@@ -69,7 +70,7 @@ const PageFeedback: FC = () => {
 					}
 				/>
 				<button
-					className="btn landing-cta"
+					className="btn btn--form"
 					onClick={(): void => {
 						const data = {
 							email: "test123@test.fi",
@@ -98,7 +99,6 @@ const PageFeedback: FC = () => {
 				>
 					Lähetä testi-palaute
 				</button>
-			</div>
 		</div>
 	);
 };

@@ -1,11 +1,83 @@
 @import "variables.scss";
 
-$column-width: 1180px;
+.form-container {
+	max-width: 800px;
+	margin: 50px auto;
+	@media only screen and (max-width: 800px) {
+		margin: 50px 20px;
+	}
+}
 
-.location-picker {
-	max-width: $column-width;
-	margin:-70px auto 50px auto;
-	background-color: #fff;
-	border-radius: $border-radius;
-	padding: 20px;
+.form-header {
+	text-align: center;
+}
+.form-subheader {
+	font-size: 24px;
+	line-height: 32px;
+	margin-bottom:0;
+}
+
+.form-image {
+	margin: 50px auto;
+	display: block;
+}
+
+.form-ingress {
+	font-size: 19px;
+	font-weight: 500;
+	line-height: 29px;
+}
+
+.textarea {
+	border:none;
+	border-bottom: 1px solid #9E9E9E;
+	width: calc(100% - 40px);
+	padding: 10px;
+	margin-bottom: 25px;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: Open-sans, sans-serif;
+	resize: vertical;
+	min-height: 200px;
+}
+
+.disclaimer {
+	font-size: 14px;
+	color: #5D5D5D;
+	line-height: 24px;
+}
+
+.btn--form {
+	text-decoration: none;
+	background-color: $pink;
+	border-color: $pink;
+	transition: all 0.2s ease-in-out;
+	color: $text-color-light;
+	margin: 0 auto;
+	display: block;
+}
+
+.file-input {
+	margin:0 auto;
+	display: block;
+	color:transparent;
+}
+
+.file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.file-input::before {
+  content: '+ Lisää tiedosto';
+  display: inline-block;
+  border: 0;
+  padding: 5px 8px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: $link-color;
+}
+
+.file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
