@@ -31,6 +31,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	line-height: 1;
 }
@@ -107,9 +112,21 @@ a:hover {
 	margin-bottom: 70px;
 }
 
-#footer {
-	height: 100px;
+.footer {
 	background-color: #fff;
-	display: block;
-	text-align: center;
+	padding: 20px 20px 90px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-link {
+	padding: 20px;
+}
+
+.logo {
+	height:60px;
+	@media only screen and (max-width: 640px) {
+		height: 40px;
+	}
 }

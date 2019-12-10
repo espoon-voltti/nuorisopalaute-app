@@ -10,7 +10,7 @@ const PageLanding: FC = () => {
 	return (
 		<div id="landing">
 			<header className="header">
-				<a href="#"><img src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
+				<a href="/"><img className="logo" src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
 				<nav>
 				<img src="/icon-menu.svg" />
 				</nav>
@@ -54,7 +54,7 @@ const PageLanding: FC = () => {
 						<img className="teaser__image" src="/human-blue.svg" alt="" />
 						<p className="teaser__text teaser__text--ingress text-light">Järeämpi keino saada muutosta aikaan.</p>
 						<p className="teaser__text text-light margin-bottom">Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin ja pelkkä palautteen jättäminen ei tunnu riittävältä ratkaisulta?  Aloite rullaa byrokratian rattaissa hitaasti mutta varmasti eteenpäin.</p> 
-						<a href="#" className="btn btn-secondary">Anna palautetta</a>
+						<a href="#" className="btn btn-secondary">Jätä aloite</a>
 					</div>
 				</div>
 			</section>

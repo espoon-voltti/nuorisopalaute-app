@@ -66,6 +66,7 @@
 .file-input::-webkit-file-upload-button {
   visibility: hidden;
 }
+
 .file-input::before {
   content: '+ Lisää tiedosto';
   display: inline-block;

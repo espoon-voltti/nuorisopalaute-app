@@ -45,10 +45,10 @@ const PageFeedback: FC = () => {
 				/>
 				<p className="disclaimer">Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx</p>
 				<br />
-				Palautteeni saa julkaista
+				
 				<Checkbox
 					id={"allow-publish"}
-					name={"Palautteeni saa julkaista"}
+					name={"allow-publish"}
 					isChecked={false}
 					onChange={newValue =>
 						handleChange({
@@ -57,10 +57,10 @@ const PageFeedback: FC = () => {
 						})
 					}
 				/>
-				Se toinen checkbox
+				
 				<Checkbox
-					id={"allow-publish"}
-					name={"Palautteeni saa julkaista"}
+					id={"response-yes"}
+					name={"response-yes"}
 					isChecked={false}
 					onChange={newValue =>
 						handleChange({
@@ -97,7 +97,7 @@ const PageFeedback: FC = () => {
 							});
 					}}
 				>
-					Lähetä testi-palaute
+					Lähetä palaute
 				</button>
 		</div>
 	);

@@ -27,8 +27,35 @@ const App: React.FC = () => {
 								component={() => <PageError error="404" />}
 							/>
 						</Switch>
-						<footer id="footer">Footer</footer>
+						
 					</main>
+					<footer
+						className="footer">
+						<div className="logo-container">
+							<a href="https://www.espoo.fi">
+								<img
+									className="logo"
+									src="/logo-espoo.svg"
+									alt="Espoo logo"
+								/>
+							</a>
+						</div>
+
+						<div className="footer-links">
+								<a  className="footer-link"
+									href="#"
+									target="_blank"
+									rel="noopener noreferrer external"
+								>
+									Tietosuojaseloste
+								</a>
+							
+								<a href="#" className="footer-link">
+									Saavutettavuuseloste 
+								</a>
+							
+						</div>
+					</footer>
 				</Router>
 			</div>
 		</ErrorBoundary>
