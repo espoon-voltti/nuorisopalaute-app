@@ -103,6 +103,7 @@ const PageFeedback: FC = () => {
 				<section className="content-block">
 					<p className="center">Lähettämällä lomakkeen hyväksyt <a href="#" target="_blank">käyttöehdot</a> ja <a href="#" target="_blank">tietosuojaselosteen</a>.</p>
 					<button
+						disabled
 						className="btn btn--form"
 						onClick={(): void => {
 							const data = {

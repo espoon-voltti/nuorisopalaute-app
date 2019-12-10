@@ -2,7 +2,7 @@
 
 .form-container {
 	max-width: 800px;
-	margin: 50px auto;
+	margin: 100px auto 0 auto;
 	@media only screen and (max-width: 800px) {
 		margin: 50px 20px;
 	}
@@ -137,6 +137,14 @@
 	margin: 0 auto;
 	display: block;
 	margin-bottom: 70px;
+}
+
+button[disabled], button[disabled]:hover {
+	background-color: #c4c4c4;
+    border-color: transparent;
+    box-shadow: none;
+    color: #fff;
+    cursor: not-allowed;
 }
 
 .file-input {

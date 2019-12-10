@@ -15,6 +15,15 @@ const App: React.FC = () => {
 		<ErrorBoundary>
 			<div id="app">
 				<Router basename={`/${currentLanguage}`}>
+					<header className="header header--dark">
+						<a className="jump-to-content" href="#content">
+							Siirry sisältöön
+						</a>
+						<a href="/"><img className="logo" src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
+						<nav>
+						<img src="/icon-menu.svg" />
+						</nav>
+					</header>
 					<main id="content">
 						<Switch>
 							<Route exact path="/" component={PageLanding} />

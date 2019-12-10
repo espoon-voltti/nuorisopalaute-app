@@ -9,13 +9,6 @@ const PageLanding: FC = () => {
 
 	return (
 		<div id="landing">
-			<header className="header">
-				<a href="/"><img className="logo" src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
-				<nav>
-				<img src="/icon-menu.svg" />
-				</nav>
-			</header>
-			
 			<div className="jumbotron">
 				<div className="jumbotron-content">
 					<h1 className="jumbotron-header">Välitä <br />ja vaikuta</h1>

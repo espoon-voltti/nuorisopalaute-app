@@ -6,6 +6,7 @@
 
 .jumbotron {
 	background: transparent url('/hero-image.jpg') center center no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
