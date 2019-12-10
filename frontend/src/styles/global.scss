@@ -80,7 +80,7 @@ h2 {
 	color: $text-color;
 	font-size: 36px;
 	font-family: Open-sans, sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	line-height: 44px;
 	margin-bottom: 20px;
 }
@@ -104,29 +104,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-.text-light {
-	color: $text-color-light;
-}
-
-.content-block {
-	margin-bottom: 70px;
-}
-
-.footer {
-	background-color: #fff;
-	padding: 20px 20px 90px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-link {
-	padding: 20px;
-}
-
-.logo {
-	height:60px;
-	@media only screen and (max-width: 640px) {
-		height: 40px;
-	}
+.center {
+	text-align: center;
 }

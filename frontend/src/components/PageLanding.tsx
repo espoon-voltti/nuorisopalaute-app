@@ -88,7 +88,7 @@ const PageLanding: FC = () => {
 					</div>
 				</div>
 			</section>
-			<section className="content-block">
+			<section className="">
 				<h2 className="section-header">Nuorten tekemät aloitteet</h2>
 				<ul className="initiative-list">
 					<li>Ruotsinkielen opetuksen muuttaminen   <span className="date">4.12.2019</span></li>

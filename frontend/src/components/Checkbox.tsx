@@ -33,6 +33,7 @@ const Checkbox: React.FunctionComponent<Props> = ({
 						isChecked ? "checkbox-box-selected" : ""
 					}`}
 				></span>
+				<span className="checkbox-label-children">{children}</span>
 			</label>
 		</div>
 	);
