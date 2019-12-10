@@ -69,7 +69,7 @@
     font-weight: 100;
 }
 
-.input:not(:focus):invalid { 
+.input:not(:focus):invalid, .textarea:not(:focus):invalid { 
 	border-color: $pink;
 }
 

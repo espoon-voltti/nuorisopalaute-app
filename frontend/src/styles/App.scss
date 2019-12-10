@@ -15,10 +15,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media only screen and (max-width: 640px) {
+		flex-direction: column;
+
+		.footer-links {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
 }
 
+
+
 .footer-link {
-	padding: 20px;
+	padding: 10px 20px;
 }
 
 .logo {
@@ -26,6 +38,7 @@
 	margin: 0 40px 0 0;
 	@media only screen and (max-width: 640px) {
 		height: 40px;
+		margin: 0 0 20px 0;
 	}
 }
 

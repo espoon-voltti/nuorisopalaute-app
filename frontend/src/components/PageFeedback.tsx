@@ -37,7 +37,7 @@ const PageFeedback: FC = () => {
 						required
 						placeholder="Kiitos, kommentti, kysymys, moite..."
 					/>
-					<p className="form-label">Liitteet</p>
+					<p className="label">Liitteet</p>
 					<p>Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.</p>
 					<input
 						type="file"
