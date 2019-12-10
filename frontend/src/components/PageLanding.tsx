@@ -9,13 +9,6 @@ const PageLanding: FC = () => {
 
 	return (
 		<div id="landing">
-			<header className="header">
-				<a href="#"><img src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
-				<nav>
-				<img src="/icon-menu.svg" />
-				</nav>
-			</header>
-			
 			<div className="jumbotron">
 				<div className="jumbotron-content">
 					<h1 className="jumbotron-header">Välitä <br />ja vaikuta</h1>
@@ -54,7 +47,7 @@ const PageLanding: FC = () => {
 						<img className="teaser__image" src="/human-blue.svg" alt="" />
 						<p className="teaser__text teaser__text--ingress text-light">Järeämpi keino saada muutosta aikaan.</p>
 						<p className="teaser__text text-light margin-bottom">Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin ja pelkkä palautteen jättäminen ei tunnu riittävältä ratkaisulta?  Aloite rullaa byrokratian rattaissa hitaasti mutta varmasti eteenpäin.</p> 
-						<a href="#" className="btn btn-secondary">Anna palautetta</a>
+						<a href="#" className="btn btn-secondary">Jätä aloite</a>
 					</div>
 				</div>
 			</section>
@@ -88,7 +81,7 @@ const PageLanding: FC = () => {
 					</div>
 				</div>
 			</section>
-			<section className="content-block">
+			<section className="">
 				<h2 className="section-header">Nuorten tekemät aloitteet</h2>
 				<ul className="initiative-list">
 					<li>Ruotsinkielen opetuksen muuttaminen   <span className="date">4.12.2019</span></li>

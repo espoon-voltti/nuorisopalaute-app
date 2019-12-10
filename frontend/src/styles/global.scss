@@ -31,6 +31,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	line-height: 1;
 }
@@ -65,17 +70,17 @@ p {
 
 h1 {
 	color: $text-color;
-	font-size: 36px;
+	font-size: 32px;
 	font-family: Open-sans, sans-serif;
-	font-weight: 300;
-	line-height: 44px;
+	font-weight: 500;
+	line-height: 43px;
 }
 
 h2 {
 	color: $text-color;
 	font-size: 36px;
 	font-family: Open-sans, sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 	line-height: 44px;
 	margin-bottom: 20px;
 }
@@ -99,17 +104,6 @@ a:hover {
 	text-decoration: underline;
 }
 
-.text-light {
-	color: $text-color-light;
-}
-
-.content-block {
-	margin-bottom: 70px;
-}
-
-#footer {
-	height: 100px;
-	background-color: #fff;
-	display: block;
+.center {
 	text-align: center;
 }

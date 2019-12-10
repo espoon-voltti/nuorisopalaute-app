@@ -1,12 +1,91 @@
 @import "variables.scss";
 
+
+.backToTopLink {
+	display: block;
+	text-align: center;
+	margin: 20px 0 50px 0;
+}
+
+.jump-to-content {
+	position: absolute;
+	top:5px;
+	padding: 10px;
+	background-color: #fff;
+    left: -99999px;
+    min-height: 0;
+    height: 1px;
+    margin-top: -1px;
+    line-height: 35px;
+    -webkit-transition: top 1s ease-out,background 1s linear;
+    transition: top 1s ease-out,background 1s linear;
+    z-index: 100;
+    border-radius: $border-radius;
+}
+.jump-to-content:focus {
+	top: 5px;
+    left: 5px;
+    background: $primary-blue;
+    color: #fff;
+    -webkit-transition: top .1s ease-in,background .5s linear;
+    transition: top .1s ease-in,background .5s linear;
+    height: auto;
+    text-decoration: underline;
+}
+
+.text-light {
+	color: $text-color-light;
+}
+
+.content-block {
+	margin-bottom: 70px;
+}
+
+.footer {
+	background-color: #fff;
+	padding: 90px 20px 90px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (max-width: 640px) {
+		flex-direction: column;
+
+		.footer-links {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+}
+
+
+
+.footer-link {
+	padding: 10px 20px;
+}
+
+.logo {
+	height:60px;
+	margin: 0 40px 0 0;
+	@media only screen and (max-width: 640px) {
+		height: 40px;
+		margin: 0 0 20px 0;
+	}
+}
+
 .header {
 	display:flex;
 	padding: 20px;
 	align-items: center;
 	position: absolute;
+	top:0;
+	left: 0;
 	width: 100%;
 	justify-content: space-between;
+	@media only screen and (min-width: 1250px) {
+		position: fixed;
+	}
 }
 
 .logo-container a {
@@ -16,10 +95,48 @@
 	white-space: nowrap;
 }
 
-.logo {
-	height:60px;
-	margin: 0 40px 6px 10px;
+
+[data-inclusive-menu] {
+  position: relative;
+  display: inline-block;
+  background: transparent;
 }
+
+[data-inclusive-menu-opens],
+[data-inclusive-menu] [role^="menuitem"] {
+  text-align: left;
+  background: transparent;
+  border: 0;
+}
+
+[data-inclusive-menu] [role="menu"] {
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  padding: 20px;
+}
+
+[data-inclusive-menu] [data-inclusive-menu-from="right"] {
+  left: auto;
+  right: 6px;
+
+}
+
+[data-inclusive-menu] [role^="menuitem"] {
+  display: block;
+  min-width: 100%;
+  white-space: nowrap;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Open-sans, sans-serif;
+  cursor: pointer;
+}
+
+[data-inclusive-menu] [role^="menuitem"][aria-checked="true"]::before {
+  content: '\2713\0020';
+}
+
+
 
 .title {
 	font-family: Montserrat-Light, sans-serif;

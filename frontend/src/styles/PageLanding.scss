@@ -6,6 +6,7 @@
 
 .jumbotron {
 	background: transparent url('/hero-image.jpg') center center no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 	display: flex;
 	flex-direction: column;
@@ -91,6 +92,7 @@
 	border-color: $pink;
 	transition: all 0.2s ease-in-out;
 	color: $text-color-light;
+	cursor: pointer;
 }
 
 .btn-secondary {
