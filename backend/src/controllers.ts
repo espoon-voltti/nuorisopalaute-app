@@ -2,7 +2,7 @@ import querystring = require("querystring")
 import axios from "axios"
 import fetch, { RequestInit } from "node-fetch"
 
-const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.xml"
+const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
 
 export async function Test(ctx: any) {
 	return "Hello World"
@@ -19,10 +19,17 @@ export async function SendTest(ctx: any) {
 	const authOptions = {
 		api_key: process.env.TRIMBLE_KEY,
 		jurisdiction_id: "nuortenespoo",
-		service_code: serviceCodes["palaute"]
+		service_code: serviceCodes["aloite"]
 	}
 	console.log(process.env.TRIMBLE_KEY)
-	const postBody = Object.assign({}, ctx.request.body, authOptions, { respond: undefined }, { type: undefined })
+	const postBody = Object.assign(
+		{},
+		ctx.request.body,
+		authOptions,
+		{ respond: undefined },
+		{ type: undefined },
+		{ "location parameter": "nuortenpalaute.espoo.fi" }
+	)
 	const options: RequestInit = {
 		method: "POST",
 		headers: {
@@ -42,4 +49,35 @@ export async function SendTest(ctx: any) {
 		console.log(e)
 		return e
 	}
+}
+
+export async function GetInitiatives(ctx: any): Promise<string> {
+	const url = new URL(trimbleUrl)
+
+	const options: RequestInit = {
+		headers: {
+			"Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+		}
+	}
+
+	const params = {
+		jurisdiction_id: "nuortenespoo",
+		start_date: "2018-08-20T00:00:00Z"
+	}
+
+	Object.keys(params).forEach(key => url.searchParams.append(key, (params as any)[key]))
+
+	return (await fetch(url, options)).text()
+	/*
+	try {
+		fetch(url, options)
+			.then(res => res.text())
+			.then(json => {
+				console.log(json)
+				return "json"
+			})
+	} catch (e) {
+		console.log(e)
+		return e
+	}*/
 }

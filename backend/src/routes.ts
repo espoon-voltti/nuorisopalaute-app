@@ -1,6 +1,6 @@
 import * as Router from "@koa/router"
 
-import { Test, SendTest } from "./controllers"
+import { Test, SendTest, GetInitiatives } from "./controllers"
 
 const router = new Router()
 
@@ -18,6 +18,10 @@ router.post("/api/test", async ctx => {
 
 router.get("/api/health", async ctx => {
 	ctx.body = "healthy"
+})
+
+router.get("/api/initiatives", async ctx => {
+	ctx.body = await GetInitiatives(ctx)
 })
 
 const routes = router.routes()

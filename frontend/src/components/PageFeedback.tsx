@@ -77,17 +77,13 @@ const PageFeedback: FC = () => {
 							// eslint-disable-next-line @typescript-eslint/camelcase
 							first_name: "test6",
 							// eslint-disable-next-line @typescript-eslint/camelcase
-							last_name: "",
-							lat: "",
-							long: "",
-							respond: false,
 							// eslint-disable-next-line @typescript-eslint/camelcase
 							address_string: "nuortenpalaute.espoo.fi",
 						};
 
 						axios
 							.post(config.API_URL + "/test", data)
-							.then(function (response: any) {
+							.then(function(response: any) {
 								console.log(response);
 							})
 							.catch((error: Error) => {
