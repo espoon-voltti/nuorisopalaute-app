@@ -95,6 +95,49 @@
 	white-space: nowrap;
 }
 
+
+[data-inclusive-menu] {
+  position: relative;
+  display: inline-block;
+  background: transparent;
+}
+
+[data-inclusive-menu-opens],
+[data-inclusive-menu] [role^="menuitem"] {
+  text-align: left;
+  background: transparent;
+  border: 0;
+}
+
+[data-inclusive-menu] [role="menu"] {
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  padding: 20px;
+}
+
+[data-inclusive-menu] [data-inclusive-menu-from="right"] {
+  left: auto;
+  right: 6px;
+
+}
+
+[data-inclusive-menu] [role^="menuitem"] {
+  display: block;
+  min-width: 100%;
+  white-space: nowrap;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: Open-sans, sans-serif;
+  cursor: pointer;
+}
+
+[data-inclusive-menu] [role^="menuitem"][aria-checked="true"]::before {
+  content: '\2713\0020';
+}
+
+
+
 .title {
 	font-family: Montserrat-Light, sans-serif;
 	text-decoration: none;
