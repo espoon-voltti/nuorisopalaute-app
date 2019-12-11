@@ -1,15 +1,15 @@
 import React, { FC, useState } from "react";
-import "../styles/PageFeedback.scss";
+import "../styles/PageInitiative.scss";
 import axios from "axios";
 import config from "./config";
 import Checkbox from "./Checkbox";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const PageFeedback: FC = () => {
+const PageInitiative: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
 	const [wantsAnswer, setWantsAnswer] = useState(false);
-	const [feedbackDescription, setFeedbackDescription] = useState("");
+	const [initiativeDescription, setInitiativeDescription] = useState("");
 	const [email, setEmail] = useState("");
 	const [firstname, setFirstname] = useState("");
 	const [surname, setSurname] = useState("");
@@ -54,7 +54,7 @@ const PageFeedback: FC = () => {
 					required
 					placeholder="Kiitos, kommentti, kysymys, moite..."
 					onChange={event =>
-						setFeedbackDescription(event.target.value)
+						setInitiativeDescription(event.target.value)
 					}
 				/>
 				<p className="label">Liitteet</p>
@@ -164,7 +164,7 @@ const PageFeedback: FC = () => {
 					.
 				</p>
 				<button
-					disabled={!feedbackDescription || (wantsAnswer && !email)}
+					disabled={!initiativeDescription || (wantsAnswer && !email)}
 					className="btn btn--form"
 					onClick={(): void => {
 						const data = {
@@ -209,4 +209,4 @@ const PageFeedback: FC = () => {
 	);
 };
 
-export { PageFeedback };
+export { PageInitiative };

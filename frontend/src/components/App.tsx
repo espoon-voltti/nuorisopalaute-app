@@ -7,6 +7,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import { PageLanding } from "./PageLanding";
 import { PageFeedback } from "./PageFeedback";
 import PageError from "./PageError";
+import { PageInitiative } from "./PageInitiative";
 
 const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
@@ -15,21 +16,6 @@ const App: React.FC = () => {
 		<ErrorBoundary>
 			<div id="app">
 				<Router basename={`/${currentLanguage}`}>
-					<header className="header header--dark">
-						<a className="jump-to-content" href="#content">
-							Siirry sisältöön
-						</a>
-						<a href="/"><img className="logo" src="/logo-nuori-espoo.svg" alt="Nuori Espoo" /></a>
-						<div data-inclusive-menu>
- 							<button data-inclusive-menu-opens="difficulty" aria-haspopup="true" aria-expanded="false">
-		   						<img src="/icon-menu.svg" />
-	 						</button>
-	 						<div id="difficulty" data-inclusive-menu-from="right" role="menu" hidden>
-							   <button role="menuitem" >Palaute</button>
-							   <button role="menuitem" >Aloite</button>
-	 						</div>
-						</div>
-					</header>
 					<main id="content">
 						<Switch>
 							<Route exact path="/" component={PageLanding} />
@@ -39,38 +25,15 @@ const App: React.FC = () => {
 								component={PageFeedback}
 							/>
 							<Route
+								exact
+								path="/aloite"
+								component={PageInitiative}
+							/>
+							<Route
 								component={() => <PageError error="404" />}
 							/>
 						</Switch>
-						
 					</main>
-					<footer
-						className="footer">
-						<div className="logo-container">
-							<a href="https://www.espoo.fi">
-								<img
-									className="logo"
-									src="/logo-espoo.svg"
-									alt="Espoo logo"
-								/>
-							</a>
-						</div>
-
-						<div className="footer-links">
-								<a  className="footer-link"
-									href="#"
-									target="_blank"
-									rel="noopener noreferrer external"
-								>
-									Tietosuojaseloste
-								</a>
-							
-								<a href="#" className="footer-link">
-									Saavutettavuuseloste 
-								</a>
-							
-						</div>
-					</footer>
 				</Router>
 			</div>
 		</ErrorBoundary>
