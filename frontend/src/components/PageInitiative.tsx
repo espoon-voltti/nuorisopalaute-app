@@ -183,7 +183,7 @@ const PageInitiative: FC = () => {
 
 						axios
 							.post(config.API_URL + "/test", data)
-							.then(function (response: any) {
+							.then(function(response: any) {
 								console.log(response);
 							})
 							.catch((error: Error) => {

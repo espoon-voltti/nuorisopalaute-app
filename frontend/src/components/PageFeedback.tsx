@@ -5,6 +5,7 @@ import config from "./config";
 import Checkbox from "./Checkbox";
 import Header from "./Header";
 import Footer from "./Footer";
+import FileDropzone from "./FileDropzone";
 
 const PageFeedback: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
@@ -13,9 +14,11 @@ const PageFeedback: FC = () => {
 	const [email, setEmail] = useState("");
 	const [firstname, setFirstname] = useState("");
 	const [surname, setSurname] = useState("");
+	const [attachments, setAttachments] = useState([]);
 
-	const handleFile = (e: any) => {
-		console.log(e.target.files);
+	const attachmentsChanged = (files: any) => {
+		console.log(files);
+		setAttachments(files);
 	};
 
 	const handleChange = (e: any) => {
@@ -62,14 +65,8 @@ const PageFeedback: FC = () => {
 					Voit liittää palautteeseen yhden tai useampia
 					liitetiedostoja, esimerkiksi kuvia havainnosta.
 				</p>
-				<input
-					type="file"
-					name="attachments"
-					id="attachments"
-					className="file-input"
-					onChange={handleFile}
-					multiple
-				/>
+
+				<FileDropzone onAttachmentsChanged={attachmentsChanged} />
 				<p className="disclaimer">
 					Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt
 					tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg,
@@ -167,7 +164,18 @@ const PageFeedback: FC = () => {
 					disabled={!feedbackDescription || (wantsAnswer && !email)}
 					className="btn btn--form"
 					onClick={(): void => {
-						const data = {
+						const data: FormData = new FormData();
+
+						//data.append("email", email);
+						//data.append("first_name", firstname);
+						//data.append("last_name", surname);
+						data.append("description", feedbackDescription);
+						data.append(
+							"address_string",
+							"nuortenpalaute.espoo.fi",
+						);
+
+						/*const data = {
 							email: "test123@test.fi",
 							description: "testi-feedback",
 							// eslint-disable-next-line @typescript-eslint/camelcase
@@ -179,7 +187,7 @@ const PageFeedback: FC = () => {
 							respond: false,
 							// eslint-disable-next-line @typescript-eslint/camelcase
 							address_string: "nuortenpalaute.espoo.fi",
-						};
+						};*/
 
 						axios
 							.post(config.API_URL + "/test", data)

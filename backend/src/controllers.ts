@@ -2,7 +2,7 @@ import querystring = require("querystring")
 import axios from "axios"
 import fetch, { RequestInit } from "node-fetch"
 
-const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
+const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
 
 export async function Test(ctx: any) {
 	return "Hello World"
@@ -10,6 +10,7 @@ export async function Test(ctx: any) {
 
 export async function SendTest(ctx: any) {
 	console.log(ctx.request.body)
+	console.log(ctx.request.files)
 
 	const url = trimbleUrl
 	const serviceCodes = {
@@ -40,15 +41,21 @@ export async function SendTest(ctx: any) {
 
 	try {
 		fetch(trimbleUrl, options)
-			.then(res => res.text())
+			.then(res => {
+				console.log(res);
+				return res.text()
+			})
 			.then(json => {
+				console.log("Vastaus:")
 				console.log(json)
 				return json
 			})
 	} catch (e) {
+		console.log("Virhe:")
 		console.log(e)
 		return e
 	}
+	return "Done"
 }
 
 export async function GetInitiatives(ctx: any): Promise<string> {
