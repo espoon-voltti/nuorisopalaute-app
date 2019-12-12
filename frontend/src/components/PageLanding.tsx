@@ -13,17 +13,17 @@ const PageLanding: FC = () => {
 	return (
 		<div id="landing">
 			{useT("exampleText")}
-			<Header className="header--landing"></Header>
+			<Header className="header--dark"></Header>
 			<div className="jumbotron">
 				<div className="jumbotron-content">
 					<h1 className="jumbotron-header">
-						Välitä <br />
-						ja vaikuta
+						<span>Välitä <br /></span>
+						<span>ja vaikuta</span>
 					</h1>
 					<p className="jumbotron-text">Mikä on sinulle tärkeää?</p>
 					<div className="jumbotron-btns">
 						<a
-							className="btn"
+							className="btn btn--bounce"
 							onClick={(): void => {
 								const url = "/palaute";
 								history.push(url);

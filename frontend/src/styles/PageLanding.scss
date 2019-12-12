@@ -30,6 +30,7 @@
 }
 
 .jumbotron-header {
+	animation: appear 2s ease-in-out;
 	font-size: 120px;
 	font-weight: bold;
 	color: $text-color-light;
@@ -42,6 +43,7 @@
 
 .jumbotron-text {
 	color: $text-color-light;
+	animation: appear 2s ease-in-out;
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 28px;
@@ -50,6 +52,7 @@
 
 .jumbotron-btns {
 	display: flex;
+	animation: appear 2s ease-in-out;
 	align-items: center;
 	@media only screen and (max-width: 640px) {
 		display:block;
@@ -67,6 +70,11 @@
 	width: 70px;
 	margin:0;
 	display: inline-block;
+}
+
+.btn--bounce {
+	animation: bounce 1.5s ease-in-out;
+	animation-delay: 3s;
 }
 
 .btn {
@@ -210,4 +218,39 @@
 	color: #e2e2e2;
 	display: block;
 }
+
+
+@keyframes appear {
+	from {opacity: 0}
+	to {opacity: 1}
+}
+@keyframes bounce {
+    0% {  
+        transform: translateY(0); 
+    }
+
+    20% {  
+        transform: translateY(-0.5em);      
+    }
+
+    40% {  
+        transform: translateY(0.3em);     
+    }
+    
+   60% {
+        transform: translateY(-0.15em);     
+    }
+
+    80% {  
+        transform: translateY(0);    
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+}
+
 
