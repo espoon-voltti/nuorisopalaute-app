@@ -1,6 +1,10 @@
 import querystring = require("querystring")
 import axios from "axios"
 import fetch, { RequestInit } from "node-fetch"
+import { request } from "http"
+import { RequestOptions } from "http"
+
+const FormData = require("form-data")
 
 const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
 
@@ -20,29 +24,58 @@ export async function SendTest(ctx: any) {
 	const authOptions = {
 		api_key: process.env.TRIMBLE_KEY,
 		jurisdiction_id: "nuortenespoo",
-		service_code: serviceCodes["aloite"]
+		service_code: serviceCodes["palaute"]
 	}
-	console.log(process.env.TRIMBLE_KEY)
-	const postBody = Object.assign(
-		{},
-		ctx.request.body,
-		authOptions,
-		{ respond: undefined },
-		{ type: undefined },
-		{ "location parameter": "nuortenpalaute.espoo.fi" }
-	)
-	const options: RequestInit = {
+	const postBody = Object.assign({}, ctx.request.body, authOptions, { respond: undefined }, { type: undefined })
+
+	const data: FormData = new FormData()
+	data.append("api_key", authOptions.api_key)
+	data.append("jurisdiction_id", authOptions.jurisdiction_id)
+	data.append("service_code", authOptions.service_code)
+
+	data.append("address_string", "nuortenpalaute.espoo.fi")
+	data.append("description", ctx.request.body.description)
+
+	console.log((data as any).getHeaders())
+
+	fetch(trimbleUrl, {
+		method: "POST",
+		body: data as any,
+		headers: (data as any).getHeaders()
+	})
+		.then(res => {
+			console.log(res)
+			return res.text()
+		})
+		.then(json => {
+			console.log("Vastaus:")
+			console.log(json)
+			return json
+		})
+
+	/*
+		const options: RequestInit = {
 		method: "POST",
 		headers: {
-			"Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
+			"Content-Type": "multipart/form-data; charset=utf-8"
 		},
-		body: querystring.stringify(postBody)
+		body: postBody
 	}
+	
+	*/
 
+	/*const options = {
+		method: "POST",
+		body: data,
+		headers: {
+			"Content-Type": "multipart/form-data; charset=utf-8"
+		}
+	}
+	
 	try {
-		fetch(trimbleUrl, options)
+		fetch(trimbleUrl, options as unknown)
 			.then(res => {
-				console.log(res);
+				console.log(res)
 				return res.text()
 			})
 			.then(json => {
@@ -54,7 +87,47 @@ export async function SendTest(ctx: any) {
 		console.log("Virhe:")
 		console.log(e)
 		return e
-	}
+	}*/
+
+	/*const data: FormData = new FormData()
+	data.append("api_key", authOptions.api_key)
+	data.append("jurisdiction_id", authOptions.jurisdiction_id)
+	data.append("service_code", authOptions.service_code)
+	
+	data.append("description", ctx.request.body.description)
+	
+	console.log(data)*/
+
+	/*axios
+		.post(trimbleUrl, data, {
+			headers: {
+				"Content-Type": "multipart/form-data"
+			}
+		})
+		.then(function (response: any) {
+			console.log("Response:")
+			console.log(response)
+		})
+		.catch((error: any) => {
+			if (error.response) {
+				// The request was made and the server responded with a status code
+				// that falls out of the range of 2xx
+				console.log(error.response.data)
+				console.log(error.response.status)
+				console.log(error.response.headers)
+			} else if (error.request) {
+				// The request was made but no response was received
+				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+				// http.ClientRequest in node.js
+				console.log("No request got")
+				console.log(error.request)
+			} else {
+				// Something happened in setting up the request that triggered an Error
+				console.log("Failed to set up the request")
+				console.log("Error", error.message)
+			}
+		})*/
+
 	return "Done"
 }
 
