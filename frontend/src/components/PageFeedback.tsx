@@ -27,7 +27,7 @@ const PageFeedback: FC = () => {
 
 	return (
 		<div className="form-container">
-			<Header className="header--landing"></Header>
+			<Header className="header"></Header>
 
 			<section className="content-block">
 				<h1 className="form-header">
@@ -35,13 +35,10 @@ const PageFeedback: FC = () => {
 				</h1>
 				<img className="form-image" src="/human-yellow.svg" alt="" />
 				<p className="form-ingress">
-					Onko lenkkitiellä kaatunut puu? Puuttuuko lähikirjastosta
-					joku kaipaamasi opus? Haluatko kiittää tai antaa meille
-					risuja?
+					Jätä meille palautetta Espoon kaupungin palveluista! Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja? 
 				</p>
 				<p>
-					Palaute on aloitetta nopeampi ja kevyempi keino kertoa
-					meille myös ideoita ja toimenpide-ehdotuksia.
+					Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. 
 				</p>
 			</section>
 
@@ -139,7 +136,7 @@ const PageFeedback: FC = () => {
 						</label>
 						<input
 							className="input"
-							type="email"
+							type="text"
 							id="lastname"
 							name="lastname"
 							onChange={event => setSurname(event.target.value)}

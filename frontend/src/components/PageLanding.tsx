@@ -13,18 +13,17 @@ const PageLanding: FC = () => {
 	return (
 		<div id="landing">
 			{useT("exampleText")}
-			<Header className="header--landing"></Header>
+			<Header className="header--dark"></Header>
 			<div className="jumbotron">
 				<div className="jumbotron-content">
 					<h1 className="jumbotron-header">
-						Välitä <br />
-						ja vaikuta
+						<span>Välitä <br /></span>
+						<span>ja vaikuta</span>
 					</h1>
 					<p className="jumbotron-text">Mikä on sinulle tärkeää?</p>
 					<div className="jumbotron-btns">
 						<a
-							href="#"
-							className="btn"
+							className="btn btn--bounce"
 							onClick={(): void => {
 								const url = "/palaute";
 								history.push(url);
@@ -44,10 +43,9 @@ const PageLanding: FC = () => {
 						</a>
 						<span className="jumbotron-text btn-divader">tai</span>
 						<a
-							href="#"
 							className="btn btn-secondary"
 							onClick={(): void => {
-								const url = "/palaute";
+								const url = "/aloite";
 								history.push(url);
 							}}
 						>
@@ -66,17 +64,13 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text teaser__text--ingress">
-							Onko lenkkitiellä kaatunut puu? Puuttuuko
-							lähikirjastosta joku kaipaamasi opus? Haluatko
-							kiittää tai antaa meille risuja?
+							Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja? 
 						</p>
 						<p className="teaser__text margin-bottom">
-							Palaute on nopea ja kevyt keino kertoa meille myös
-							ideoita ja toimenpide-ehdotuksia. Palautetta voit
-							jättää anonyymisti.
+							Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. Palautetta voit jättää anonyymisti.
 						</p>
 						<a
-							href="#"
+							href="/palaute"
 							className="btn btn-secondary btn-secondary--dark"
 						>
 							Anna palautetta
@@ -93,13 +87,9 @@ const PageLanding: FC = () => {
 							Järeämpi keino saada muutosta aikaan.
 						</p>
 						<p className="teaser__text text-light margin-bottom">
-							Onko sinulla joku mainio ehdotus, jonka haluaisit
-							saada eteenpäin ja pelkkä palautteen jättäminen ei
-							tunnu riittävältä ratkaisulta? Aloite rullaa
-							byrokratian rattaissa hitaasti mutta varmasti
-							eteenpäin.
+							Onko sinulla mainio ehdotus, jonka haluaisit saada eteenpäin eikä palautteen jättäminen tunnu riittävältä ratkaisulta? 
 						</p>
-						<a href="#" className="btn btn-secondary">
+						<a href="/aloite" className="btn btn-secondary">
 							Jätä aloite
 						</a>
 					</div>
@@ -110,20 +100,7 @@ const PageLanding: FC = () => {
 					Mitä palautteilla on saatu aikaan?
 				</h2>
 				<div className="teaser-container teaser-container--feedbacks">
-					<div className="teaser teaser--highlight">
-						<h3 className="teaser__header">
-							Karaokea kavereiden kanssa!
-						</h3>
-						<img
-							className="teaser__image"
-							src="/icon-mic.svg"
-							alt=""
-						/>
-						<p className="teaser__text">
-							Palautteiden innoittamana olemme lisänneet
-							karaoketoimintaa Espoon kirjastoissa.
-						</p>
-					</div>
+					
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
 							Kätevämmin konserttiin!
@@ -156,7 +133,7 @@ const PageLanding: FC = () => {
 					</div>
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
-							Karaokea kavereiden kanssa!
+							Kirjastoon vaikka viikonloppuiltana
 						</h3>
 						<img
 							className="teaser__image"
@@ -164,8 +141,7 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text">
-							Palautteiden innoittamana olemme lisänneet
-							karaoketoimintaa Espoon kirjastoissa.
+							Kirjastojen omatoimijärjestelmällä vastaamme toiveisiin pidemmistä aukioloajoista.
 						</p>
 					</div>
 					<div className="teaser teaser--highlight">
@@ -180,6 +156,19 @@ const PageLanding: FC = () => {
 						<p className="teaser__text">
 							Palautteiden innoittamana olemme lisänneet
 							karaoketoimintaa Espoon kirjastoissa.
+						</p>
+					</div>
+					<div className="teaser teaser--highlight">
+						<h3 className="teaser__header">
+							Koirille leikkipaikkoja
+						</h3>
+						<img
+							className="teaser__image"
+							src="/icon-mic.svg"
+							alt=""
+						/>
+						<p className="teaser__text">
+							Monen koirapuiston ja leikkipaikan rakentaminen on saanut alkusysäyksen kuntalaisen meille antamasta palautteesta.
 						</p>
 					</div>
 				</div>
