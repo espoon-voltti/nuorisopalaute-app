@@ -139,7 +139,7 @@ const PageFeedback: FC = () => {
 						</label>
 						<input
 							className="input"
-							type="email"
+							type="text"
 							id="lastname"
 							name="lastname"
 							onChange={event => setSurname(event.target.value)}

@@ -28,30 +28,45 @@ const PageInitiative: FC = () => {
 
 			<section className="content-block">
 				<h1 className="form-header">
-					Anna palautetta Espoon kaupungin palveluista
+					Vaikuta! Jätä aloite
 				</h1>
-				<img className="form-image" src="/human-yellow.svg" alt="" />
+				<img className="form-image" src="/human-blue.svg" alt="" />
 				<p className="form-ingress">
-					Onko lenkkitiellä kaatunut puu? Puuttuuko lähikirjastosta
-					joku kaipaamasi opus? Haluatko kiittää tai antaa meille
-					risuja?
+					Aloite on palautetta järeämpi keino saada muutosta aikaan. Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin eikä pelkkä palautteen jättäminen tunnu riittävältä ratkaisulta? Tällä lomakkeella 13–20 -vuotias espoolainen voi jättää aloitteen Espoon kaupungille.
 				</p>
 				<p>
-					Palaute on aloitetta nopeampi ja kevyempi keino kertoa
-					meille myös ideoita ja toimenpide-ehdotuksia.
+					Nuorisopalvelujen työntekijät lukevat nuorilta saadut aloitteet ja ohjaavat ne vastattavaksi asiasta vastaaville Espoon kaupungin asiantuntijoille.
+				</p>
+				<p>
+					Nuorten aloitteet ja niihin annetut vastaukset julkaistaan kaikkien nähtäväksi tälle sivustolle. 
 				</p>
 			</section>
 
 			<section className="content-block">
-				<h2 className="form-subheader">Palaute</h2>
+				<h2 className="form-subheader">Aloite</h2>
 				<p>
-					Ethän koskaan kirjoita palautteeseesi henkilötunnustasi,
-					pankkitilisi numeroa, terveystietoja tms. arkaluonteista
-					tietoa.
+					Kerro tarkasti mitä aloitteesi koskee ja perustele. Aloitteen ei tarvitse olla pitkä, mutta selkeällä ja mietityllä aloitteella on paremmat mahdollisuudet tulla toteutetuksi.
 				</p>
+
+				<div className="field">
+						<label className="label" htmlFor="headline">
+							Otsikko
+						</label>
+						<input
+							required
+							className="input"
+							type="text"
+							id="headline"
+							name="headline"
+						/>
+				</div>
+				<label className="label" htmlFor="initiative">
+							Palautteen sisältö
+						</label>
 				<textarea
 					className="textarea"
 					required
+					id="initiative"
 					placeholder="Kiitos, kommentti, kysymys, moite..."
 					onChange={event =>
 						setInitiativeDescription(event.target.value)
@@ -59,8 +74,7 @@ const PageInitiative: FC = () => {
 				/>
 				<p className="label">Liitteet</p>
 				<p>
-					Voit liittää palautteeseen yhden tai useampia
-					liitetiedostoja, esimerkiksi kuvia havainnosta.
+					Voit liittää aloitteeseen yhden tai useampia liitetiedostoja.
 				</p>
 				<input
 					type="file"
@@ -71,37 +85,46 @@ const PageInitiative: FC = () => {
 					multiple
 				/>
 				<p className="disclaimer">
-					Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt
-					tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg,
-					jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx
+					Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt, ja pptx.
 				</p>
 			</section>
 
-			<section className="content-block">
-				<Checkbox
-					id={"allow-publish"}
-					name={"allow-publish"}
-					isChecked={allowPublish}
-					children="Palautteeni saa julkaista"
-					onChange={newValue => setAllowPublish(newValue)}
-				/>
 
-				<Checkbox
-					id={"response-yes"}
-					name={"response-yes"}
-					isChecked={wantsAnswer}
-					children="Haluan vastauksen palautteeseeni"
-					onChange={newValue => setWantsAnswer(newValue)}
-				/>
-			</section>
 
-			{wantsAnswer && (
+			
 				<section className="content-block">
 					<h2 className="form-subheader">Yhteystiedot</h2>
 					<p>
-						Yhteystietojasi ei julkaista, mutta palaute ja siihen
-						annettava vastaus voidaan julkaista, jos sen sallit.
+						Yhteystiedot vaaditaan, jotta voimme vastata aloitteeseesi. Saatamme myös kysyä täydentäviä lisätietoja. Aloitteen voi jättää myös ryhmänä, mutta tällöinkin yhden aloitteen jättäjistä on ilmoitettava yhteystietonsa.
 					</p>
+
+					<div className="field">
+						<label className="label" htmlFor="firstname">
+							Etunimi
+						</label>
+						<input
+							required
+							className="input"
+							type="text"
+							id="firstname"
+							name="firstname"
+							onChange={event => setFirstname(event.target.value)}
+						/>
+					</div>
+
+					<div className="field">
+						<label className="label" htmlFor="lastname">
+							Sukunimi
+						</label>
+						<input
+							required
+							className="input"
+							type="text"
+							id="lastname"
+							name="lastname"
+							onChange={event => setSurname(event.target.value)}
+						/>
+					</div>
 
 					<div className="field">
 						<label className="label" htmlFor="email">
@@ -122,34 +145,22 @@ const PageInitiative: FC = () => {
 					</div>
 
 					<div className="field">
-						<label className="label" htmlFor="firstname">
-							Etunimi{" "}
-							<span className="optional">(ei pakollinen)</span>
-						</label>
-						<input
-							className="input"
-							type="text"
-							id="firstname"
-							name="firstname"
-							onChange={event => setFirstname(event.target.value)}
-						/>
-					</div>
-
-					<div className="field">
-						<label className="label" htmlFor="lastname">
-							Sukunimi{" "}
+						<label className="label" htmlFor="phonenumber">
+							Puhelin{" "}
 							<span className="optional">(ei pakollinen)</span>
 						</label>
 						<input
 							className="input"
 							type="email"
-							id="lastname"
-							name="lastname"
-							onChange={event => setSurname(event.target.value)}
+							id="phonenumber"
+							name="phonenumber"
+							//onChange={event => setPhonenumber(event.target.value)}
 						/>
 					</div>
+
+					
 				</section>
-			)}
+
 
 			<section className="content-block">
 				<p className="center">
@@ -192,16 +203,10 @@ const PageInitiative: FC = () => {
 							});
 					}}
 				>
-					Lähetä palaute
+					Lähetä aloite
 				</button>
 				<p className="center">
-					Palautteesi on meille tärkeä ja vastaamme siihen
-					mahdollisimman pian. Kiireellisissä asioissa kannattaa
-					kuitenkin olla suoraan yhteydessä{" "}
-					<a href="#" target="_blank" rel="">
-						asiakaspalveluun
-					</a>
-					.
+					Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian. 
 				</p>
 			</section>
 			<Footer />
