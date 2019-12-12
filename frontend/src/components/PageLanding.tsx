@@ -6,21 +6,47 @@ import config from "./config";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useT } from "../i18n";
+import { Trans } from "react-i18next";
 
 const PageLanding: FC = () => {
 	const history = useHistory();
+	const jumbotronSubHeadline = useT("jumbotronSubHeadline");
+	const jumbotronOr = useT("jumbotronOr");
+	const btnFeedback = useT("btnFeedback");
+	const btnInitiative = useT("btnInitiative");
+	const feedback = useT("feedback");
+	const feedbackTeaserIngress = useT("feedbackTeaserIngress");
+	const feedbackTeaserText = useT("feedbackTeaserText");
+	const initiative = useT("initiative");
+	const initiativeTeaserIngress = useT("initiativeTeaserIngress");
+	const initiativeTeaserText = useT("initiativeTeaserText");
+	const feedbackExamplesHeadline = useT("feedbackExamplesHeadline");
+	const feedbackExample1Headline = useT("feedbackExample1Headline");
+	const feedbackExample1Text = useT("feedbackExample1Text");
+	const feedbackExample2Headline = useT("feedbackExample2Headline");
+	const feedbackExample2Text = useT("feedbackExample2Text");
+	const feedbackExample3Headline = useT("feedbackExample3Headline");
+	const feedbackExample3Text = useT("feedbackExample3Text");
+	const feedbackExample4Headline = useT("feedbackExample4Headline");
+	const feedbackExample4Text = useT("feedbackExample4Text");
+	const feedbackExample5Headline = useT("feedbackExample5Headline");
+	const feedbackExample5Text = useT("feedbackExample5Text");
+	const initiativesHeadline = useT("initiativesHeadline");
+
+
 
 	return (
 		<div id="landing">
-			{useT("exampleText")}
+			
 			<Header className="header--dark"></Header>
 			<div className="jumbotron">
 				<div className="jumbotron-content">
 					<h1 className="jumbotron-header">
-						<span>Välitä <br /></span>
-						<span>ja vaikuta</span>
+						<Trans i18nKey="defaultNamespace:jumbotronHeadline">
+							<span></span>
+						</Trans>
 					</h1>
-					<p className="jumbotron-text">Mikä on sinulle tärkeää?</p>
+					<p className="jumbotron-text">{jumbotronSubHeadline}</p>
 					<div className="jumbotron-btns">
 						<a
 							className="btn btn--bounce"
@@ -39,9 +65,9 @@ const PageLanding: FC = () => {
 									});
 							}}
 						>
-							Anna palautetta
+							{btnFeedback}
 						</a>
-						<span className="jumbotron-text btn-divader">tai</span>
+						<span className="jumbotron-text btn-divader">{jumbotronOr}</span>
 						<a
 							className="btn btn-secondary"
 							onClick={(): void => {
@@ -49,7 +75,7 @@ const PageLanding: FC = () => {
 								history.push(url);
 							}}
 						>
-							Jätä aloite
+							{btnInitiative}
 						</a>
 					</div>
 				</div>
@@ -57,53 +83,53 @@ const PageLanding: FC = () => {
 			<section className="content-block">
 				<div className="teaser-container">
 					<div className="teaser teaser--feedback">
-						<h2 className="teaser__header">Palaute</h2>
+						<h2 className="teaser__header">{feedback}</h2>
 						<img
 							className="teaser__image"
 							src="/human-yellow.svg"
 							alt=""
 						/>
 						<p className="teaser__text teaser__text--ingress">
-							Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja? 
+							{feedbackTeaserIngress}
 						</p>
 						<p className="teaser__text margin-bottom">
-							Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. Palautetta voit jättää anonyymisti.
+							{feedbackTeaserText}
 						</p>
 						<a
 							href="/palaute"
 							className="btn btn-secondary btn-secondary--dark"
 						>
-							Anna palautetta
+							{btnFeedback}
 						</a>
 					</div>
 					<div className="teaser teaser--initiative">
-						<h2 className="teaser__header text-light">Aloite</h2>
+						<h2 className="teaser__header text-light">{initiative}</h2>
 						<img
 							className="teaser__image"
 							src="/human-blue.svg"
 							alt=""
 						/>
 						<p className="teaser__text teaser__text--ingress text-light">
-							Järeämpi keino saada muutosta aikaan.
+							{initiativeTeaserIngress}
 						</p>
 						<p className="teaser__text text-light margin-bottom">
-							Onko sinulla mainio ehdotus, jonka haluaisit saada eteenpäin eikä palautteen jättäminen tunnu riittävältä ratkaisulta? 
+							{initiativeTeaserText}
 						</p>
 						<a href="/aloite" className="btn btn-secondary">
-							Jätä aloite
+							{btnInitiative}
 						</a>
 					</div>
 				</div>
 			</section>
 			<section className="content-block">
 				<h2 className="section-header">
-					Mitä palautteilla on saatu aikaan?
+					{feedbackExamplesHeadline}
 				</h2>
 				<div className="teaser-container teaser-container--feedbacks">
 					
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
-							Kätevämmin konserttiin!
+							{feedbackExample1Headline}
 						</h3>
 						<img
 							className="teaser__image"
@@ -111,14 +137,12 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text">
-							Palautteiden ansiosta Itsenäisyyspäivän
-							konserttilippuja saa nyt myös sähköisesti
-							Lippupisteen kautta.
+							{feedbackExample1Text}
 						</p>
 					</div>
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
-							Lasereita eläimetkään eivät säiky
+							{feedbackExample2Headline}
 						</h3>
 						<img
 							className="teaser__image"
@@ -126,14 +150,12 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text">
-							Uuden vuoden lasershow on vastaus myös
-							kuntalaispalautteisiin, joissa toivottiin vähemmän
-							häiriötä raketeista.
+							{feedbackExample2Text}
 						</p>
 					</div>
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
-							Kirjastoon vaikka viikonloppuiltana
+							{feedbackExample3Headline}
 						</h3>
 						<img
 							className="teaser__image"
@@ -141,12 +163,12 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text">
-							Kirjastojen omatoimijärjestelmällä vastaamme toiveisiin pidemmistä aukioloajoista.
+							{feedbackExample3Text}
 						</p>
 					</div>
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
-							Karaokea kavereiden kanssa!
+							{feedbackExample4Headline}
 						</h3>
 						<img
 							className="teaser__image"
@@ -154,13 +176,12 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text">
-							Palautteiden innoittamana olemme lisänneet
-							karaoketoimintaa Espoon kirjastoissa.
+							{feedbackExample4Text}
 						</p>
 					</div>
 					<div className="teaser teaser--highlight">
 						<h3 className="teaser__header">
-							Koirille leikkipaikkoja
+							{feedbackExample5Headline}
 						</h3>
 						<img
 							className="teaser__image"
@@ -168,41 +189,41 @@ const PageLanding: FC = () => {
 							alt=""
 						/>
 						<p className="teaser__text">
-							Monen koirapuiston ja leikkipaikan rakentaminen on saanut alkusysäyksen kuntalaisen meille antamasta palautteesta.
+							{feedbackExample5Text}
 						</p>
 					</div>
 				</div>
 			</section>
 			<section className="">
-				<h2 className="section-header">Nuorten tekemät aloitteet</h2>
+				<h2 className="section-header">{initiativesHeadline}</h2>
 				<ul className="initiative-list">
 					<li>
-						Ruotsinkielen opetuksen muuttaminen
+						<a href="#">Ruotsinkielen opetuksen muuttaminen</a>
 						<span className="date">4.12.2019</span>
 					</li>
 					<li>
-						Riistaruokapäiviä kouluihin{" "}
+						<a href="#">Riistaruokapäiviä kouluihin</a>
 						<span className="date">23.11.2019</span>
 					</li>
 					<li>
-						Matematiikan maksutonta tukiopetusta 16-19 -vuotiaille,
-						sisältäen lukion!{" "}
+						<a href="#">Matematiikan maksutonta tukiopetusta 16-19 -vuotiaille,
+						sisältäen lukion!</a>
 						<span className="date">23.11.2019</span>
 					</li>
 					<li>
-						Pakkoruotsi <span className="date">23.11.2019</span>
+						<a href="#">Pakkoruotsi</a> <span className="date">23.11.2019</span>
 					</li>
 					<li>
-						Metroihin usb laturi paikat{" "}
+						<a href="#">Metroihin usb laturi paikat</a>
 						<span className="date">23.11.2019</span>
 					</li>
 					<li>
-						Helsingin kaupunki voisi tarjota ilmaisia
-						lajittelupisteitä asuinalueille{" "}
+						<a href="#">Helsingin kaupunki voisi tarjota ilmaisia
+						lajittelupisteitä asuinalueille</a>
 						<span className="date">23.11.2019</span>
 					</li>
 					<li>
-						Pelitietokoneet Leppävaaran nuorisotalolle.{" "}
+						<a href="#">Pelitietokoneet Leppävaaran nuorisotalolle.</a>
 						<span className="date">23.11.2019</span>
 					</li>
 				</ul>

@@ -41,6 +41,10 @@
 	}
 }
 
+.jumbotron-header span{
+	display: block;
+}
+
 .jumbotron-text {
 	color: $text-color-light;
 	animation: appear 2s ease-in-out;
@@ -208,11 +212,21 @@
 	padding: 25px 25px 70px 25px;
 }
 
-.initiative-list LI {
-	line-height: 24px;
+.initiative-list li {
+	line-height: 20px;
 	font-weight: 500;
 	margin-bottom: 1.5em;
 }
+
+.initiative-list li a {
+	color: $text-color-light;
+}
+
+.initiative-list li a:hover {
+	color: $text-color-light;
+	text-decoration: underline;
+}
+
 .initiative-list .date {
 	font-size: 14px;
 	color: #e2e2e2;
