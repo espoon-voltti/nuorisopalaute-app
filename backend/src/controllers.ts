@@ -20,6 +20,8 @@ export async function SendTest(ctx: any) {
 	const serviceCodes = {
 		palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
 		aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
+		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
+		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
 	const authOptions = {
 		api_key: process.env.TRIMBLE_KEY,
@@ -142,7 +144,8 @@ export async function GetInitiatives(ctx: any): Promise<string> {
 
 	const params = {
 		jurisdiction_id: "nuortenespoo",
-		start_date: "2018-08-20T00:00:00Z"
+		start_date: "2018-08-20T00:00:00Z",
+		service_code: "8ca7db6f-cf15-ea11-9130-005056b41c86"
 	}
 
 	Object.keys(params).forEach(key => url.searchParams.append(key, (params as any)[key]))

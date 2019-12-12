@@ -16,24 +16,16 @@ const App: React.FC = () => {
 		<ErrorBoundary>
 			<div id="app">
 				<Router basename={`/${currentLanguage}`}>
-					<main id="content">
-						<Switch>
-							<Route exact path="/" component={PageLanding} />
-							<Route
-								exact
-								path="/palaute"
-								component={PageFeedback}
-							/>
-							<Route
-								exact
-								path="/aloite"
-								component={PageInitiative}
-							/>
-							<Route
-								component={() => <PageError error="404" />}
-							/>
-						</Switch>
-					</main>
+					<Switch>
+						<Route exact path="/" component={PageLanding} />
+						<Route exact path="/palaute" component={PageFeedback} />
+						<Route
+							exact
+							path="/aloite"
+							component={PageInitiative}
+						/>
+						<Route component={() => <PageError error="404" />} />
+					</Switch>
 				</Router>
 			</div>
 		</ErrorBoundary>
