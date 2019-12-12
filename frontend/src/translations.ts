@@ -120,4 +120,84 @@ export const translations = {
 		"sv-FI": "sv_Nuorten tekemät aloitteet",
 		"en-FI": "en_Nuorten tekemät aloitteet",
 	},
+	footerLinkPrivacy: {
+		"fi-FI": "Tietosuojaseloste",
+		"sv-FI": "Dataskyddsbeskrivning",
+		"en-FI": "Privacy Policy",
+	},
+	footerLinkAccessibility: {
+		"fi-FI": "Saavutettavuusseloste",
+		"sv-FI": "Tillgänglighetsutlåtande",
+		"en-FI": "Accessibility",
+	},
+	feedbackPageHeadline: {
+		"fi-FI": "Anna palautetta Espoon kaupungin palveluista",
+		"sv-FI": "sv_Anna palautetta Espoon kaupungin palveluista",
+		"en-FI": "en_Anna palautetta Espoon kaupungin palveluista",
+	},
+	feedbackPageIngress: {
+		"fi-FI": "Jätä meille palautetta Espoon kaupungin palveluista! Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja?",
+		"sv-FI": "sv_Jätä meille palautetta Espoon kaupungin palveluista! Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja?",
+		"en-FI": "en_Jätä meille palautetta Espoon kaupungin palveluista! Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja?",
+	},
+	feedbackPageText: {
+		"fi-FI": "Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia.",
+		"sv-FI": "sv_Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia.",
+		"en-FI": "en_Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia.",
+	},
+	feedbackFormDesc: {
+		"fi-FI": "Ethän koskaan kirjoita palautteeseesi henkilötunnustasi, pankkitilisi numeroa, terveystietoja tms. arkaluonteista tietoa.",
+		"sv-FI": "sv_Ethän koskaan kirjoita palautteeseesi henkilötunnustasi, pankkitilisi numeroa, terveystietoja tms. arkaluonteista tietoa.",
+		"en-FI": "en_Ethän koskaan kirjoita palautteeseesi henkilötunnustasi, pankkitilisi numeroa, terveystietoja tms. arkaluonteista tietoa.",
+	},
+	feedbackFormPlaceholder: {
+		"fi-FI": "Kiitos, kommentti, kysymys, moite...",
+		"sv-FI": "sv_Kiitos, kommentti, kysymys, moite...",
+		"en-FI": "en_Kiitos, kommentti, kysymys, moite...",
+	},
+	formAttachmentsLabel: {
+		"fi-FI": "Liitteet",
+		"sv-FI": "sv_Liitteet",
+		"en-FI": "en_Liitteet",
+	},
+	formAttachmentsDescFeedback: {
+		"fi-FI": "Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.",
+		"sv-FI": "sv_Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.",
+		"en-FI": "en_Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.",
+	},
+	formAttachmentsDescInitiative: {
+		"fi-FI": "Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.",
+		"sv-FI": "sv_Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.",
+		"en-FI": "en_Voit liittää palautteeseen yhden tai useampia liitetiedostoja, esimerkiksi kuvia havainnosta.",
+	},
+	formAttachmentsDisclaimer: {
+		"fi-FI": "Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx",
+		"sv-FI": "sv_Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx",
+		"en-FI": "en_Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx",
+	},
+	formAllowPublishing: {
+		"fi-FI": "Palautteeni saa julkaista",
+		"sv-FI": "sv_Haluan vastauksen palautteeseeni",
+		"en-FI": "en_Haluan vastauksen palautteeseeni",
+	},
+	formIwantReply: {
+		"fi-FI": "Haluan vastauksen palautteeseeni",
+		"sv-FI": "sv_Haluan vastauksen palautteeseeni",
+		"en-FI": "en_Haluan vastauksen palautteeseeni",
+	},
+	formPolicyText: {
+		"fi-FI": "Lähettämällä lomakkeen hyväksyt käyttöehdot ja tietosuojaselosteen.",
+		"sv-FI": "sv_Lähettämällä lomakkeen hyväksyt käyttöehdot ja tietosuojaselosteen.",
+		"en-FI": "en_Lähettämällä lomakkeen hyväksyt käyttöehdot ja tietosuojaselosteen.",
+	},
+	btnSendFeedBack: {
+		"fi-FI": "Lähetä palaute",
+		"sv-FI": "sv_Lähetä palaute",
+		"en-FI": "Send Feedback",
+	},
+	feedbackPageFooter: {
+		"fi-FI": "Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä asiakaspalveluun.",
+		"sv-FI": "sv_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä asiakaspalveluun.",
+		"en-FI": "en_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä asiakaspalveluun.",
+	},
 };

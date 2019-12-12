@@ -6,6 +6,7 @@ import Checkbox from "./Checkbox";
 import Header from "./Header";
 import Footer from "./Footer";
 import FileDropzone from "./FileDropzone";
+import { useT } from "../i18n";
 
 const PageFeedback: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
