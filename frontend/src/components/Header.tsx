@@ -1,11 +1,17 @@
 import { FC } from "react";
 import React from "react";
+import { useT } from "../i18n";
 
 type HeaderProps = {
 	className: string;
 };
 
+
+
 const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
+	const feedback = useT("feedback");
+const initiative = useT("initiative");
+const frontpage = useT("frontpage");
 	return (
 		<header className={`header ${props.className}`}>
 			<a className="jump-to-content" href="#content">
@@ -20,6 +26,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 			</a>
 			<div data-inclusive-menu>
 				<button
+					className="menu"
 					data-inclusive-menu-opens="navigation"
 					aria-haspopup="true"
 					aria-expanded="false"
@@ -43,9 +50,9 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 							</button>
 						
 					</div>
-					<button className="menuitem selected" role="menuitem" aria-checked="true">Etusivu</button>
-					<button className="menuitem" role="menuitem">Palaute</button>
-					<button className="menuitem" role="menuitem">Aloite</button>
+					<button className="menuitem selected" role="menuitem" aria-checked="true">{frontpage}</button>
+					<button className="menuitem" role="menuitem">{feedback}</button>
+					<button className="menuitem" role="menuitem">{initiative}</button>
 				</div>
 			</div>
 		</header>

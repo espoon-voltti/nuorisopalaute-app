@@ -70,7 +70,7 @@
 	margin: 0 40px 0 0;
 	@media only screen and (max-width: 640px) {
 		height: 40px;
-		margin: 0 0 20px 0;
+		margin: 0 20px 0 0;
 	}
 }
 
@@ -99,22 +99,30 @@
 [data-inclusive-menu] {
   position: relative;
   display: inline-block;
-  height:45px;
-  width: 45px;
-  background: transparent url('/icons/icon-menu-black.svg') 50% 50% no-repeat;
   cursor: pointer;
 }
-.header--dark [data-inclusive-menu] {
+
+[data-inclusive-menu] .menu {
+	height:45px;
+  	width: 45px;
+  	background: transparent url('/icons/icon-menu-black.svg') 50% 50% no-repeat;
+}
+
+[data-inclusive-menu] .menu--open {
+ background: transparent url('/icons/icon-menu-close-black.svg') 50% 50% no-repeat;		
+}
+
+.header--dark [data-inclusive-menu] .menu {
   background: transparent url('/icons/icon-menu.svg') 50% 50% no-repeat;
 }
 
-.header--dark [data-inclusive-menu].open {
+.header--dark [data-inclusive-menu] .menu--open {
  background: transparent url('/icons/icon-menu-close.svg') 50% 50% no-repeat;		
 }
 
-[data-inclusive-menu].open {
- background: transparent url('/icons/icon-menu-close-black.svg') 50% 50% no-repeat;		
-}
+
+
+
 
 [data-inclusive-menu-opens],
 [data-inclusive-menu] [role^="menuitem"] {

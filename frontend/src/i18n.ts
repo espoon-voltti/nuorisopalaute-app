@@ -11,7 +11,7 @@ i18next
 		nsSeparator: ":",
 		keySeparator: false,
 
-		whitelist: ["fi-FI", "sv-FI"],
+		whitelist: ["fi-FI", "sv-FI", "en-FI"],
 		fallbackLng: "fi-FI",
 
 		react: {
@@ -40,7 +40,7 @@ const ns = "defaultNamespace";
 
 export type TranslationKey = keyof typeof translations;
 
-export type Language = "fi-FI" | "sv-FI";
+export type Language = "fi-FI" | "sv-FI" | "en-FI";
 
 export const useT = (key: TranslationKey): string => {
 	const { t } = useTranslation(ns);
@@ -75,9 +75,11 @@ const extractTranslations = (
 
 const translationsFi = extractTranslations(translations, "fi-FI");
 const translationsSv = extractTranslations(translations, "sv-FI");
+const translationsEn = extractTranslations(translations, "en-FI");
 
 i18next.addResources("fi-FI", ns, translationsFi);
 i18next.addResources("sv-FI", ns, translationsSv);
+i18next.addResources("en-FI", ns, translationsEn);
 
 i18next.on("languageChanged", lng => {
 	const oldPath = window.location.pathname;

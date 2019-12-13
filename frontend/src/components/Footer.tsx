@@ -1,7 +1,9 @@
 import { FC } from "react";
 import React from "react";
+import { useT } from "../i18n";
 
 const Footer: React.FunctionComponent = () => {
+
 	return (
 		<footer className="footer">
 			<div className="logo-container">
@@ -17,15 +19,15 @@ const Footer: React.FunctionComponent = () => {
 			<div className="footer-links">
 				<a
 					className="footer-link"
-					href="#"
+					href={useT("urlPrivacyPolicy")}
 					target="_blank"
 					rel="noopener noreferrer external"
 				>
-					Tietosuojaseloste
+					{useT("footerLinkPrivacy")}
 				</a>
 
-				<a href="#" className="footer-link">
-					Saavutettavuuseloste
+				<a href="/saavutettavuus" className="footer-link">
+					{useT("footerLinkAccessibility")}
 				</a>
 			</div>
 		</footer>
