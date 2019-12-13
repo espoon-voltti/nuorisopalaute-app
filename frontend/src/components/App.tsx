@@ -8,6 +8,7 @@ import { PageLanding } from "./PageLanding";
 import { PageFeedback } from "./PageFeedback";
 import PageError from "./PageError";
 import { PageInitiative } from "./PageInitiative";
+import { PageThankYou } from "./PageThankYou";
 
 const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
@@ -24,6 +25,7 @@ const App: React.FC = () => {
 							path="/aloite"
 							component={PageInitiative}
 						/>
+						<Route exact path="/kiitos" component={PageThankYou} />
 						<Route component={() => <PageError error="404" />} />
 					</Switch>
 				</Router>

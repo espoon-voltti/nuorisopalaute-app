@@ -37,9 +37,9 @@ export async function SendTest(ctx: any) {
 
 	data.append("address_string", "nuortenpalaute.espoo.fi")
 	data.append("description", ctx.request.body.description)
-	data.append("email", ctx.request.body.email)
-	data.append("first_name", ctx.request.body.first_name)
-	data.append("last_name", ctx.request.body.last_name)
+	data.append("email", ctx.request.body.email ? ctx.request.body.email : "")
+	data.append("first_name", ctx.request.body.first_name ? ctx.request.body.first_name : "")
+	data.append("last_name", ctx.request.body.last_name ? ctx.request.body.last_name : "")
 
 	console.log((data as any).getHeaders())
 
