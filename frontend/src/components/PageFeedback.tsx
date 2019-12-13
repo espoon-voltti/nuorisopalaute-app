@@ -184,32 +184,18 @@ const PageFeedback: FC = () => {
 						onClick={(): void => {
 							const data: FormData = new FormData();
 
-							//data.append("email", email);
-							//data.append("first_name", firstname);
-							//data.append("last_name", surname);
+							data.append("email", email);
+							data.append("first_name", firstname);
+							data.append("last_name", surname);
 							data.append("description", feedbackDescription);
 							data.append(
 								"address_string",
 								"nuortenpalaute.espoo.fi",
 							);
 
-							/*const data = {
-								email: "test123@test.fi",
-								description: "testi-feedback",
-								// eslint-disable-next-line @typescript-eslint/camelcase
-								first_name: "test6",
-								// eslint-disable-next-line @typescript-eslint/camelcase
-								last_name: "",
-								lat: "",
-								long: "",
-								respond: false,
-								// eslint-disable-next-line @typescript-eslint/camelcase
-								address_string: "nuortenpalaute.espoo.fi",
-							};*/
-
 							axios
 								.post(config.API_URL + "/test", data)
-								.then(function(response: any) {
+								.then(function (response: any) {
 									console.log(response);
 								})
 								.catch((error: Error) => {

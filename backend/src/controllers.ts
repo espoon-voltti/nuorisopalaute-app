@@ -37,17 +37,20 @@ export async function SendTest(ctx: any) {
 
 	data.append("address_string", "nuortenpalaute.espoo.fi")
 	data.append("description", ctx.request.body.description)
+	data.append("email", ctx.request.body.email)
+	data.append("first_name", ctx.request.body.first_name)
+	data.append("last_name", ctx.request.body.last_name)
 
 	console.log((data as any).getHeaders())
 
 	fetch(trimbleUrl, {
 		method: "POST",
-		body: data as any,
-		headers: (data as any).getHeaders()
+		body: querystring.stringify(postBody),
+		headers: { "content-type": "application/x-www-form-urlencoded; charset=utf-8" }
 	})
 		.then(res => {
 			console.log(res)
-			return res.text()
+			return res.json()
 		})
 		.then(json => {
 			console.log("Vastaus:")
@@ -109,20 +112,7 @@ export async function SendTest(ctx: any) {
 		.then(function (response: any) {
 			console.log("Response:")
 			console.log(response)
-		})
-		.catch((error: any) => {
-			if (error.response) {
-				// The request was made and the server responded with a status code
-				// that falls out of the range of 2xx
-				console.log(error.response.data)
-				console.log(error.response.status)
-				console.log(error.response.headers)
-			} else if (error.request) {
-				// The request was made but no response was received
-				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-				// http.ClientRequest in node.js
-				console.log("No request got")
-				console.log(error.request)
+		})"application/x-www-form-urlencoded; charset=utf-8"
 			} else {
 				// Something happened in setting up the request that triggered an Error
 				console.log("Failed to set up the request")
