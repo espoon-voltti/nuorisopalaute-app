@@ -255,6 +255,11 @@ export const translations = {
 		"sv-FI": "sv_Lähetä palaute",
 		"en-FI": "Send Feedback",
 	},
+	btnSendInitiative: {
+		"fi-FI": "Lähetä aloite",
+		"sv-FI": "sv_Lähetä aloite",
+		"en-FI": "Send Initiative",
+	},
 	feedbackPageFooter: {
 		"fi-FI": "Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä ",
 		"sv-FI": "sv_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä ",
@@ -269,5 +274,50 @@ export const translations = {
 		"fi-FI": "https://www.espoo.fi/sv-FI/Espoon_kaupunki/Organisaatio_ja_yhteystiedot/Yhteystiedot",
 		"sv-FI": "https://www.esbo.fi/sv-FI/Esbo_stad/Organisation_och_kontaktuppgifter/Kontaktuppgifter",
 		"en-FI": "http://www.espoo.fi/en-US/City_of_Espoo/Organization_and_contact_information/Contact_information",
+	},
+	initiativePageHeadline: {
+		"fi-FI": "Vaikuta! Jätä aloite",
+		"sv-FI": "sv_Vaikuta! Jätä aloite",
+		"en-FI": "en_Vaikuta! Jätä aloite",
+	},
+	initiativePageIngress: {
+		"fi-FI": "Aloite on palautetta järeämpi keino saada muutosta aikaan. Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin eikä pelkkä palautteen jättäminen tunnu riittävältä ratkaisulta? Tällä lomakkeella 13-20 -vuotias espoolainen voi jättää aloitteen Espoon kaupungille.",
+		"sv-FI": "sv_Aloite on palautetta järeämpi keino saada muutosta aikaan. Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin eikä pelkkä palautteen jättäminen tunnu riittävältä ratkaisulta? Tällä lomakkeella 13-20 -vuotias espoolainen voi jättää aloitteen Espoon kaupungille.",
+		"en-FI": "en_Aloite on palautetta järeämpi keino saada muutosta aikaan. Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin eikä pelkkä palautteen jättäminen tunnu riittävältä ratkaisulta? Tällä lomakkeella 13-20 -vuotias espoolainen voi jättää aloitteen Espoon kaupungille.",
+	},
+	initiativePageText: {
+		"fi-FI": "<0>Nuorisopalvelujen työntekijät lukevat nuorilta saadut aloitteet ja ohjaavat ne vastattavaksi asiasta vastaaville Espoon kaupungin asiantuntijoille.</0><1>Nuorten aloitteet ja niihin annetut vastaukset julkaistaan kaikkien nähtäväksi tälle sivustolle.</1> ",
+		"sv-FI": "sv_<0>Nuorisopalvelujen työntekijät lukevat nuorilta saadut aloitteet ja ohjaavat ne vastattavaksi asiasta vastaaville Espoon kaupungin asiantuntijoille.</0><1>Nuorten aloitteet ja niihin annetut vastaukset julkaistaan kaikkien nähtäväksi tälle sivustolle.</1> ",
+		"en-FI": "en_<0>Nuorisopalvelujen työntekijät lukevat nuorilta saadut aloitteet ja ohjaavat ne vastattavaksi asiasta vastaaville Espoon kaupungin asiantuntijoille.</0><1>Nuorten aloitteet ja niihin annetut vastaukset julkaistaan kaikkien nähtäväksi tälle sivustolle.</1> ",
+	},
+	initiativeFormDesc: {
+		"fi-FI": "Kerro tarkasti mitä aloitteesi koskee ja perustele. Aloitteen ei tarvitse olla pitkä, mutta selkeällä ja mietityllä aloitteella on paremmat mahdollisuudet tulla toteutetuksi.",
+		"sv-FI": "sv_Kerro tarkasti mitä aloitteesi koskee ja perustele. Aloitteen ei tarvitse olla pitkä, mutta selkeällä ja mietityllä aloitteella on paremmat mahdollisuudet tulla toteutetuksi.",
+		"en-FI": "en_Kerro tarkasti mitä aloitteesi koskee ja perustele. Aloitteen ei tarvitse olla pitkä, mutta selkeällä ja mietityllä aloitteella on paremmat mahdollisuudet tulla toteutetuksi.",
+	},
+	formHeadlineLabel: {
+		"fi-FI": "Otsikko",
+		"sv-FI": "Rubrik",
+		"en-FI": "Headline",
+	},
+	formInitiativeContentLabel: {
+		"fi-FI": "Aloitteen sisältö",
+		"sv-FI": "sv_aloitteen sisältö",
+		"en-FI": "en_aloitteen sisältö",
+	},
+	formInitiativeContactInfoDesc: {
+		"fi-FI": "Yhteystiedot vaaditaan, jotta voimme vastata aloitteeseesi. Saatamme myös kysyä täydentäviä lisätietoja. Aloitteen voi jättää myös ryhmänä, mutta tällöinkin yhden aloitteen jättäjistä on ilmoitettava yhteystietonsa.",
+		"sv-FI": "sv_Yhteystiedot vaaditaan, jotta voimme vastata aloitteeseesi. Saatamme myös kysyä täydentäviä lisätietoja. Aloitteen voi jättää myös ryhmänä, mutta tällöinkin yhden aloitteen jättäjistä on ilmoitettava yhteystietonsa.",
+		"en-FI": "en_Yhteystiedot vaaditaan, jotta voimme vastata aloitteeseesi. Saatamme myös kysyä täydentäviä lisätietoja. Aloitteen voi jättää myös ryhmänä, mutta tällöinkin yhden aloitteen jättäjistä on ilmoitettava yhteystietonsa.",
+	},
+	formTelephoneLabel: {
+		"fi-FI": "Puhelinnumero",
+		"sv-FI": "Telefonnummer",
+		"en-FI": "Telephone number",
+	},
+	initiativePageFooter: {
+		"fi-FI": "Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian.",
+		"sv-FI": "sv_Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian.",
+		"en-FI": "en_Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian.",
 	},
 };

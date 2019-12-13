@@ -5,6 +5,8 @@ import config from "./config";
 import Checkbox from "./Checkbox";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useT } from "../i18n";
+import { Trans } from "react-i18next";
 
 const PageInitiative: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
@@ -28,29 +30,27 @@ const PageInitiative: FC = () => {
 
 			<section className="content-block">
 				<h1 className="form-header">
-					Vaikuta! Jätä aloite
+					{useT("initiativePageHeadline")}
 				</h1>
 				<img className="form-image" src="/human-blue.svg" alt="" />
 				<p className="form-ingress">
-					Aloite on palautetta järeämpi keino saada muutosta aikaan. Onko sinulla joku mainio ehdotus, jonka haluaisit saada eteenpäin eikä pelkkä palautteen jättäminen tunnu riittävältä ratkaisulta? Tällä lomakkeella 13–20 -vuotias espoolainen voi jättää aloitteen Espoon kaupungille.
+					{useT("initiativePageIngress")}
 				</p>
-				<p>
-					Nuorisopalvelujen työntekijät lukevat nuorilta saadut aloitteet ja ohjaavat ne vastattavaksi asiasta vastaaville Espoon kaupungin asiantuntijoille.
-				</p>
-				<p>
-					Nuorten aloitteet ja niihin annetut vastaukset julkaistaan kaikkien nähtäväksi tälle sivustolle. 
-				</p>
+				<Trans i18nKey="defaultNamespace:initiativePageText">
+					<p></p>
+					<p></p>
+				</Trans>
 			</section>
 
 			<section className="content-block">
 				<h2 className="form-subheader">Aloite</h2>
 				<p>
-					Kerro tarkasti mitä aloitteesi koskee ja perustele. Aloitteen ei tarvitse olla pitkä, mutta selkeällä ja mietityllä aloitteella on paremmat mahdollisuudet tulla toteutetuksi.
+					{useT("initiativeFormDesc")}
 				</p>
 
 				<div className="field">
 						<label className="label" htmlFor="headline">
-							Otsikko
+							{useT("formHeadlineLabel")}
 						</label>
 						<input
 							required
@@ -61,20 +61,19 @@ const PageInitiative: FC = () => {
 						/>
 				</div>
 				<label className="label" htmlFor="initiative">
-							Palautteen sisältö
+							{useT("formInitiativeContentLabel")}
 						</label>
 				<textarea
 					className="textarea"
 					required
 					id="initiative"
-					placeholder="Kiitos, kommentti, kysymys, moite..."
 					onChange={event =>
 						setInitiativeDescription(event.target.value)
 					}
 				/>
-				<p className="label">Liitteet</p>
+				<p className="label">{useT("formAttachmentsLabel")}</p>
 				<p>
-					Voit liittää aloitteeseen yhden tai useampia liitetiedostoja.
+					{useT("formAttachmentsDescInitiative")}
 				</p>
 				<input
 					type="file"
@@ -85,7 +84,7 @@ const PageInitiative: FC = () => {
 					multiple
 				/>
 				<p className="disclaimer">
-					Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg, jpeg, tif, tiff, txt, zip, xls, xlsx, ppt, ja pptx.
+					{useT("formAttachmentsDisclaimer")}
 				</p>
 			</section>
 
@@ -93,14 +92,14 @@ const PageInitiative: FC = () => {
 
 			
 				<section className="content-block">
-					<h2 className="form-subheader">Yhteystiedot</h2>
+					<h2 className="form-subheader">{useT("formContactInfo")}</h2>
 					<p>
-						Yhteystiedot vaaditaan, jotta voimme vastata aloitteeseesi. Saatamme myös kysyä täydentäviä lisätietoja. Aloitteen voi jättää myös ryhmänä, mutta tällöinkin yhden aloitteen jättäjistä on ilmoitettava yhteystietonsa.
+						{useT("formInitiativeContactInfoDesc")}
 					</p>
 
 					<div className="field">
 						<label className="label" htmlFor="firstname">
-							Etunimi
+							{useT("formFirstName")}
 						</label>
 						<input
 							required
@@ -114,7 +113,7 @@ const PageInitiative: FC = () => {
 
 					<div className="field">
 						<label className="label" htmlFor="lastname">
-							Sukunimi
+							{useT("formLastName")}
 						</label>
 						<input
 							required
@@ -128,7 +127,7 @@ const PageInitiative: FC = () => {
 
 					<div className="field">
 						<label className="label" htmlFor="email">
-							Sähköposti
+							{useT("formEmail")}
 						</label>
 						<input
 							className="input"
@@ -140,14 +139,14 @@ const PageInitiative: FC = () => {
 							onChange={event => setEmail(event.target.value)}
 						/>
 						<p className="warning-text">
-							Syötä sähköposti oikeassa muodossa.
+							{useT("formEmailWarning")}
 						</p>
 					</div>
 
 					<div className="field">
 						<label className="label" htmlFor="phonenumber">
-							Puhelin{" "}
-							<span className="optional">(ei pakollinen)</span>
+							{useT("formTelephoneLabel")}{" "}
+							<span className="optional">({useT("formNotRequired")})</span>
 						</label>
 						<input
 							className="input"
@@ -164,13 +163,13 @@ const PageInitiative: FC = () => {
 
 			<section className="content-block">
 				<p className="center">
-					Lähettämällä lomakkeen hyväksyt{" "}
-					<a href="#" target="_blank">
-						käyttöehdot
+					{useT("formPolicyText")}{" "}
+					<a href={useT("urlTermsOfUse")} rel="noopener noreferrer external" target="_blank">
+						{useT("termsOfUse")}
 					</a>{" "}
-					ja{" "}
-					<a href="#" target="_blank">
-						tietosuojaselosteen
+					{useT("formPolicyTextAnd")}{" "}
+					<a href={useT("urlPrivacyPolicy")} rel="noopener noreferrer external" target="_blank">
+						{useT("formPrivacyPolicy")}
 					</a>
 					.
 				</p>
@@ -203,10 +202,10 @@ const PageInitiative: FC = () => {
 							});
 					}}
 				>
-					Lähetä aloite
+					{useT("btnSendInitiative")}
 				</button>
 				<p className="center">
-					Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian. 
+					{useT("initiativePageFooter")}
 				</p>
 			</section>
 			<Footer />
