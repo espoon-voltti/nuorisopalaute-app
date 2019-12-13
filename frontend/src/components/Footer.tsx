@@ -19,7 +19,7 @@ const Footer: React.FunctionComponent = () => {
 			<div className="footer-links">
 				<a
 					className="footer-link"
-					href="Tietosuojaseloste"
+					href={useT("urlPrivacyPolicy")}
 					target="_blank"
 					rel="noopener noreferrer external"
 				>

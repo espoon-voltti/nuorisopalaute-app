@@ -177,18 +177,78 @@ export const translations = {
 	},
 	formAllowPublishing: {
 		"fi-FI": "Palautteeni saa julkaista",
-		"sv-FI": "sv_Haluan vastauksen palautteeseeni",
-		"en-FI": "en_Haluan vastauksen palautteeseeni",
+		"sv-FI": "sv_palautteeni saa julkaista",
+		"en-FI": "en_palautteeni saa julkaista",
+	},
+	formContactInfo: {
+		"fi-FI": "Yhteystiedot",
+		"sv-FI": "Kontakt",
+		"en-FI": "Contact",
+	},
+	formContactInfoDesc: {
+		"fi-FI": "Yhteystietojasi ei julkaista, mutta palaute ja siihen annettava vastaus voidaan julkaista, jos sen sallit.",
+		"sv-FI": "sv_Yhteystietojasi ei julkaista, mutta palaute ja siihen annettava vastaus voidaan julkaista, jos sen sallit.",
+		"en-FI": "en_Yhteystietojasi ei julkaista, mutta palaute ja siihen annettava vastaus voidaan julkaista, jos sen sallit.",
+	},
+	formEmail: {
+		"fi-FI": "Sähköposti",
+		"sv-FI": "E-post",
+		"en-FI": "E-mail",
+	},
+	formEmailWarning: {
+		"fi-FI": "Syötä sähköpostiosoite",
+		"sv-FI": "sv_Syötä sähköpostiosoite",
+		"en-FI": "en_Syötä sähköpostiosoite",
+	},
+	formFirstName: {
+		"fi-FI": "Etunimi",
+		"sv-FI": "Förnamn",
+		"en-FI": "Firstname",
+	},
+	formLastName: {
+		"fi-FI": "Sukunimi",
+		"sv-FI": "Efternamn",
+		"en-FI": "Lastname",
+	},
+	formNotRequired: {
+		"fi-FI": "ei pakollinen",
+		"sv-FI": "frivilligt",
+		"en-FI": "optional",
 	},
 	formIwantReply: {
 		"fi-FI": "Haluan vastauksen palautteeseeni",
 		"sv-FI": "sv_Haluan vastauksen palautteeseeni",
 		"en-FI": "en_Haluan vastauksen palautteeseeni",
 	},
+	formPolicyTextAnd: {
+		"fi-FI": "ja",
+		"sv-FI": "och",
+		"en-FI": "and",
+	},
 	formPolicyText: {
-		"fi-FI": "Lähettämällä lomakkeen hyväksyt käyttöehdot ja tietosuojaselosteen.",
-		"sv-FI": "sv_Lähettämällä lomakkeen hyväksyt käyttöehdot ja tietosuojaselosteen.",
-		"en-FI": "en_Lähettämällä lomakkeen hyväksyt käyttöehdot ja tietosuojaselosteen.",
+		"fi-FI": "Lähettämällä lomakkeen hyväksyt ",
+		"sv-FI": "sv_Lähettämällä lomakkeen hyväksyt ",
+		"en-FI": "en_Lähettämällä lomakkeen hyväksyt ",
+	},
+	urlTermsOfUse: {
+		"fi-FI": "https://easiointi.espoo.fi/eFeedback/fi/TermsOfUse",
+		"sv-FI": "https://easiointi.espoo.fi/eFeedback/sv/TermsOfUse",
+		"en-FI": "https://easiointi.espoo.fi/eFeedback/en/TermsOfUse",
+	},
+	termsOfUse: {
+		"fi-FI": "käyttöehdot",
+		"sv-FI": "användarvillkor",
+		"en-FI": "Terms of Use",
+	},
+	urlPrivacyPolicy: {
+		"fi-FI": "https://easiointi.espoo.fi/eFeedback/fi/PrivacyPolicy",
+		"sv-FI": "https://easiointi.espoo.fi/eFeedback/sv/PrivacyPolicy",
+		"en-FI": "https://easiointi.espoo.fi/eFeedback/en/PrivacyPolicy",
+	},
+	formPrivacyPolicy: {
+		"fi-FI": "tietosuojaselosteen.",
+		"sv-FI": "dataskyddsbeskrivning",
+		"en-FI": "Privacy Policy.",
 	},
 	btnSendFeedBack: {
 		"fi-FI": "Lähetä palaute",
@@ -196,8 +256,18 @@ export const translations = {
 		"en-FI": "Send Feedback",
 	},
 	feedbackPageFooter: {
-		"fi-FI": "Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä asiakaspalveluun.",
-		"sv-FI": "sv_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä asiakaspalveluun.",
-		"en-FI": "en_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä asiakaspalveluun.",
+		"fi-FI": "Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä ",
+		"sv-FI": "sv_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä ",
+		"en-FI": "en_Palautteesi on meille tärkeä ja vastaamme siihen mahdollisimman pian. Kiireellisissä asioissa kannattaa kuitenkin olla suoraan yhteydessä ",
+	},
+	customerService: {
+		"fi-FI": "asiakaspalveluun.",
+		"sv-FI": "kundservice",
+		"en-FI": "customer service.",
+	},
+	urlCustomerService: {
+		"fi-FI": "https://www.espoo.fi/sv-FI/Espoon_kaupunki/Organisaatio_ja_yhteystiedot/Yhteystiedot",
+		"sv-FI": "https://www.esbo.fi/sv-FI/Esbo_stad/Organisation_och_kontaktuppgifter/Kontaktuppgifter",
+		"en-FI": "http://www.espoo.fi/en-US/City_of_Espoo/Organization_and_contact_information/Contact_information",
 	},
 };

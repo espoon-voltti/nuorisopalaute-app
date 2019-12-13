@@ -17,6 +17,14 @@ const PageFeedback: FC = () => {
 	const [surname, setSurname] = useState("");
 	const [attachments, setAttachments] = useState([]);
 
+	const formContactInfo = useT("formContactInfo");
+	const formContactInfoDesc = useT("formContactInfoDesc");
+	const formEmail = useT("formEmail");
+	const formEmailWarning = useT("formEmailWarning");
+	const formFirstName = useT("formFirstName");
+	const formLastName = useT("formLastName");
+	const formNotRequired = useT("formNotRequired");
+
 	const attachmentsChanged = (files: any) => {
 		console.log(files);
 		setAttachments(files);
@@ -32,43 +40,38 @@ const PageFeedback: FC = () => {
 
 			<section className="content-block">
 				<h1 className="form-header">
-					Anna palautetta Espoon kaupungin palveluista
+					{useT("feedbackPageHeadline")}
 				</h1>
 				<img className="form-image" src="/human-yellow.svg" alt="" />
 				<p className="form-ingress">
-					Jätä meille palautetta Espoon kaupungin palveluista! Onko lenkkitiellä kaatunut puu? Puuttuuko jostain penkki, roskis tai fillariteline? Haluatko kiittää tai antaa meille risuja? 
+					{useT("feedbackPageIngress")}
 				</p>
 				<p>
-					Palaute on aloitetta nopeampi ja kevyempi keino kertoa meille myös ideoita ja toimenpide-ehdotuksia. 
+					{useT("feedbackPageText")}
 				</p>
 			</section>
 
 			<section className="content-block">
-				<h2 className="form-subheader">Palaute</h2>
+				<h2 className="form-subheader">{useT("feedback")}</h2>
 				<p>
-					Ethän koskaan kirjoita palautteeseesi henkilötunnustasi,
-					pankkitilisi numeroa, terveystietoja tms. arkaluonteista
-					tietoa.
+					{useT("feedbackFormDesc")}
 				</p>
 				<textarea
 					className="textarea"
 					required
-					placeholder="Kiitos, kommentti, kysymys, moite..."
+					placeholder={useT("feedbackFormPlaceholder")}
 					onChange={event =>
 						setFeedbackDescription(event.target.value)
 					}
 				/>
-				<p className="label">Liitteet</p>
+				<p className="label">{useT("formAttachmentsLabel")}</p>
 				<p>
-					Voit liittää palautteeseen yhden tai useampia
-					liitetiedostoja, esimerkiksi kuvia havainnosta.
+					{useT("formAttachmentsDescFeedback")}
 				</p>
 
 				<FileDropzone onAttachmentsChanged={attachmentsChanged} />
 				<p className="disclaimer">
-					Liitteiden yhteenlaskettu maksimikoko on 15Mt. Hyväksytyt
-					tiedostomuodot ovat pdf, doc, docx, rtf, gif, png, jpg,
-					jpeg, tif, tiff, txt, zip, xls, xlsx, ppt ja pptx
+					{useT("formAttachmentsDisclaimer")}
 				</p>
 			</section>
 
@@ -77,7 +80,7 @@ const PageFeedback: FC = () => {
 					id={"allow-publish"}
 					name={"allow-publish"}
 					isChecked={allowPublish}
-					children="Palautteeni saa julkaista"
+					children={useT("formAllowPublishing")}
 					onChange={newValue => setAllowPublish(newValue)}
 				/>
 
@@ -85,22 +88,21 @@ const PageFeedback: FC = () => {
 					id={"response-yes"}
 					name={"response-yes"}
 					isChecked={wantsAnswer}
-					children="Haluan vastauksen palautteeseeni"
+					children={useT("formIwantReply")}
 					onChange={newValue => setWantsAnswer(newValue)}
 				/>
 			</section>
 
 			{wantsAnswer && (
 				<section className="content-block">
-					<h2 className="form-subheader">Yhteystiedot</h2>
+					<h2 className="form-subheader">{formContactInfo}</h2>
 					<p>
-						Yhteystietojasi ei julkaista, mutta palaute ja siihen
-						annettava vastaus voidaan julkaista, jos sen sallit.
+						{formContactInfoDesc}
 					</p>
 
 					<div className="field">
 						<label className="label" htmlFor="email">
-							Sähköposti
+							{formEmail}
 						</label>
 						<input
 							className="input"
@@ -112,14 +114,14 @@ const PageFeedback: FC = () => {
 							onChange={event => setEmail(event.target.value)}
 						/>
 						<p className="warning-text">
-							Syötä sähköposti oikeassa muodossa.
+							{formEmailWarning}
 						</p>
 					</div>
 
 					<div className="field">
 						<label className="label" htmlFor="firstname">
-							Etunimi{" "}
-							<span className="optional">(ei pakollinen)</span>
+							{formFirstName}{" "}
+							<span className="optional">({formNotRequired})</span>
 						</label>
 						<input
 							className="input"
@@ -132,8 +134,8 @@ const PageFeedback: FC = () => {
 
 					<div className="field">
 						<label className="label" htmlFor="lastname">
-							Sukunimi{" "}
-							<span className="optional">(ei pakollinen)</span>
+							{formLastName}{" "}
+							<span className="optional">({formNotRequired})</span>
 						</label>
 						<input
 							className="input"
@@ -148,13 +150,13 @@ const PageFeedback: FC = () => {
 
 			<section className="content-block">
 				<p className="center">
-					Lähettämällä lomakkeen hyväksyt{" "}
-					<a href="#" target="_blank">
-						käyttöehdot
+					{useT("formPolicyText")}{" "}
+					<a href={useT("urlTermsOfUse")} rel="noopener noreferrer external" target="_blank">
+						{useT("termsOfUse")}
 					</a>{" "}
-					ja{" "}
-					<a href="#" target="_blank">
-						tietosuojaselosteen
+					{useT("formPolicyTextAnd")}{" "}
+					<a href={useT("urlPrivacyPolicy")} rel="noopener noreferrer external" target="_blank">
+						{useT("formPrivacyPolicy")}
 					</a>
 					.
 				</p>
@@ -198,14 +200,12 @@ const PageFeedback: FC = () => {
 							});
 					}}
 				>
-					Lähetä palaute
+					{useT("btnSendFeedBack")}
 				</button>
 				<p className="center">
-					Palautteesi on meille tärkeä ja vastaamme siihen
-					mahdollisimman pian. Kiireellisissä asioissa kannattaa
-					kuitenkin olla suoraan yhteydessä{" "}
-					<a href="#" target="_blank" rel="">
-						asiakaspalveluun
+					{useT("feedbackPageFooter")}{" "}
+					<a href={useT("urlCustomerService")} target="_blank" rel="noopener noreferrer external">
+						{useT("customerService")}
 					</a>
 					.
 				</p>
