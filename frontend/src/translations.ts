@@ -350,4 +350,9 @@ export const translations = {
 		"sv-FI": "Tillbaka till första sidan",
 		"en-FI": "Back to the front page",
 	},
+	ariaMenu: {
+		"fi-FI": "Valikko",
+		"sv-FI": "Meny",
+		"en-FI": "Menu",
+	},
 };

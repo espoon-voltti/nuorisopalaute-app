@@ -166,6 +166,15 @@
   font-weight: bold;
 }
 
+[data-inclusive-menu] [role^="menuitem"][aria-checked="true"]:hover {
+	background-color: transparent;
+}
+
+
+[data-inclusive-menu] .menuitem:hover {
+	background-color: $border-color;
+	border-radius: $border-radius;
+}
 
 
 .title {

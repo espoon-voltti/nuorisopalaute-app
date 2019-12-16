@@ -57,17 +57,18 @@ const PageFeedback: FC = () => {
 				</section>
 
 				<section className="content-block">
-					<h2 className="form-subheader">{useT("feedback")}</h2>
+					<label htmlFor="feedback" className="form-subheader">{useT("feedback")}</label>
 					<p>{useT("feedbackFormDesc")}</p>
 					<textarea
 						className="textarea"
 						required
+						id="feedback"
 						placeholder={useT("feedbackFormPlaceholder")}
 						onChange={event =>
 							setFeedbackDescription(event.target.value)
 						}
 					/>
-					<p className="label">{useT("formAttachmentsLabel")}</p>
+					<label className="label">{useT("formAttachmentsLabel")}</label>
 					<p>{useT("formAttachmentsDescFeedback")}</p>
 
 					<FileDropzone onAttachmentsChanged={attachmentsChanged} />

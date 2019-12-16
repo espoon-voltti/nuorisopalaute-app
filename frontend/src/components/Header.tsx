@@ -10,6 +10,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 	const feedback = useT("feedback");
 	const initiative = useT("initiative");
 	const frontpage = useT("frontpage");
+	const ariaMenu = useT("ariaMenu");
 	const [expanded, setExpanded] = useState(false);
 	return (
 		<header className={`header ${props.className}`}>
@@ -26,6 +27,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 			<div data-inclusive-menu>
 				<button
 					className="menu"
+					aria-label={ariaMenu}
 					data-inclusive-menu-opens="navigation"
 					aria-haspopup="true"
 					aria-expanded={expanded}
