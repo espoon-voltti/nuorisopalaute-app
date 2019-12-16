@@ -69,7 +69,7 @@ const PageInitiative: FC = () => {
 							setInitiativeDescription(event.target.value)
 						}
 					/>
-					<p className="label">{useT("formAttachmentsLabel")}</p>
+					<label htmlFor="attachments" className="label">{useT("formAttachmentsLabel")}</label>
 					<p>{useT("formAttachmentsDescInitiative")}</p>
 					<input
 						type="file"

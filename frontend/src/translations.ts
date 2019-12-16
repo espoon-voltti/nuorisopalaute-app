@@ -355,4 +355,9 @@ export const translations = {
 		"sv-FI": "Meny",
 		"en-FI": "Menu",
 	},
+	jumpToContent: {
+		"fi-FI": "Siirry sisältöön",
+		"sv-FI": "Hoppa till innehåll",
+		"en-FI": "Jump to content",
+	},
 };

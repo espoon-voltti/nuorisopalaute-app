@@ -15,9 +15,9 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 	return (
 		<header className={`header ${props.className}`}>
 			<a className="jump-to-content" href="#content">
-				Siirry sisältöön
+				{useT("jumpToContent")}
 			</a>
-			<a href="/">
+			<a href="/" title={useT("backToFrontPage")}>
 				<img
 					className="logo"
 					src="/logo-nuori-espoo.svg"
