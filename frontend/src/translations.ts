@@ -320,4 +320,34 @@ export const translations = {
 		"sv-FI": "sv_Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian.",
 		"en-FI": "en_Aloitteen arvioitu käsittelyaika ilmoitetaan aloitteen jättäjälle mahdollisimman pian.",
 	},
+	thankYou: {
+		"fi-FI": "Kiitos",
+		"sv-FI": "Tack",
+		"en-FI": "Thank You",
+	},
+	forFeedback: {
+		"fi-FI": "palautteestasi",
+		"sv-FI": "för din feedback",
+		"en-FI": "for Your feedback",
+	},
+	forInitiative: {
+		"fi-FI": "aloittestasi",
+		"sv-FI": "för din initiative",
+		"en-FI": "for Your initiative",
+	},
+	thankYouFeedbackText: {
+		"fi-FI": "Käsittelemme palautteesi mahdollisimman pian.",
+		"sv-FI": "sv_Käsittelemme palautteesi mahdollisimman pian.",
+		"en-FI": "en_Käsittelemme palautteesi mahdollisimman pian.",
+	},
+	thankYouInitiativeText: {
+		"fi-FI": "Käsittelemme aloitteesi mahdollisimman pian.",
+		"sv-FI": "sv_Käsittelemme aloitteesi mahdollisimman pian.",
+		"en-FI": "en_Käsittelemme aloitteesi mahdollisimman pian.",
+	},
+	backToFrontPage: {
+		"fi-FI": "Takaisin etusivulle",
+		"sv-FI": "Tillbaka till första sidan",
+		"en-FI": "Back to the front page",
+	},
 };
