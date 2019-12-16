@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as config from "./config";
@@ -10,14 +10,21 @@ import PageError from "./PageError";
 import { PageInitiative } from "./PageInitiative";
 import { PageThankYou } from "./PageThankYou";
 import { PageAccessibility } from "./PageAccessibility";
+import Helmet from "react-helmet";
 
 const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
+	const currentPath = window.location.pathname;
+	useEffect(() => {
+		if (currentPath === "/")
+			window.location.pathname = `/${currentLanguage}/`;
+	}, [currentLanguage, currentPath]);
 
 	return (
 		<ErrorBoundary>
 			<div id="app">
 				<Router basename={`/${currentLanguage}`}>
+					<Helmet htmlAttributes={{ lang: currentLanguage }}></Helmet>
 					<Switch>
 						<Route exact path="/" component={PageLanding} />
 						<Route exact path="/palaute" component={PageFeedback} />
