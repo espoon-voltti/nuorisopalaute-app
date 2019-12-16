@@ -37,46 +37,47 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 					role="menu"
 					hidden={!expanded}
 				>
-					<nav>
-						<button
-							className="menuitem selected"
-							role="menuitem"
-							aria-checked="true"
-						>
-							{frontpage}
-						</button>
-						<button className="menuitem" role="menuitem">
-							{feedback}
-						</button>
-						<button className="menuitem" role="menuitem">
-							{initiative}
-						</button>
-					</nav>
-					<div className="nav-menu--language">
-						<button
-							role="menuitem"
-							aria-current="page"
-							className="lang-link selected"
-							aria-checked="true"
-						>
-							Suomeksi
-						</button>
-						<button
-							role="menuitem"
-							className="lang-link"
-							lang="sv-SV"
-						>
-							På svenska
-						</button>
-						<button
-							role="menuitem"
-							className="lang-link"
-							lang="en-EN"
-						>
-							In English
-						</button>
+					<div className="nav-wrapper">
+						<nav>
+							<button
+								className="menuitem selected"
+								role="menuitem"
+								aria-checked="true"
+							>
+								{frontpage}
+							</button>
+							<button className="menuitem" role="menuitem">
+								{feedback}
+							</button>
+							<button className="menuitem" role="menuitem">
+								{initiative}
+							</button>
+						</nav>
+						<div className="nav-menu--language">
+							<button
+								role="menuitem"
+								aria-current="page"
+								className="lang-link selected"
+								aria-checked="true"
+							>
+								Suomeksi
+							</button>
+							<button
+								role="menuitem"
+								className="lang-link"
+								lang="sv-SV"
+							>
+								På svenska
+							</button>
+							<button
+								role="menuitem"
+								className="lang-link"
+								lang="en-EN"
+							>
+								In English
+							</button>
+						</div>
 					</div>
-
 				</div>
 			</div>
 		</header>

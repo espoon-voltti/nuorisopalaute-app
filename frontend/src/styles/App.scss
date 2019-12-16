@@ -120,10 +120,6 @@
  background: transparent url('/icons/icon-menu-close.svg') 50% 50% no-repeat;		
 }
 
-
-
-
-
 [data-inclusive-menu-opens],
 [data-inclusive-menu] [role^="menuitem"] {
   text-align: left;
@@ -138,8 +134,11 @@
   padding: 20px 20px 25px 20px;
   border-radius: $border-radius;
   box-shadow: 0 2px 16px rgba(0,0,0,0.16);
-  display: flex;
-  flex-direction: column-reverse;
+}
+
+.nav-wrapper {
+	flex-direction: column-reverse;
+	display: flex;
 }
 
 [data-inclusive-menu] [data-inclusive-menu-from="right"] {
