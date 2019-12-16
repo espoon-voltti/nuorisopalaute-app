@@ -1,9 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import React from "react";
-import { useT } from "../i18n";
+import { useHistory, useLocation } from "react-router";
+import { useT, Language, useCurrentLanguage } from "../i18n";
+import i18next from "i18next";
 
 type HeaderProps = {
 	className: string;
+};
+
+function useOnClickOutside(ref: any, handler: any): void {
+	useEffect(() => {
+		const listener = (event: any): void => {
+			// Do nothing if clicking ref's element or descendent elements
+			if (!ref.current || ref.current.contains(event.target)) {
+				return;
+			}
+
+			handler(event);
+		};
+
+		document.addEventListener("mousedown", listener);
+		document.addEventListener("touchstart", listener);
+
+		return () => {
+			document.removeEventListener("mousedown", listener);
+			document.removeEventListener("touchstart", listener);
+		};
+	}, [ref, handler]); // ... passing it into this hook. // ... but to optimize you can wrap handler in useCallback before ... // ... callback/cleanup to run every render. It's not a big deal ... // ... function on every render that will cause this effect ... // It's worth noting that because passed in handler is a new ... // Add ref and handler to effect dependencies
+}
+
+const setLanguage = (lng: Language): void => {
+	i18next.changeLanguage(lng);
 };
 
 const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
@@ -12,6 +39,16 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 	const frontpage = useT("frontpage");
 	const ariaMenu = useT("ariaMenu");
 	const [expanded, setExpanded] = useState(false);
+	const ref = useRef();
+
+	const currentLanguage = useCurrentLanguage();
+	console.log(currentLanguage);
+	const history = useHistory();
+	const location = useLocation();
+	console.log("location:" + location.pathname);
+
+	useOnClickOutside(ref, () => setExpanded(false));
+
 	return (
 		<header className={`header ${props.className}`}>
 			<a className="jump-to-content" href="#content">
@@ -24,7 +61,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 					alt="Nuori Espoo"
 				/>
 			</a>
-			<div data-inclusive-menu>
+			<div data-inclusive-menu ref={ref as any}>
 				<button
 					className="menu"
 					aria-label={ariaMenu}
@@ -44,14 +81,34 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 							<button
 								className="menuitem selected"
 								role="menuitem"
-								aria-checked="true"
+								aria-checked={location.pathname === "/"}
+								onClick={(): void => {
+									const url = "/";
+									history.push(url);
+								}}
 							>
 								{frontpage}
 							</button>
-							<button className="menuitem" role="menuitem">
+							<button
+								className="menuitem"
+								role="menuitem"
+								aria-checked={location.pathname === "/palaute"}
+								onClick={(): void => {
+									const url = "/palaute";
+									history.push(url);
+								}}
+							>
 								{feedback}
 							</button>
-							<button className="menuitem" role="menuitem">
+							<button
+								className="menuitem"
+								role="menuitem"
+								aria-checked={location.pathname === "/aloite"}
+								onClick={(): void => {
+									const url = "/aloite";
+									history.push(url);
+								}}
+							>
 								{initiative}
 							</button>
 						</nav>
@@ -60,7 +117,10 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 								role="menuitem"
 								aria-current="page"
 								className="lang-link selected"
-								aria-checked="true"
+								aria-checked={currentLanguage === "fi-FI"}
+								onClick={(): void => {
+									setLanguage("fi-FI");
+								}}
 							>
 								Suomeksi
 							</button>
@@ -68,6 +128,10 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 								role="menuitem"
 								className="lang-link"
 								lang="sv-SV"
+								aria-checked={currentLanguage === "sv-FI"}
+								onClick={(): void => {
+									setLanguage("sv-FI");
+								}}
 							>
 								På svenska
 							</button>
@@ -75,6 +139,10 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 								role="menuitem"
 								className="lang-link"
 								lang="en-EN"
+								aria-checked={currentLanguage === "en-FI"}
+								onClick={(): void => {
+									setLanguage("en-FI");
+								}}
 							>
 								In English
 							</button>

@@ -9,6 +9,7 @@ import { PageFeedback } from "./PageFeedback";
 import PageError from "./PageError";
 import { PageInitiative } from "./PageInitiative";
 import { PageThankYou } from "./PageThankYou";
+import { PageAccessibility } from "./PageAccessibility";
 
 const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
@@ -26,6 +27,11 @@ const App: React.FC = () => {
 							component={PageInitiative}
 						/>
 						<Route exact path="/kiitos" component={PageThankYou} />
+						<Route
+							exact
+							path="/saavutettavuus"
+							component={PageAccessibility}
+						/>
 						<Route component={() => <PageError error="404" />} />
 					</Switch>
 				</Router>
