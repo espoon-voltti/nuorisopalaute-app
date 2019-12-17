@@ -8,11 +8,13 @@ import { useT } from "../i18n";
 import { Trans } from "react-i18next";
 import { useHistory, useLocation } from "react-router";
 import * as queryString from "query-string";
+import { format } from "date-fns";
 
 const PageViewInitiative: FC = () => {
 	const [initiative, setInitiative] = useState({
 		header: "",
 		description: "",
+		date: new Date(),
 	});
 	console.log(initiative);
 
@@ -58,6 +60,7 @@ const PageViewInitiative: FC = () => {
 			<div className="form-container">
 				<section className="content-block">
 					<h2 className="form-subheader">{initiative.header}</h2>
+					{format(initiative.date, "d.M.yyyy")}
 				</section>
 				{initiative &&
 					initiative.description.split("\n").map((value, index) => {

@@ -7,6 +7,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useT, useCurrentLanguage } from "../i18n";
 import { Trans } from "react-i18next";
+import { format } from "date-fns";
 
 interface Initiative {
 	header: string;
@@ -251,7 +252,7 @@ const PageLanding: FC = () => {
 											{value.header}
 										</a>
 										<span className="date">
-											{value.date.toISOString()}
+											{format(value.date, "d.M.yyyy")}
 										</span>
 									</li>
 								);
