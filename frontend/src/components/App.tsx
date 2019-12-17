@@ -8,6 +8,7 @@ import { PageLanding } from "./PageLanding";
 import { PageFeedback } from "./PageFeedback";
 import PageError from "./PageError";
 import { PageInitiative } from "./PageInitiative";
+import { PageViewInitiative } from "./PageViewInitiative";
 import { PageThankYou } from "./PageThankYou";
 import { PageAccessibility } from "./PageAccessibility";
 import Helmet from "react-helmet";
@@ -32,6 +33,11 @@ const App: React.FC = () => {
 							exact
 							path="/aloite"
 							component={PageInitiative}
+						/>
+						<Route
+							exact
+							path="/aloitteet"
+							component={PageViewInitiative}
 						/>
 						<Route exact path="/kiitos" component={PageThankYou} />
 						<Route

@@ -13,8 +13,10 @@ const PageInitiative: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
 	const [wantsAnswer, setWantsAnswer] = useState(false);
 	const [initiativeDescription, setInitiativeDescription] = useState("");
+	const [initiativeHeader, setInitiativeHeader] = useState("");
 	const [email, setEmail] = useState("");
 	const [firstname, setFirstname] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
 	const [surname, setSurname] = useState("");
 
 	const history = useHistory();
@@ -59,6 +61,9 @@ const PageInitiative: FC = () => {
 							type="text"
 							id="headline"
 							name="headline"
+							onChange={event =>
+								setInitiativeHeader(event.target.value)
+							}
 						/>
 					</div>
 					<label className="label" htmlFor="initiative">
@@ -153,7 +158,9 @@ const PageInitiative: FC = () => {
 							type="email"
 							id="phonenumber"
 							name="phonenumber"
-							//onChange={event => setPhonenumber(event.target.value)}
+							onChange={event =>
+								setPhoneNumber(event.target.value)
+							}
 						/>
 					</div>
 				</section>
@@ -180,7 +187,11 @@ const PageInitiative: FC = () => {
 					</p>
 					<button
 						disabled={
-							!initiativeDescription || (wantsAnswer && !email)
+							!initiativeDescription ||
+							!email ||
+							!firstname ||
+							!surname ||
+							!initiativeHeader
 						}
 						className="btn btn--form"
 						onClick={(): void => {
@@ -197,7 +208,7 @@ const PageInitiative: FC = () => {
 
 							axios
 								.post(config.API_URL + "/test", data)
-								.then(function(response: any) {
+								.then(function (response: any) {
 									console.log(response);
 								})
 								.catch((error: Error) => {

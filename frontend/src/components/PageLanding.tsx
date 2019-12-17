@@ -1,12 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "../styles/PageLanding.scss";
 import { useHistory } from "react-router";
 import axios from "axios";
 import config from "./config";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useT } from "../i18n";
+import { useT, useCurrentLanguage } from "../i18n";
 import { Trans } from "react-i18next";
+
+interface Initiative {
+	header: string;
+	description: string;
+	date: Date;
+	id: number;
+}
 
 const PageLanding: FC = () => {
 	const history = useHistory();
@@ -33,6 +40,44 @@ const PageLanding: FC = () => {
 	const feedbackExample5Text = useT("feedbackExample5Text");
 	const initiativesHeadline = useT("initiativesHeadline");
 
+	const currentLanguage = useCurrentLanguage();
+	console.log(currentLanguage);
+
+	const [initiatives, setInitiatives] = useState<Initiative[] | null>(null);
+	console.log(initiatives);
+	useEffect(() => {
+		axios
+			.get(config.API_URL + "/initiatives")
+			.then(function (response) {
+				const _initiatives: Initiative[] = [];
+				response.data.forEach((initiative: any) => {
+					const text = initiative.description
+						.replace(/\r\n/g, "\n")
+						.replace(/[\n]+/g, "\n")
+						.trim();
+					const texts = text.split("\n");
+					const header = texts[0];
+					const description = texts.slice(1).join("\n");
+
+					const id = initiative.service_request_id;
+
+					const _initiative: Initiative = {
+						description: description,
+						header: header,
+						date: new Date(initiative.requested_datetime),
+						id: id,
+					};
+					_initiatives.push(_initiative);
+				});
+				setInitiatives(_initiatives);
+			})
+			.catch((error: Error) => {
+				console.error(error.message);
+				throw error;
+			});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	return (
 		<>
 			<Header className="header--dark header--landing"></Header>
@@ -54,7 +99,7 @@ const PageLanding: FC = () => {
 
 									axios
 										.get(config.API_URL + "/test")
-										.then(function(response: any) {
+										.then(function (response: any) {
 											console.log(response);
 										})
 										.catch((error: Error) => {
@@ -198,6 +243,19 @@ const PageLanding: FC = () => {
 				<section className="">
 					<h2 className="section-header">{initiativesHeadline}</h2>
 					<ul className="initiative-list">
+						{initiatives &&
+							initiatives.map((value, index) => {
+								return (
+									<li key={"initiatives" + index}>
+										<a href={"aloitteet?id=" + value.id}>
+											{value.header}
+										</a>
+										<span className="date">
+											{value.date.toISOString()}
+										</span>
+									</li>
+								);
+							})}
 						<li>
 							<a href="#">Ruotsinkielen opetuksen muuttaminen</a>
 							<span className="date">4.12.2019</span>
