@@ -1,16 +1,13 @@
 @import "variables.scss";
 
-.page-accessibility {
-	padding: 20px;
+.accessibility-page {
+	max-width: 800px;
+	margin: 100px auto 0 auto;
+	@media only screen and (max-width: 800px) {
+		margin: 100px 20px 50px 20px;
+	}
 }
 
-.page-accessibility-content {
-	max-width: 680px;
-	margin: 0 auto 70px auto;
-}
-
-.page-accessibility-title {
+.accessibility-title {
 	margin-bottom: 1em;
-
-	margin-top: 1em;
 }
