@@ -57,7 +57,9 @@ const PageFeedback: FC = () => {
 				</section>
 
 				<section className="content-block">
-					<label htmlFor="feedback" className="form-subheader">{useT("feedback")}</label>
+					<label htmlFor="feedback" className="form-subheader">
+						{useT("feedback")}
+					</label>
 					<p>{useT("feedbackFormDesc")}</p>
 					<textarea
 						className="textarea"
@@ -68,7 +70,9 @@ const PageFeedback: FC = () => {
 							setFeedbackDescription(event.target.value)
 						}
 					/>
-					<label className="label">{useT("formAttachmentsLabel")}</label>
+					<label className="label">
+						{useT("formAttachmentsLabel")}
+					</label>
 					<p>{useT("formAttachmentsDescFeedback")}</p>
 
 					<FileDropzone onAttachmentsChanged={attachmentsChanged} />
@@ -191,7 +195,7 @@ const PageFeedback: FC = () => {
 								"nuortenpalaute.espoo.fi",
 							);
 
-							history.push("/kiitos");
+							history.push("/kiitos?ref=palaute");
 
 							/*const data = {
 							email: "test123@test.fi",
@@ -209,7 +213,7 @@ const PageFeedback: FC = () => {
 
 							axios
 								.post(config.API_URL + "/test", data)
-								.then(function (response: any) {
+								.then(function(response: any) {
 									console.log(response);
 								})
 								.catch((error: Error) => {

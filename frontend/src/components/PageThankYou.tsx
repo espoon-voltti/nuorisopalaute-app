@@ -4,14 +4,26 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useT } from "../i18n";
 import { Trans } from "react-i18next";
+import { useLocation } from "react-router";
+import * as queryString from "query-string";
 
 const PageThankYou: FC = () => {
+	const location = useLocation();
+
+	const ref = queryString.parse(location.search).ref;
+
+	const forFeedback = useT("forFeedback");
+	const forInitiative = useT("forInitiative");
+
 	return (
 		<>
 			<Header className="header--landing"></Header>
 			<div className="thankyou-container">
 				<section className="content-block">
-					<h1 className="center">{useT("thankYou")} {" "} {useT("forFeedback")}!</h1>
+					<h1 className="center">
+						{useT("thankYou")}{" "}
+						{ref === "palaute" ? forFeedback : forInitiative}!
+					</h1>
 					<img
 						className="form-image"
 						src="/human-yellow.svg"
@@ -19,7 +31,9 @@ const PageThankYou: FC = () => {
 					/>
 					<p className="center">{useT("thankYouFeedbackText")}</p>
 
-					<p className="center"><a href="/">{useT("backToFrontPage")}.</a></p>
+					<p className="center">
+						<a href="/">{useT("backToFrontPage")}.</a>
+					</p>
 				</section>
 				<Footer />
 			</div>

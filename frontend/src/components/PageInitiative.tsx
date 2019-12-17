@@ -7,6 +7,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useT } from "../i18n";
 import { Trans } from "react-i18next";
+import { useHistory } from "react-router";
 
 const PageInitiative: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
@@ -15,6 +16,8 @@ const PageInitiative: FC = () => {
 	const [email, setEmail] = useState("");
 	const [firstname, setFirstname] = useState("");
 	const [surname, setSurname] = useState("");
+
+	const history = useHistory();
 
 	const handleFile = (e: any) => {
 		console.log(e.target.files);
@@ -69,7 +72,9 @@ const PageInitiative: FC = () => {
 							setInitiativeDescription(event.target.value)
 						}
 					/>
-					<label htmlFor="attachments" className="label">{useT("formAttachmentsLabel")}</label>
+					<label htmlFor="attachments" className="label">
+						{useT("formAttachmentsLabel")}
+					</label>
 					<p>{useT("formAttachmentsDescInitiative")}</p>
 					<input
 						type="file"
@@ -179,19 +184,16 @@ const PageInitiative: FC = () => {
 						}
 						className="btn btn--form"
 						onClick={(): void => {
-							const data = {
-								email: "test123@test.fi",
-								description: "testi-feedback",
-								// eslint-disable-next-line @typescript-eslint/camelcase
-								first_name: "test6",
-								// eslint-disable-next-line @typescript-eslint/camelcase
-								last_name: "",
-								lat: "",
-								long: "",
-								respond: false,
-								// eslint-disable-next-line @typescript-eslint/camelcase
-								address_string: "nuortenpalaute.espoo.fi",
-							};
+							const data: FormData = new FormData();
+
+							//data.append("email", email);
+							//data.append("first_name", firstname);
+							//data.append("last_name", surname);
+							data.append("description", initiativeDescription);
+							data.append(
+								"address_string",
+								"nuortenpalaute.espoo.fi",
+							);
 
 							axios
 								.post(config.API_URL + "/test", data)
@@ -202,6 +204,8 @@ const PageInitiative: FC = () => {
 									console.error(error.message);
 									throw error;
 								});
+
+							history.push("/kiitos?ref=aloite");
 						}}
 					>
 						{useT("btnSendInitiative")}
