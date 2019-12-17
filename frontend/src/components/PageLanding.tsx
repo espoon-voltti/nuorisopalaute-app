@@ -162,7 +162,7 @@ const PageLanding: FC = () => {
 							</h3>
 							<img
 								className="teaser__image"
-								src="/icon-mic.svg"
+								src="/icon-library.svg"
 								alt=""
 							/>
 							<p className="teaser__text">
@@ -188,7 +188,7 @@ const PageLanding: FC = () => {
 							</h3>
 							<img
 								className="teaser__image"
-								src="/icon-mic.svg"
+								src="/icon-dog.svg"
 								alt=""
 							/>
 							<p className="teaser__text">
