@@ -18,7 +18,7 @@ const PageThankYou: FC = () => {
 	return (
 		<>
 			<Header className="header--landing"></Header>
-			<div className="thankyou-container">
+			<div id="content" className="thankyou-container">
 				<section className="content-block">
 					<h1 className="center">
 						{useT("thankYou")}{" "}
