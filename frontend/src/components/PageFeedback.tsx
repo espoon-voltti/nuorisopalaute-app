@@ -40,7 +40,7 @@ const PageFeedback: FC = () => {
 	return (
 		<>
 			<Header className="header"></Header>
-			<div className="form-container">
+			<div id="content" className="form-container">
 				<section className="content-block">
 					<h1 className="form-header">
 						{useT("feedbackPageHeadline")}

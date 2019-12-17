@@ -36,7 +36,7 @@ const PageLanding: FC = () => {
 	return (
 		<>
 			<Header className="header--dark header--landing"></Header>
-			<div id="landing">
+			<div className="landing" id="content">
 				<div className="jumbotron">
 					<div className="jumbotron-content">
 						<h1 className="jumbotron-header">
@@ -47,6 +47,7 @@ const PageLanding: FC = () => {
 						<p className="jumbotron-text">{jumbotronSubHeadline}</p>
 						<div className="jumbotron-btns">
 							<a
+								href="/palaute"
 								className="btn btn--bounce"
 								onClick={(): void => {
 									const url = "/palaute";
@@ -69,6 +70,7 @@ const PageLanding: FC = () => {
 								{jumbotronOr}
 							</span>
 							<a
+								href="/aloite"
 								className="btn btn-secondary"
 								onClick={(): void => {
 									const url = "/aloite";
