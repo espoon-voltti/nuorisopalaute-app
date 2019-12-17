@@ -6,26 +6,23 @@ import { RequestOptions } from "http"
 
 const FormData = require("form-data")
 
-const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
+//const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
+const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
 
-export async function Test(ctx: any) {
-	return "Hello World"
-}
-
-export async function SendTest(ctx: any) {
+export async function SendFeedback(ctx: any) {
 	console.log(ctx.request.body)
 	console.log(ctx.request.files)
 
 	const url = trimbleUrl
 	const serviceCodes = {
-		palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
-		aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
-		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
-		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
+		//palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
+		//aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
+		palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
+		aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
 	const authOptions = {
 		api_key: process.env.TRIMBLE_KEY,
-		jurisdiction_id: "nuortenespoo",
+		jurisdiction_id: "nuortenespoo2",
 		service_code: serviceCodes["palaute"]
 	}
 	const postBody = Object.assign({}, ctx.request.body, authOptions, { respond: undefined }, { type: undefined })
@@ -123,6 +120,55 @@ export async function SendTest(ctx: any) {
 	return "Done"
 }
 
+export async function SendInitiative(ctx: any) {
+	console.log(ctx.request.body)
+	console.log(ctx.request.files)
+
+	const url = trimbleUrl
+	const serviceCodes = {
+		//palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
+		//aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
+		palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
+		aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
+	}
+	const authOptions = {
+		api_key: process.env.TRIMBLE_KEY,
+		jurisdiction_id: "nuortenespoo2",
+		service_code: serviceCodes["aloite"]
+	}
+	const postBody = Object.assign({}, ctx.request.body, authOptions, { respond: undefined }, { type: undefined })
+
+	const data: FormData = new FormData()
+	data.append("api_key", authOptions.api_key)
+	data.append("jurisdiction_id", authOptions.jurisdiction_id)
+	data.append("service_code", authOptions.service_code)
+
+	data.append("address_string", "nuortenpalaute.espoo.fi")
+	data.append("description", ctx.request.body.description)
+	data.append("email", ctx.request.body.email ? ctx.request.body.email : "")
+	data.append("first_name", ctx.request.body.first_name ? ctx.request.body.first_name : "")
+	data.append("last_name", ctx.request.body.last_name ? ctx.request.body.last_name : "")
+
+	console.log((data as any).getHeaders())
+
+	fetch(trimbleUrl, {
+		method: "POST",
+		body: querystring.stringify(postBody),
+		headers: { "content-type": "application/x-www-form-urlencoded; charset=utf-8" }
+	})
+		.then(res => {
+			console.log(res)
+			return res.json()
+		})
+		.then(json => {
+			console.log("Vastaus:")
+			console.log(json)
+			return json
+		})
+
+	return "Done"
+}
+
 export async function GetInitiatives(ctx: any): Promise<string> {
 	const url = new URL(trimbleUrl)
 
@@ -133,9 +179,9 @@ export async function GetInitiatives(ctx: any): Promise<string> {
 	}
 
 	const params = {
-		jurisdiction_id: "nuortenespoo",
+		jurisdiction_id: "nuortenespoo2",
 		start_date: "2018-08-20T00:00:00Z",
-		service_code: "8ca7db6f-cf15-ea11-9130-005056b41c86"
+		service_code: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
 
 	Object.keys(params).forEach(key => url.searchParams.append(key, (params as any)[key]))

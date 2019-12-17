@@ -1,6 +1,6 @@
 import * as Router from "@koa/router"
 
-import { Test, SendTest, GetInitiatives } from "./controllers"
+import { SendFeedback, SendInitiative, GetInitiatives } from "./controllers"
 
 const router = new Router()
 
@@ -8,12 +8,12 @@ router.get("/api", async ctx => {
 	ctx.body = "API root"
 })
 
-router.get("/api/test", async ctx => {
-	ctx.body = await Test(ctx)
+router.post("/api/feedback", async ctx => {
+	ctx.body = await SendFeedback(ctx)
 })
 
-router.post("/api/test", async ctx => {
-	ctx.body = await SendTest(ctx)
+router.post("/api/initiative", async ctx => {
+	ctx.body = await SendInitiative(ctx)
 })
 
 router.get("/api/health", async ctx => {

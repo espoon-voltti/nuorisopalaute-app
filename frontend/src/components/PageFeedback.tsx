@@ -186,9 +186,9 @@ const PageFeedback: FC = () => {
 						onClick={(): void => {
 							const data: FormData = new FormData();
 
-							//data.append("email", email);
-							//data.append("first_name", firstname);
-							//data.append("last_name", surname);
+							data.append("email", email);
+							data.append("first_name", firstname);
+							data.append("last_name", surname);
 							data.append("description", feedbackDescription);
 							data.append(
 								"address_string",
@@ -212,8 +212,8 @@ const PageFeedback: FC = () => {
 						};*/
 
 							axios
-								.post(config.API_URL + "/test", data)
-								.then(function(response: any) {
+								.post(config.API_URL + "/feedback", data)
+								.then(function (response: any) {
 									console.log(response);
 								})
 								.catch((error: Error) => {

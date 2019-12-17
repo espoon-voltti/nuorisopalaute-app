@@ -15,6 +15,9 @@ const PageThankYou: FC = () => {
 	const forFeedback = useT("forFeedback");
 	const forInitiative = useT("forInitiative");
 
+	const forFeedbackText = useT("thankYouFeedbackText");
+	const forInitiativeText = useT("thankYouInitiativeText");
+
 	return (
 		<>
 			<Header className="header--landing"></Header>
@@ -29,7 +32,11 @@ const PageThankYou: FC = () => {
 						src="/human-yellow.svg"
 						alt=""
 					/>
-					<p className="center">{useT("thankYouFeedbackText")}</p>
+					<p className="center">
+						{ref === "palaute"
+							? forFeedbackText
+							: forInitiativeText}
+					</p>
 
 					<p className="center">
 						<a href="/">{useT("backToFrontPage")}.</a>

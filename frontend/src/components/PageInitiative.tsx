@@ -197,18 +197,23 @@ const PageInitiative: FC = () => {
 						onClick={(): void => {
 							const data: FormData = new FormData();
 
-							//data.append("email", email);
-							//data.append("first_name", firstname);
-							//data.append("last_name", surname);
-							data.append("description", initiativeDescription);
+							data.append("email", email);
+							data.append("first_name", firstname);
+							data.append("last_name", surname);
+							data.append(
+								"description",
+								initiativeHeader +
+									"\r\n" +
+									initiativeDescription,
+							);
 							data.append(
 								"address_string",
 								"nuortenpalaute.espoo.fi",
 							);
 
 							axios
-								.post(config.API_URL + "/test", data)
-								.then(function (response: any) {
+								.post(config.API_URL + "/initiative", data)
+								.then(function(response: any) {
 									console.log(response);
 								})
 								.catch((error: Error) => {

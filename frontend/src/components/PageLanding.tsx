@@ -52,23 +52,26 @@ const PageLanding: FC = () => {
 			.then(function (response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
-					const text = initiative.description
-						.replace(/\r\n/g, "\n")
-						.replace(/[\n]+/g, "\n")
-						.trim();
-					const texts = text.split("\n");
-					const header = texts[0];
-					const description = texts.slice(1).join("\n");
+					console.log(initiative);
+					if (initiative.service_request_id) {
+						const text = initiative.description
+							.replace(/\r\n/g, "\n")
+							.replace(/[\n]+/g, "\n")
+							.trim();
+						const texts = text.split("\n");
+						const header = texts[0];
+						const description = texts.slice(1).join("\n");
 
-					const id = initiative.service_request_id;
+						const id = initiative.service_request_id;
 
-					const _initiative: Initiative = {
-						description: description,
-						header: header,
-						date: new Date(initiative.requested_datetime),
-						id: id,
-					};
-					_initiatives.push(_initiative);
+						const _initiative: Initiative = {
+							description: description,
+							header: header,
+							date: new Date(initiative.requested_datetime),
+							id: id,
+						};
+						_initiatives.push(_initiative);
+					}
 				});
 				setInitiatives(_initiatives);
 			})
