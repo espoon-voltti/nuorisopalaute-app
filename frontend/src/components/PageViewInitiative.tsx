@@ -59,13 +59,14 @@ const PageViewInitiative: FC = () => {
 			<Header className="header--landing"></Header>
 			<div className="form-container">
 				<section className="content-block">
-					<h2 className="form-subheader">{initiative.header}</h2>
-					{format(initiative.date, "d.M.yyyy")}
-				</section>
-				{initiative &&
+					<h1 className="initiative-headline">{initiative.header}</h1>
+					<p className="initiative-date">{format(initiative.date, "d.M.yyyy")}</p>
+					{initiative &&
 					initiative.description.split("\n").map((value, index) => {
 						return <p key={"line-" + index}>{value}</p>;
 					})}
+				</section>
+				
 				<Footer />
 			</div>
 		</>
