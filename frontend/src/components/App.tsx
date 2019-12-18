@@ -21,36 +21,50 @@ const App: React.FC = () => {
 			window.location.pathname = `/${currentLanguage}/`;
 	}, [currentLanguage, currentPath]);
 
-	return (
-		<ErrorBoundary>
-			<div id="app">
-				<Router basename={`/${currentLanguage}`}>
-					<Helmet htmlAttributes={{ lang: currentLanguage }}></Helmet>
-					<Switch>
-						<Route exact path="/" component={PageLanding} />
-						<Route exact path="/palaute" component={PageFeedback} />
-						<Route
-							exact
-							path="/aloite"
-							component={PageInitiative}
-						/>
-						<Route
-							exact
-							path="/aloitteet"
-							component={PageViewInitiative}
-						/>
-						<Route exact path="/kiitos" component={PageThankYou} />
-						<Route
-							exact
-							path="/saavutettavuus"
-							component={PageAccessibility}
-						/>
-						<Route component={() => <PageError error="404" />} />
-					</Switch>
-				</Router>
-			</div>
-		</ErrorBoundary>
-	);
+	if (currentPath !== "/")
+		return (
+			<ErrorBoundary>
+				<div id="app">
+					<Router basename={`/${currentLanguage}`}>
+						<Helmet
+							htmlAttributes={{ lang: currentLanguage }}
+						></Helmet>
+						<Switch>
+							<Route exact path="/" component={PageLanding} />
+							<Route
+								exact
+								path="/palaute"
+								component={PageFeedback}
+							/>
+							<Route
+								exact
+								path="/aloite"
+								component={PageInitiative}
+							/>
+							<Route
+								exact
+								path="/aloitteet"
+								component={PageViewInitiative}
+							/>
+							<Route
+								exact
+								path="/kiitos"
+								component={PageThankYou}
+							/>
+							<Route
+								exact
+								path="/saavutettavuus"
+								component={PageAccessibility}
+							/>
+							<Route
+								component={() => <PageError error="404" />}
+							/>
+						</Switch>
+					</Router>
+				</div>
+			</ErrorBoundary>
+		);
+	else return <></>;
 };
 
 export default App;

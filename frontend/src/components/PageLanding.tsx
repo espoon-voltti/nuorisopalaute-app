@@ -49,7 +49,7 @@ const PageLanding: FC = () => {
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
-			.then(function (response) {
+			.then(function(response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
 					console.log(initiative);
@@ -98,19 +98,10 @@ const PageLanding: FC = () => {
 							<a
 								href="/palaute"
 								className="btn btn--bounce"
-								onClick={(): void => {
+								onClick={(event: any): void => {
 									const url = "/palaute";
 									history.push(url);
-
-									axios
-										.get(config.API_URL + "/test")
-										.then(function (response: any) {
-											console.log(response);
-										})
-										.catch((error: Error) => {
-											console.error(error.message);
-											throw error;
-										});
+									event.preventDefault();
 								}}
 							>
 								{btnFeedback}
@@ -121,9 +112,11 @@ const PageLanding: FC = () => {
 							<a
 								href="/aloite"
 								className="btn btn-secondary"
-								onClick={(): void => {
+								onClick={(event: any): void => {
+									console.log("Clicked");
 									const url = "/aloite";
 									history.push(url);
+									event.preventDefault();
 								}}
 							>
 								{btnInitiative}
@@ -262,42 +255,6 @@ const PageLanding: FC = () => {
 									</li>
 								);
 							})}
-						<li>
-							<a href="#">Ruotsinkielen opetuksen muuttaminen</a>
-							<span className="date">4.12.2019</span>
-						</li>
-						<li>
-							<a href="#">Riistaruokapäiviä kouluihin</a>
-							<span className="date">23.11.2019</span>
-						</li>
-						<li>
-							<a href="#">
-								Matematiikan maksutonta tukiopetusta 16-19
-								-vuotiaille, sisältäen lukion!
-							</a>
-							<span className="date">23.11.2019</span>
-						</li>
-						<li>
-							<a href="#">Pakkoruotsi</a>{" "}
-							<span className="date">23.11.2019</span>
-						</li>
-						<li>
-							<a href="#">Metroihin usb laturi paikat</a>
-							<span className="date">23.11.2019</span>
-						</li>
-						<li>
-							<a href="#">
-								Helsingin kaupunki voisi tarjota ilmaisia
-								lajittelupisteitä asuinalueille
-							</a>
-							<span className="date">23.11.2019</span>
-						</li>
-						<li>
-							<a href="#">
-								Pelitietokoneet Leppävaaran nuorisotalolle.
-							</a>
-							<span className="date">23.11.2019</span>
-						</li>
 					</ul>
 				</section>
 				<Footer />

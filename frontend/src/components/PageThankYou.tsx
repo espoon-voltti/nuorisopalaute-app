@@ -29,11 +29,11 @@ const PageThankYou: FC = () => {
 					</h1>
 					<img
 						className="form-image"
-						
-
-						src={ref === "palaute"
-							? '/human-yellow.svg'
-							: '/human-blue.svg'}
+						src={
+							ref === "palaute"
+								? "/human-yellow.svg"
+								: "/human-blue.svg"
+						}
 						alt=""
 					/>
 					<p className="center">

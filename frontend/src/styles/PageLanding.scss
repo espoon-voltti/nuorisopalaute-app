@@ -208,6 +208,11 @@
 	color: $text-color-light;
 }
 
+.section-header-dark {
+	text-align: center;
+	color: #000000;
+}
+
 .initiative-list {
 	color: $text-color-light;
 	max-width: 480px;
@@ -215,7 +220,14 @@
 	padding: 25px 25px 70px 25px;
 }
 
-.initiative-list li {
+.initiative-list-dark {
+	color: #000000;
+	max-width: 480px;
+	margin: 0 auto;
+	padding: 25px 25px 70px 25px;
+}
+
+.initiative-list li, .initiative-list-dark li {
 	line-height: 20px;
 	font-weight: 500;
 	margin-bottom: 1.5em;
@@ -225,8 +237,17 @@
 	color: $text-color-light;
 }
 
+.initiative-list-dark li a {
+	color: #000000;
+}
+
 .initiative-list li a:hover {
 	color: $text-color-light;
+	text-decoration: underline;
+}
+
+.initiative-list li a:hover {
+	color: #000000;
 	text-decoration: underline;
 }
 
@@ -236,6 +257,11 @@
 	display: block;
 }
 
+.initiative-list-dark .date {
+	font-size: 14px;
+	color: #707070;
+	display: block;
+}
 
 @keyframes appear {
 	from {opacity: 0}

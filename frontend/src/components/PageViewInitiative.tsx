@@ -10,42 +10,54 @@ import { useHistory, useLocation } from "react-router";
 import * as queryString from "query-string";
 import { format } from "date-fns";
 
+interface Initiative {
+	header: string;
+	description: string;
+	date: Date;
+	id: number;
+}
+
 const PageViewInitiative: FC = () => {
+	const [initiatives, setInitiatives] = useState<Initiative[] | null>(null);
 	const [initiative, setInitiative] = useState({
 		header: "",
 		description: "",
 		date: new Date(),
 	});
-	console.log(initiative);
 
 	const history = useHistory();
 	const location = useLocation();
 
 	const id = queryString.parse(location.search).id;
-	console.log(id);
+
+	const initiativesHeadline = useT("initiativesHeadline");
 
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
 			.then(function(response) {
+				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
-					if (initiative.service_request_id === id) {
-						const text = initiative.description
-							.replace(/\r\n/g, "\n")
-							.replace(/[\n]+/g, "\n")
-							.trim();
-						const texts = text.split("\n");
-						const header = texts[0];
-						const description = texts.slice(1).join("\n");
+					const text = initiative.description
+						.replace(/\r\n/g, "\n")
+						.replace(/[\n]+/g, "\n")
+						.trim();
+					const texts = text.split("\n");
+					const header = texts[0];
+					const description = texts.slice(1).join("\n");
 
-						const _initiative: any = {
-							description: description,
-							header: header,
-							date: new Date(initiative.requested_datetime),
-						};
+					const _initiative: Initiative = {
+						id: initiative.service_request_id,
+						description: description,
+						header: header,
+						date: new Date(initiative.requested_datetime),
+					};
+					_initiatives.push(_initiative);
+					if (initiative.service_request_id === id) {
 						setInitiative(_initiative);
 					}
 				});
+				setInitiatives(_initiatives);
 			})
 			.catch((error: Error) => {
 				console.error(error.message);
@@ -60,13 +72,38 @@ const PageViewInitiative: FC = () => {
 			<div className="form-container">
 				<section className="content-block">
 					<h1 className="initiative-headline">{initiative.header}</h1>
-					<p className="initiative-date">{format(initiative.date, "d.M.yyyy")}</p>
+					<p className="initiative-date">
+						{format(initiative.date, "d.M.yyyy")}
+					</p>
 					{initiative &&
-					initiative.description.split("\n").map((value, index) => {
-						return <p key={"line-" + index}>{value}</p>;
-					})}
+						initiative.description
+							.split("\n")
+							.map((value, index) => {
+								return <p key={"line-" + index}>{value}</p>;
+							})}
 				</section>
-				
+
+				<section className="">
+					<h2 className="section-header-dark">
+						{initiativesHeadline}
+					</h2>
+					<ul className="initiative-list-dark">
+						{initiatives &&
+							initiatives.map((value, index) => {
+								return (
+									<li key={"initiatives" + index}>
+										<a href={"aloitteet?id=" + value.id}>
+											{value.header}
+										</a>
+										<span className="date">
+											{format(value.date, "d.M.yyyy")}
+										</span>
+									</li>
+								);
+							})}
+					</ul>
+				</section>
+
 				<Footer />
 			</div>
 		</>
