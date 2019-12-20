@@ -54,7 +54,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 			<a className="jump-to-content" href="#content">
 				{useT("jumpToContent")}
 			</a>
-			<a href={`/${currentLanguage}`} title={useT("backToFrontPage")}>
+			<a href={`/${currentLanguage}/`} title={useT("backToFrontPage")}>
 				<img
 					className="logo"
 					src="/logo-nuori-espoo.svg"

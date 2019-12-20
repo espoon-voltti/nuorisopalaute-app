@@ -18,7 +18,7 @@ const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
 	const currentPath = window.location.pathname;
 	useEffect(() => {
-		if (currentPath === "/")
+		if (currentPath === "/" || currentPath === `/${currentLanguage}`)
 			window.location.pathname = `/${currentLanguage}/`;
 	}, [currentLanguage, currentPath]);
 
