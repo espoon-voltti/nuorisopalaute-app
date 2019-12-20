@@ -12,6 +12,7 @@ import { PageViewInitiative } from "./PageViewInitiative";
 import { PageThankYou } from "./PageThankYou";
 import { PageAccessibility } from "./PageAccessibility";
 import Helmet from "react-helmet";
+import ScrollToTop from "./ScrollToTop";
 
 const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
@@ -26,6 +27,7 @@ const App: React.FC = () => {
 			<ErrorBoundary>
 				<div id="app">
 					<Router basename={`/${currentLanguage}`}>
+						<ScrollToTop />
 						<Helmet
 							htmlAttributes={{ lang: currentLanguage }}
 						></Helmet>

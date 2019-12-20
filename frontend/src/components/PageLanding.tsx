@@ -77,7 +77,6 @@ const PageLanding: FC = () => {
 			})
 			.catch((error: Error) => {
 				console.error(error.message);
-				throw error;
 			});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

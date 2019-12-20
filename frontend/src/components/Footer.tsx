@@ -1,8 +1,9 @@
 import { FC } from "react";
 import React from "react";
-import { useT } from "../i18n";
+import { useT, useCurrentLanguage } from "../i18n";
 
 const Footer: React.FunctionComponent = () => {
+	const currentLanguage = useCurrentLanguage();
 
 	return (
 		<footer className="footer">
@@ -26,7 +27,10 @@ const Footer: React.FunctionComponent = () => {
 					{useT("footerLinkPrivacy")}
 				</a>
 
-				<a href="/saavutettavuus" className="footer-link">
+				<a
+					href={`/${currentLanguage}/saavutettavuus`}
+					className="footer-link"
+				>
 					{useT("footerLinkAccessibility")}
 				</a>
 			</div>
