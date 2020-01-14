@@ -48,7 +48,7 @@ const PageInitiative: FC = () => {
 				</section>
 
 				<section className="content-block">
-					<h2 className="form-subheader">Aloite</h2>
+					<h2 className="form-subheader">{useT("initiative")}</h2>
 					<p>{useT("initiativeFormDesc")}</p>
 
 					<div className="field">
@@ -57,6 +57,7 @@ const PageInitiative: FC = () => {
 						</label>
 						<input
 							required
+							placeholder= {useT("formHeadlinePlaceholder")}
 							className="input"
 							type="text"
 							id="headline"
@@ -71,6 +72,7 @@ const PageInitiative: FC = () => {
 					</label>
 					<textarea
 						className="textarea"
+						placeholder= {useT("formInitiativeContentPlaceholder")}
 						required
 						id="initiative"
 						onChange={event =>
