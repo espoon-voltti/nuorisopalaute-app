@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "../styles/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import * as config from "./config";
-import { useCurrentLanguage } from "../i18n";
+import { useCurrentLanguage, useT } from "../i18n";
 import ErrorBoundary from "./ErrorBoundary";
 import { PageLanding } from "./PageLanding";
 import { PageFeedback } from "./PageFeedback";
@@ -21,6 +21,8 @@ const App: React.FC = () => {
 		if (currentPath === "/" || currentPath === `/${currentLanguage}`)
 			window.location.pathname = `/${currentLanguage}/`;
 	}, [currentLanguage, currentPath]);
+
+	document.title = useT("metaTitle");
 
 	if (currentPath !== "/")
 		return (

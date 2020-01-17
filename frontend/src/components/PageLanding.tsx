@@ -49,7 +49,7 @@ const PageLanding: FC = () => {
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
-			.then(function(response) {
+			.then(function (response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
 					console.log(initiative);
@@ -139,7 +139,7 @@ const PageLanding: FC = () => {
 								{feedbackTeaserText}
 							</p>
 							<a
-								href="/palaute"
+								href={`/${currentLanguage}/palaute`}
 								className="btn btn-secondary btn-secondary--dark"
 							>
 								{btnFeedback}
@@ -160,7 +160,7 @@ const PageLanding: FC = () => {
 							<p className="teaser__text text-light margin-bottom">
 								{initiativeTeaserText}
 							</p>
-							<a href="/aloite" className="btn btn-secondary">
+							<a href={`/${currentLanguage}/aloite`} className="btn btn-secondary">
 								{btnInitiative}
 							</a>
 						</div>
