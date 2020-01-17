@@ -18,6 +18,14 @@
 	@media only screen and (max-width: 640px) {
 		height: calc(100vh - 25px);
 	}
+	@supports (-webkit-overflow-scrolling: touch) {
+  	/* background fix fo iOS devices */
+  	background-attachment: scroll;
+	}
+}
+
+.jumbotron-background {
+
 }
 
 .jumbotron-content {

@@ -55,7 +55,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 			<a href={`/${currentLanguage}/`} title={useT("backToFrontPage")}>
 				<img
 					className="logo"
-					src="/logo-nuori-espoo.svg"
+					src="/logo-nuori-espoo.png"
 					alt="Nuori Espoo"
 				/>
 			</a>
