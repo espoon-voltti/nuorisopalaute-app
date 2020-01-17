@@ -158,9 +158,9 @@ export async function GetInitiatives(ctx: any): Promise<string> {
 	}
 
 	const params = {
-		jurisdiction_id: "nuortenespoo2",
+		jurisdiction_id: "nuortenespoo",
 		start_date: "2018-08-20T00:00:00Z",
-		service_code: "355f9d7e-d81c-ea11-9130-005056b41c86"
+		service_code: "8ca7db6f-cf15-ea11-9130-005056b41c86"
 	}
 
 	Object.keys(params).forEach(key => url.searchParams.append(key, (params as any)[key]))

@@ -9,12 +9,15 @@ import { Trans } from "react-i18next";
 import { useHistory, useLocation } from "react-router";
 import * as queryString from "query-string";
 import { format } from "date-fns";
+import { stringify } from "querystring";
 
 interface Initiative {
 	header: string;
 	description: string;
 	date: Date;
 	id: number;
+	answer: string;
+	status: string;
 }
 
 const PageViewInitiative: FC = () => {
@@ -23,6 +26,8 @@ const PageViewInitiative: FC = () => {
 		header: "",
 		description: "",
 		date: new Date(),
+		answer: "",
+		status: ""
 	});
 
 	const history = useHistory();
@@ -31,11 +36,12 @@ const PageViewInitiative: FC = () => {
 	const id = queryString.parse(location.search).id;
 
 	const initiativesHeadline = useT("initiativesHeadline");
+	const answerText = useT("response");
 
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
-			.then(function(response) {
+			.then(function (response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
 					const text = initiative.description
@@ -51,6 +57,8 @@ const PageViewInitiative: FC = () => {
 						description: description,
 						header: header,
 						date: new Date(initiative.requested_datetime),
+						answer: initiative.status_notes,
+						status: initiative.status
 					};
 					_initiatives.push(_initiative);
 					if (initiative.service_request_id === id) {
@@ -80,6 +88,8 @@ const PageViewInitiative: FC = () => {
 							.map((value, index) => {
 								return <p key={"line-" + index}>{value}</p>;
 							})}
+					<h2 className="initiative-answer-headline">{answerText}</h2>
+					<p className="initiative-answer-text">{initiative.answer}</p>
 				</section>
 
 				<section className="">
