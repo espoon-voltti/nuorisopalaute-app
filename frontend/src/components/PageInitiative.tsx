@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import { useT } from "../i18n";
 import { Trans } from "react-i18next";
 import { useHistory } from "react-router";
+import FileDropzone from "./FileDropzone";
 
 const PageInitiative: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
@@ -18,15 +19,12 @@ const PageInitiative: FC = () => {
 	const [firstname, setFirstname] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [surname, setSurname] = useState("");
+	const [attachments, setAttachments] = useState([]);
 
 	const history = useHistory();
 
-	const handleFile = (e: any) => {
-		console.log(e.target.files);
-	};
-
-	const handleChange = (e: any) => {
-		console.log(e.target);
+	const attachmentsChanged = (files: any) => {
+		setAttachments(files);
 	};
 
 	return (
@@ -77,18 +75,12 @@ const PageInitiative: FC = () => {
 							setInitiativeDescription(event.target.value)
 						}
 					/>
-					<label htmlFor="attachments" className="label">
+					<label className="label">
 						{useT("formAttachmentsLabel")}
 					</label>
-					<p>{useT("formAttachmentsDescInitiative")}</p>
-					<input
-						type="file"
-						name="attachments"
-						id="attachments"
-						className="file-input"
-						onChange={handleFile}
-						multiple
-					/>
+					<p>{useT("formAttachmentsDescFeedback")}</p>
+
+					<FileDropzone onAttachmentsChanged={attachmentsChanged} />
 					<p className="disclaimer">
 						{useT("formAttachmentsDisclaimer")}
 					</p>
@@ -203,17 +195,23 @@ const PageInitiative: FC = () => {
 							data.append(
 								"description",
 								initiativeHeader +
-									"\r\n" +
-									initiativeDescription,
+								"\r\n" +
+								initiativeDescription,
 							);
+							if (phoneNumber) data.append("phone", phoneNumber);
+
 							data.append(
 								"address_string",
 								"nuortenpalaute.espoo.fi",
 							);
 
+							attachments.forEach((attachment, index) => {
+								data.append("media" + index, attachment);
+							});
+
 							axios
 								.post(config.API_URL + "/initiative", data)
-								.then(function(response: any) {
+								.then(function (response: any) {
 									console.log(response);
 								})
 								.catch((error: Error) => {

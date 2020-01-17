@@ -1,0 +1,35 @@
+@import "variables.scss";
+
+.thankyou-container {
+	max-width: 800px;
+	margin: 100px auto 0 auto;
+	@media only screen and (max-width: 800px) {
+		margin: 100px 20px 50px 20px;
+	}
+}
+
+.dropzone {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	border-width: 5px;
+	border-radius: 2px;
+	border-color: #eeeeee;
+	border-style: dashed;
+	background-color: #fafafa;
+	color: #bdbdbd;
+	outline: none;
+	transition: border .24s ease-in-out;
+}
+
+.dropzone > p {
+	font-weight: bold;
+	font-size: 80px;
+	margin-bottom: 0.2em;
+}
+
+.dropzone-filenames {
+	padding: 20px;
+}

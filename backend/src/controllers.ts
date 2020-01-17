@@ -3,11 +3,12 @@ import axios from "axios"
 import fetch, { RequestInit } from "node-fetch"
 import { request } from "http"
 import { RequestOptions } from "http"
+import fs = require('fs');
 
 const FormData = require("form-data")
 
-//const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
-const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
+const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
+//const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
 
 export async function SendFeedback(ctx: any) {
 	console.log(ctx.request.body)
@@ -15,14 +16,14 @@ export async function SendFeedback(ctx: any) {
 
 	const url = trimbleUrl
 	const serviceCodes = {
-		//palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
-		//aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
-		palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
-		aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
+		palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
+		aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
+		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
+		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
 	const authOptions = {
 		api_key: process.env.TRIMBLE_KEY,
-		jurisdiction_id: "nuortenespoo2",
+		jurisdiction_id: "nuortenespoo",
 		service_code: serviceCodes["palaute"]
 	}
 	const postBody = Object.assign({}, ctx.request.body, authOptions, { respond: undefined }, { type: undefined })
@@ -38,12 +39,19 @@ export async function SendFeedback(ctx: any) {
 	data.append("first_name", ctx.request.body.first_name ? ctx.request.body.first_name : "")
 	data.append("last_name", ctx.request.body.last_name ? ctx.request.body.last_name : "")
 
+	const clear_tmp_files: string[] = []
+	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
+		const file: File = ctx.request.files[key]
+		clear_tmp_files.push((file as any).path)
+		data.append("media" + index, fs.createReadStream((file as any).path) as any);
+	})
+
 	console.log((data as any).getHeaders())
 
 	fetch(trimbleUrl, {
 		method: "POST",
-		body: querystring.stringify(postBody),
-		headers: { "content-type": "application/x-www-form-urlencoded; charset=utf-8" }
+		body: data as any,
+		headers: (data as any).getHeaders()
 	})
 		.then(res => {
 			console.log(res)
@@ -52,70 +60,27 @@ export async function SendFeedback(ctx: any) {
 		.then(json => {
 			console.log("Vastaus:")
 			console.log(json)
-			return json
-		})
-
-	/*
-		const options: RequestInit = {
-		method: "POST",
-		headers: {
-			"Content-Type": "multipart/form-data; charset=utf-8"
-		},
-		body: postBody
-	}
-	
-	*/
-
-	/*const options = {
-		method: "POST",
-		body: data,
-		headers: {
-			"Content-Type": "multipart/form-data; charset=utf-8"
-		}
-	}
-	
-	try {
-		fetch(trimbleUrl, options as unknown)
-			.then(res => {
-				console.log(res)
-				return res.text()
-			})
-			.then(json => {
-				console.log("Vastaus:")
-				console.log(json)
+			clear_tmp_files.forEach(path => {
+				fs.unlink(path, (err) => {
+					if (err) {
+						console.error(err)
+						return
+					}
+				})
 				return json
 			})
-	} catch (e) {
-		console.log("Virhe:")
-		console.log(e)
-		return e
-	}*/
-
-	/*const data: FormData = new FormData()
-	data.append("api_key", authOptions.api_key)
-	data.append("jurisdiction_id", authOptions.jurisdiction_id)
-	data.append("service_code", authOptions.service_code)
-	
-	data.append("description", ctx.request.body.description)
-	
-	console.log(data)*/
+		})
 
 	/*axios
-		.post(trimbleUrl, data, {
-			headers: {
-				"Content-Type": "multipart/form-data"
-			}
-		})
-		.then(function (response: any) {
-			console.log("Response:")
-			console.log(response)
-		})"application/x-www-form-urlencoded; charset=utf-8"
-			} else {
-				// Something happened in setting up the request that triggered an Error
-				console.log("Failed to set up the request")
-				console.log("Error", error.message)
-			}
-		})*/
+.post(trimbleUrl, data, {
+	headers: {
+		"Content-Type": "multipart/form-data; charset=utf-8"
+	}
+})
+.then(function (response: any) {
+	console.log("Response:")
+	console.log(response)
+})*/
 
 	return "Done"
 }
@@ -126,14 +91,14 @@ export async function SendInitiative(ctx: any) {
 
 	const url = trimbleUrl
 	const serviceCodes = {
-		//palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
-		//aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
-		palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
-		aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
+		palaute: "8ba7db6f-cf15-ea11-9130-005056b41c86",
+		aloite: "8ca7db6f-cf15-ea11-9130-005056b41c86"
+		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
+		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
 	const authOptions = {
 		api_key: process.env.TRIMBLE_KEY,
-		jurisdiction_id: "nuortenespoo2",
+		jurisdiction_id: "nuortenespoo",
 		service_code: serviceCodes["aloite"]
 	}
 	const postBody = Object.assign({}, ctx.request.body, authOptions, { respond: undefined }, { type: undefined })
@@ -149,12 +114,19 @@ export async function SendInitiative(ctx: any) {
 	data.append("first_name", ctx.request.body.first_name ? ctx.request.body.first_name : "")
 	data.append("last_name", ctx.request.body.last_name ? ctx.request.body.last_name : "")
 
+	const clear_tmp_files: string[] = []
+	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
+		const file: File = ctx.request.files[key]
+		clear_tmp_files.push((file as any).path)
+		data.append("media" + index, fs.createReadStream((file as any).path) as any);
+	})
+
 	console.log((data as any).getHeaders())
 
 	fetch(trimbleUrl, {
 		method: "POST",
-		body: querystring.stringify(postBody),
-		headers: { "content-type": "application/x-www-form-urlencoded; charset=utf-8" }
+		body: data as any,
+		headers: (data as any).getHeaders()
 	})
 		.then(res => {
 			console.log(res)
@@ -163,9 +135,16 @@ export async function SendInitiative(ctx: any) {
 		.then(json => {
 			console.log("Vastaus:")
 			console.log(json)
-			return json
+			clear_tmp_files.forEach(path => {
+				fs.unlink(path, (err) => {
+					if (err) {
+						console.error(err)
+						return
+					}
+				})
+				return json
+			})
 		})
-
 	return "Done"
 }
 

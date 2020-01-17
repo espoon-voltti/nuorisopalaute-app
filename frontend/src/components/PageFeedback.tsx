@@ -29,12 +29,7 @@ const PageFeedback: FC = () => {
 	const history = useHistory();
 
 	const attachmentsChanged = (files: any) => {
-		console.log(files);
 		setAttachments(files);
-	};
-
-	const handleChange = (e: any) => {
-		console.log(e.target);
 	};
 
 	return (
@@ -194,6 +189,10 @@ const PageFeedback: FC = () => {
 								"address_string",
 								"nuortenpalaute.espoo.fi",
 							);
+
+							attachments.forEach((attachment, index) => {
+								data.append("media" + index, attachment);
+							});
 
 							history.push("/kiitos?ref=palaute");
 

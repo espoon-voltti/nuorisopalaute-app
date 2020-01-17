@@ -42,10 +42,8 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 	const ref = useRef();
 
 	const currentLanguage = useCurrentLanguage();
-	console.log(currentLanguage);
 	const history = useHistory();
 	const location = useLocation();
-	console.log("location:" + location.pathname);
 
 	useOnClickOutside(ref, () => setExpanded(false));
 
