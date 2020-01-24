@@ -292,7 +292,7 @@ export const translations = {
 		"en-FI": "customer service.",
 	},
 	urlCustomerService: {
-		"fi-FI": "https://www.espoo.fi/sv-FI/Espoon_kaupunki/Organisaatio_ja_yhteystiedot/Yhteystiedot",
+		"fi-FI": "https://www.espoo.fi/fi-FI/Espoon_kaupunki/Organisaatio_ja_yhteystiedot/Yhteystiedot",
 		"sv-FI": "https://www.esbo.fi/sv-FI/Esbo_stad/Organisation_och_kontaktuppgifter/Kontaktuppgifter",
 		"en-FI": "http://www.espoo.fi/en-US/City_of_Espoo/Organization_and_contact_information/Contact_information",
 	},
