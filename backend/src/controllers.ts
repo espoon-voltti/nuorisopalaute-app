@@ -113,6 +113,7 @@ export async function SendInitiative(ctx: any) {
 	data.append("email", ctx.request.body.email ? ctx.request.body.email : "")
 	data.append("first_name", ctx.request.body.first_name ? ctx.request.body.first_name : "")
 	data.append("last_name", ctx.request.body.last_name ? ctx.request.body.last_name : "")
+	data.append("phone", ctx.request.body.phone ? ctx.request.body.phone : "")
 
 	const clear_tmp_files: string[] = []
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
