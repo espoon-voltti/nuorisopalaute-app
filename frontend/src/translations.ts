@@ -362,7 +362,7 @@ export const translations = {
 		"en-FI": "for your feedback",
 	},
 	forInitiative: {
-		"fi-FI": "aloittestasi",
+		"fi-FI": "aloitteestasi",
 		"sv-FI": "för ditt initiativ",
 		"en-FI": "for your initiative",
 	},
