@@ -46,20 +46,23 @@ function FileDropzone(props: any) {
 		setFiles(newFiles);
 	}
 
-	const filesDom = files.map(file => (
-		<li key={file.name}>
-			{file.name} - {(file.size / 1024.0 / 1024.0).toFixed(1)} Mt
-			<button onClick={() => handleRemoveFileClick(file.name)}>X</button>
+	const filesDom = files.map(file => {
+		let filename = file.name;
+		if (filename.length > 33)
+			filename = filename.substring(0, 22) + "..." + filename.substring(filename.length - 6);
+		return (<li key={file.name} className="dropzone-file">
+			{filename} - {(file.size / 1024.0 / 1024.0).toFixed(1)} Mt
+			<button onClick={() => handleRemoveFileClick(file.name)} className="dropzone-file-button">Poista</button>
 		</li>
-	));
+	)});
 
 	return (
 		<section className="dropzone-container">
 			<div {...getRootProps({ className: "dropzone", multiple: true })}>
 				<input {...getInputProps()} />
-				<p>+</p>
+				<p>+ Lisää liite</p>
 			</div>
-			<aside className="dropzone-filenames">
+			<aside className="dropzone-files">
 				<ul>{filesDom}</ul>
 				<ul>{files.length > 1 ? totalSize.toFixed(1) + " Mt" : ""}</ul>
 			</aside>
