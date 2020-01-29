@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useDropzone } from "react-dropzone";
 import "../styles/FileDropzone.scss";
+import { useT } from "../i18n";
 
 function FileDropzone(props: any) {
 	const { acceptedFiles, getRootProps, getInputProps, isDragActive,
@@ -17,6 +18,8 @@ function FileDropzone(props: any) {
 
 	const [files, setFiles] = useState<File[]>([]);
 	const [totalSize, setTotalSize] = useState(0);
+
+	const formAttachmentText = useT("formAttachmentsBtn");
 
 	useEffect(() => {
 		const newFiles = files;
@@ -60,7 +63,7 @@ function FileDropzone(props: any) {
 		<section className="dropzone-container">
 			<div {...getRootProps({ className: "dropzone", multiple: true })}>
 				<input {...getInputProps()} />
-				<p>+ Lisää liite</p>
+				<p>{formAttachmentText}</p>
 			</div>
 			<aside className="dropzone-files">
 				<ul>{filesDom}</ul>
