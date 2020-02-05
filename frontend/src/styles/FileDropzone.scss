@@ -37,16 +37,17 @@
 .dropzone-files {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	padding: 5px;
+	padding: 5px 0;
 }
 
 .dropzone-file {
-	padding: 5px;
-	font-color: #000;
+	padding: 5px 0;
+	color: $text-color;
 }
 
 .total {
-	padding: 5px;
+	padding: 5px 0;
+	margin-bottom: 0;
 }
 
 .dropzone-file-button {
