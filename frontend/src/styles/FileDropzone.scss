@@ -45,6 +45,10 @@
 	font-color: #000;
 }
 
+.total {
+	padding: 5px;
+}
+
 .dropzone-file-button {
 	background-color: #fff;
 	color: #3673c9;
@@ -52,4 +56,9 @@
 	font-size: 16px;
 	font-family: Montserrat, sans-serif;
 	float: right;
+}
+
+.dropzone-file-button:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
