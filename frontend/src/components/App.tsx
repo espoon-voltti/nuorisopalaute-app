@@ -21,8 +21,9 @@ const App: React.FC = () => {
 		if (currentPath === "/" || currentPath === `/${currentLanguage}`) {
 			if (window.location.hostname.includes("responsfr")) {
 				window.location.pathname = "/sv-FI/";
+			} else {
+				window.location.pathname = `/${currentLanguage}/`;
 			}
-			window.location.pathname = `/${currentLanguage}/`;
 		}
 	}, [currentLanguage, currentPath]);
 
