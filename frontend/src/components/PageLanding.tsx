@@ -160,7 +160,10 @@ const PageLanding: FC = () => {
 							<p className="teaser__text text-light margin-bottom">
 								{initiativeTeaserText}
 							</p>
-							<a href={`/${currentLanguage}/aloite`} className="btn btn-secondary">
+							<a
+								href={`/${currentLanguage}/aloite`}
+								className="btn btn-secondary"
+							>
 								{btnInitiative}
 							</a>
 						</div>
@@ -239,7 +242,11 @@ const PageLanding: FC = () => {
 					</div>
 				</section>
 				<section className="">
-					<h2 className="section-header">{initiativesHeadline}</h2>
+					<h2 className="section-header">
+						{initiatives &&
+							initiatives.length > 0 &&
+							initiativesHeadline}
+					</h2>
 					<ul className="initiative-list">
 						{initiatives &&
 							initiatives.map((value, index) => {
