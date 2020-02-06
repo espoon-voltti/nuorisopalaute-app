@@ -20,6 +20,7 @@ function FileDropzone(props: any) {
 	const [totalSize, setTotalSize] = useState(0);
 
 	const formAttachmentText = useT("formAttachmentsBtn");
+	const mbText = useT("mb");
 
 	useEffect(() => {
 		const newFiles = files;
@@ -54,7 +55,7 @@ function FileDropzone(props: any) {
 		if (filename.length > 33)
 			filename = filename.substring(0, 22) + "..." + filename.substring(filename.length - 6);
 		return (<li key={file.name} className="dropzone-file">
-			{filename} - {(file.size / 1024.0 / 1024.0).toFixed(1)} Mt
+			{filename} - {(file.size / 1024.0 / 1024.0).toFixed(1)} {mbText}
 			<button onClick={() => handleRemoveFileClick(file.name)} className="dropzone-file-button">Poista</button>
 		</li>
 	)});
@@ -67,7 +68,7 @@ function FileDropzone(props: any) {
 			</div>
 			<aside className="dropzone-files">
 				<ul>{filesDom}</ul>
-				<ul>{files.length > 1 ? totalSize.toFixed(1) + " Mt" : ""}</ul>
+				<p className="total">{files.length > 1 ? totalSize.toFixed(1) + " " + mbText : ""}</p>
 			</aside>
 		</section>
 	);
