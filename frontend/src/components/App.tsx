@@ -18,8 +18,11 @@ const App: React.FC = () => {
 	const currentLanguage = useCurrentLanguage();
 	const currentPath = window.location.pathname;
 	useEffect(() => {
-		if (currentPath === "/" || currentPath === `/${currentLanguage}`)
+		if (currentPath === "/" || currentPath === `/${currentLanguage}`) {
+			if (window.location.hostname.includes("responsfr"))
+				window.location.pathname = "/sv-FI/";
 			window.location.pathname = `/${currentLanguage}/`;
+		}
 	}, [currentLanguage, currentPath]);
 
 	document.title = useT("metaTitle");
