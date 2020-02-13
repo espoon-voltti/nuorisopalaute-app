@@ -57,11 +57,9 @@
 }
 
 .jumbotron-text {
-	//color: $text-color-light;
-	color: red;
+	color: $text-color-light;
 	animation: appear 2s ease-in-out;
-	//font-size: 18px;
-	font-size: 22px;
+	font-size: 18px;
 	font-weight: 500;
 	line-height: 28px;
 	margin: 15px 0 25px 0;
