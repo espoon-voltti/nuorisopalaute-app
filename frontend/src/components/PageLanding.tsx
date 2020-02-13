@@ -81,19 +81,9 @@ const PageLanding: FC = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	return (
-		<>
-			<Header className="header--dark header--landing"></Header>
-			<div className="landing" id="content">
-				<div className="jumbotron">
-					<div className="jumbotron-content">
-						<h1 className="jumbotron-header">
-							<Trans i18nKey="defaultNamespace:jumbotronHeadline">
-								<span></span>
-							</Trans>
-						</h1>
-						<p className="jumbotron-text">{jumbotronSubHeadline}</p>
-						<div className="jumbotron-btns">
+	/*<p className="jumbotron-text">{jumbotronSubHeadline}</p>
+
+							<div className="jumbotron-btns">
 							<a
 								href="/palaute"
 								className="btn btn--bounce"
@@ -121,6 +111,24 @@ const PageLanding: FC = () => {
 								{btnInitiative}
 							</a>
 						</div>
+						*/
+	return (
+		<>
+			<Header className="header--dark header--landing"></Header>
+			<div className="landing" id="content">
+				<div className="jumbotron">
+					<div className="jumbotron-content">
+						<h1 className="jumbotron-header">
+							<Trans i18nKey="defaultNamespace:jumbotronHeadline">
+								<span></span>
+							</Trans>
+						</h1>
+						<p className="jumbotron-text">Nuorten palautekanavassa on käyttökatko torstaina 13.2. klo 8-16.
+ <br/><br/>
+Responskanal för unga har ett serviceavbrott torsdag 13.2. kl. 8-16.
+ <br/><br/>
+Channel for feedback from young people is down for maintenance on Thursday 13 February between 8.00 and 16.00.</p>
+
 					</div>
 				</div>
 				<section className="content-block">
