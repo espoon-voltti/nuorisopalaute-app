@@ -22,7 +22,7 @@
 		"koa": "^2.8.1",
 		"koa-body": "^4.1.1",
 		"koa-helmet": "^5.1.0",
-		"node-fetch": "^2.6.0",
+		"node-fetch": "^2.6.1",
 		"pg": "^7.12.1",
 		"prettier": "^1.18.2",
 		"ts-node": "^8.4.1",
