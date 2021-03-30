@@ -4,6 +4,7 @@ aliases:
   - &workspace_root ~/repo
   - &repo_cache_key v1-repo-{{ .Branch }}-{{ .Revision }}
   - &build_image circleci/node:12
+  - &remote_docker_version '19.03.13'
 
   - &attach_workspace
     attach_workspace:
@@ -119,13 +120,15 @@ jobs:
       DOCKER_IMAGE_NAME: nuorisopalaute/service
     steps:
       - restore_repo
-      - setup_remote_docker # Creates a remote Docker environment configured to execute Docker commands
+      - setup_remote_docker: # Creates a remote Docker environment configured to execute Docker commands
+          version: *remote_docker_version
       - run:
           name: Docker login to ECR
           command: ecr-login
       - run:
           name: Build docker image
           working_directory: backend
+
           command: |
             docker build \
               -f Dockerfile \
