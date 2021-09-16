@@ -11,7 +11,7 @@ const Footer: React.FunctionComponent = () => {
 				<a href="https://www.espoo.fi">
 					<img
 						className="logo"
-						src="/logo-espoo.svg"
+						src="/logo-espoo.png"
 						alt="Espoo logo"
 					/>
 				</a>
