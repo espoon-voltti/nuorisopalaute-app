@@ -29,10 +29,6 @@ const PageLanding: FC = () => {
 	const initiativeTeaserIngress = useT("initiativeTeaserIngress");
 	const initiativeTeaserText = useT("initiativeTeaserText");
 	const feedbackExamplesHeadline = useT("feedbackExamplesHeadline");
-	const feedbackExample1Headline = useT("feedbackExample1Headline");
-	const feedbackExample1Text = useT("feedbackExample1Text");
-	const feedbackExample2Headline = useT("feedbackExample2Headline");
-	const feedbackExample2Text = useT("feedbackExample2Text");
 	const feedbackExample3Headline = useT("feedbackExample3Headline");
 	const feedbackExample3Text = useT("feedbackExample3Text");
 	const feedbackExample4Headline = useT("feedbackExample4Headline");
@@ -49,7 +45,7 @@ const PageLanding: FC = () => {
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
-			.then(function (response) {
+			.then(function(response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
 					console.log(initiative);
@@ -174,32 +170,6 @@ const PageLanding: FC = () => {
 						{feedbackExamplesHeadline}
 					</h2>
 					<div className="teaser-container teaser-container--feedbacks">
-						<div className="teaser teaser--highlight">
-							<h3 className="teaser__header">
-								{feedbackExample1Headline}
-							</h3>
-							<img
-								className="teaser__image"
-								src="/icon-tickets.svg"
-								alt=""
-							/>
-							<p className="teaser__text">
-								{feedbackExample1Text}
-							</p>
-						</div>
-						<div className="teaser teaser--highlight">
-							<h3 className="teaser__header">
-								{feedbackExample2Headline}
-							</h3>
-							<img
-								className="teaser__image"
-								src="/icon-fireworks.svg"
-								alt=""
-							/>
-							<p className="teaser__text">
-								{feedbackExample2Text}
-							</p>
-						</div>
 						<div className="teaser teaser--highlight">
 							<h3 className="teaser__header">
 								{feedbackExample3Headline}
