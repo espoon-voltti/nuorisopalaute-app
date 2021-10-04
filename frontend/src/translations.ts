@@ -13,7 +13,7 @@ export const translations = {
 		"fi-FI": "palaute, aloite, Espoo, nuorten, nuoret, vaikuttaa, kaupunki, vaikuta, välitä",
 		"sv-FI": "respons, initiativ, Esbo, ungas, unga, att påverka, stad, påverka, bry dig om",
 		"en-FI": "feedback, initiative, Espoo, young people, young, youth, influence, care, get heard",
-	},	
+	},
 	jumbotronHeadline: {
 		"fi-FI": "Välitä <0>ja vaikuta",
 		"sv-FI": "Bry dig om <0>och påverka",
@@ -44,7 +44,7 @@ export const translations = {
 		"sv-FI": "Förstasidan",
 		"en-FI": "Frontpage",
 	},
-	
+
 	feedback: {
 		"fi-FI": "Palaute",
 		"sv-FI": "Respons",
@@ -79,26 +79,6 @@ export const translations = {
 		"fi-FI": "Mitä palautteilla on saatu aikaan?",
 		"sv-FI": "Varför lönar det sig att ge respons?",
 		"en-FI": "Why should I give feedback?",
-	},
-	feedbackExample1Headline: {
-		"fi-FI": "Kätevämmin konserttiin!",
-		"sv-FI": "Enklare att skaffa biljetter till en konsert!",
-		"en-FI": "Concert tickets conveniently available!",
-	},
-	feedbackExample1Text: {
-		"fi-FI": "Palautteiden ansiosta itsenäisyyspäivän konserttilippuja saa nyt myös sähköisesti Lippupisteen kautta.",
-		"sv-FI": "Tack vare responsen får man numera biljetter till självständighetsdagens konsert också på webben via Lippupiste.",
-		"en-FI": "Thanks to the feedback we received, the City of Espoo decided to make tickets to the Independence Day Gala Concert available online through Lippupiste.",
-	},
-	feedbackExample2Headline: {
-		"fi-FI": "Lasereita eläimetkään eivät säiky",
-		"sv-FI": "Laserljus skrämmer inte djur",
-		"en-FI": "Lasers do not scare animals",
-	},
-	feedbackExample2Text: {
-		"fi-FI": "Uuden vuoden lasershow on vastaus myös kuntalaispalautteisiin, joissa toivottiin vähemmän häiriötä raketeista.",
-		"sv-FI": "Nyårets lasershow är också ett svar på kommuninvånarnas respons, där man önskade att det inte skulle skjutas så mycket raketer.",
-		"en-FI": "The New Year’s laser light show is Espoo’s response to resident feedback that asked us to reduce the noise from fireworks.",
 	},
 	feedbackExample3Headline: {
 		"fi-FI": "Kirjastoon vaikka viikonloppuiltana",
