@@ -35,7 +35,7 @@ executors:
   dist_build_executor:
     working_directory: *workspace_root
     docker:
-      - image: 307238562370.dkr.ecr.eu-west-1.amazonaws.com/voltti/builder-aws:18.04-809ad64eaee48225fba439142026079a49d0f1d5 # Contains helper scripts for Voltti Docker registry
+      - image: 307238562370.dkr.ecr.eu-west-1.amazonaws.com/voltti/builder-aws # Contains helper scripts for Voltti Docker registry
 
 
 commands:
