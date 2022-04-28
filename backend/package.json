@@ -15,7 +15,7 @@
 		"@types/node": "^12.7.5",
 		"@types/node-fetch": "^2.5.4",
 		"@types/uuid": "^3.4.5",
-		"axios": "^0.21.1",
+		"axios": "^0.21.2",
 		"dotenv": "^8.2.0",
 		"form-data": "^3.0.0",
 		"knex": "^0.19.5",
