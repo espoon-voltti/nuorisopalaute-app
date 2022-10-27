@@ -1,0 +1,126 @@
+---
+
+name: Build
+on: [push]
+
+env:
+  ECR_REGISTRY: 307238562370.dkr.ecr.eu-west-1.amazonaws.com
+  AWS_REGION: eu-west-1
+  NODE_VERSION: "12"
+  DOCKER_IMAGE_NAME: nuorisopalaute/service
+  PROJECT: nuorisopalaute/frontend
+
+jobs:
+  test-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: espoon-voltti/voltti-actions/yarn@master
+        with:
+          node_version: "${{ env.NODE_VERSION }}"
+          VERDACCIO_TOKEN: "${{ secrets.VERDACCIO_TOKEN }}"
+          command: yarn test
+          path: backend
+
+  test-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: espoon-voltti/voltti-actions/yarn@master
+        with:
+          node_version: "${{ env.NODE_VERSION }}"
+          VERDACCIO_TOKEN: "${{ secrets.VERDACCIO_TOKEN }}"
+          command: yarn test
+          path: frontend
+
+  frontend:
+    needs:
+      - test-frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: espoon-voltti/voltti-actions/yarn@master
+        with:
+          node_version: "${{ env.NODE_VERSION }}"
+          VERDACCIO_TOKEN: "${{ secrets.VERDACCIO_TOKEN }}"
+          command: yarn build
+          path: frontend
+
+      - name: Upload build
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: frontend/build/
+          retention-days: 3
+
+  backend:
+    needs:
+      - test-backend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: espoon-voltti/voltti-actions/docker-build-push@master
+        with:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_CONFIG: ${{ secrets.AWS_CONFIG }}
+          AWS_PROFILE: voltti-sst
+          AWS_REGION: ${{ env.AWS_REGION }}
+          registry: ${{ env.ECR_REGISTRY }}
+          name: ${{ env.DOCKER_IMAGE_NAME }}
+          path: backend
+          build-args: |
+            build=${{ github.run_number }}
+            commit=${{ github.sha }}
+
+  publish-frontend:
+    needs:
+      - frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: frontend/build/
+
+      - name: Configure AWS
+        shell: bash
+        run: |
+          mkdir -p ~/.aws
+          echo '${{ secrets.AWS_CONFIG_TERRAFORM }}' > ~/.aws/config
+          cat << EOF > ~/.aws/credentials
+          [voltti-federation]
+          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          EOF
+
+      - run: |
+          export VERSION="${{ github.sha }}"
+          aws --profile voltti-sst s3 cp "frontend/build/" "s3://${{ secrets.BUILD_BUCKET }}/${PROJECT}/${VERSION}" --recursive
+
+  deploy:
+    needs:
+      - backend
+      - publish-frontend
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/github-script@v6
+      with:
+        github-token: '${{ secrets.NUORISOPALAUTE_PAT }}'
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: 'espoon-voltti',
+            repo: 'nuorisopalaute-infra',
+            workflow_id: 'build.yml',
+            ref: 'master',
+            inputs: {
+              version: '${{ github.sha }}'
+            },
+          })
