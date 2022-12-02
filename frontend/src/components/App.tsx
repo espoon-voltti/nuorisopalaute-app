@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/App.scss";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import * as config from "./config";
 import { useCurrentLanguage, useT } from "../i18n";
 import ErrorBoundary from "./ErrorBoundary";
@@ -38,7 +38,7 @@ const App: React.FC = () => {
 						<Helmet
 							htmlAttributes={{ lang: currentLanguage }}
 						></Helmet>
-						<Switch>
+						<Routes>
 							<Route exact path="/" component={PageLanding} />
 							<Route
 								exact
@@ -68,7 +68,7 @@ const App: React.FC = () => {
 							<Route
 								component={() => <PageError error="404" />}
 							/>
-						</Switch>
+						</Routes>
 					</Router>
 				</div>
 			</ErrorBoundary>
