@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import "../styles/PageLanding.scss";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import config from "./config";
 import Header from "./Header";
@@ -17,7 +17,7 @@ interface Initiative {
 }
 
 const PageLanding: FC = () => {
-	const history = useHistory();
+	const navigate = useNavigate();
 	const jumbotronSubHeadline = useT("jumbotronSubHeadline");
 	const jumbotronOr = useT("jumbotronOr");
 	const btnFeedback = useT("btnFeedback");
@@ -95,7 +95,7 @@ const PageLanding: FC = () => {
 								className="btn btn--bounce"
 								onClick={(event: any): void => {
 									const url = "/palaute";
-									history.push(url);
+									navigate(url, { replace: true });
 									event.preventDefault();
 								}}
 							>
@@ -110,7 +110,7 @@ const PageLanding: FC = () => {
 								onClick={(event: any): void => {
 									console.log("Clicked");
 									const url = "/aloite";
-									history.push(url);
+									navigate(url, { replace: true });
 									event.preventDefault();
 								}}
 							>

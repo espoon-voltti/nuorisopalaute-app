@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import React from "react";
-import { useHistory, useLocation } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { useT, Language, useCurrentLanguage } from "../i18n";
 import i18next from "i18next";
 
@@ -42,7 +42,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 	const ref = useRef();
 
 	const currentLanguage = useCurrentLanguage();
-	const history = useHistory();
+	const navigate = useNavigate();
 	const location = useLocation();
 
 	useOnClickOutside(ref, () => setExpanded(false));
@@ -82,7 +82,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 								aria-checked={location.pathname === "/"}
 								onClick={(): void => {
 									const url = "/";
-									history.push(url);
+									navigate(url, { replace: true });
 								}}
 							>
 								{frontpage}
@@ -93,7 +93,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 								aria-checked={location.pathname === "/palaute"}
 								onClick={(): void => {
 									const url = "/palaute";
-									history.push(url);
+									navigate(url, { replace: true });
 								}}
 							>
 								{feedback}
@@ -104,7 +104,7 @@ const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 								aria-checked={location.pathname === "/aloite"}
 								onClick={(): void => {
 									const url = "/aloite";
-									history.push(url);
+									navigate(url, { replace: true });
 								}}
 							>
 								{initiative}

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import * as config from "./config";
 import { useCurrentLanguage, useT } from "../i18n";
 import ErrorBoundary from "./ErrorBoundary";
 import { PageLanding } from "./PageLanding";

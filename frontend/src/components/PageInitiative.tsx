@@ -2,12 +2,11 @@ import React, { FC, useState } from "react";
 import "../styles/PageInitiative.scss";
 import axios from "axios";
 import config from "./config";
-import Checkbox from "./Checkbox";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useT } from "../i18n";
 import { Trans } from "react-i18next";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import FileDropzone from "./FileDropzone";
 
 const PageInitiative: FC = () => {
@@ -21,7 +20,7 @@ const PageInitiative: FC = () => {
 	const [surname, setSurname] = useState("");
 	const [attachments, setAttachments] = useState([]);
 
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const attachmentsChanged = (files: any) => {
 		setAttachments(files);
@@ -221,7 +220,7 @@ const PageInitiative: FC = () => {
 									throw error;
 								});
 
-							history.push("/kiitos?ref=aloite");
+							navigate("/kiitos?ref=aloite", { replace: true });
 						}}
 					>
 						{useT("btnSendInitiative")}

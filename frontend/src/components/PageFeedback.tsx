@@ -7,7 +7,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import FileDropzone from "./FileDropzone";
 import { useT } from "../i18n";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 const PageFeedback: FC = () => {
 	const [allowPublish, setAllowPublish] = useState(false);
@@ -26,7 +26,7 @@ const PageFeedback: FC = () => {
 	const formLastName = useT("formLastName");
 	const formNotRequired = useT("formNotRequired");
 
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const attachmentsChanged = (files: any) => {
 		setAttachments(files);
@@ -194,21 +194,7 @@ const PageFeedback: FC = () => {
 								data.append("media" + index, attachment);
 							});
 
-							history.push("/kiitos?ref=palaute");
-
-							/*const data = {
-							email: "test123@test.fi",
-							description: "testi-feedback",
-							// eslint-disable-next-line @typescript-eslint/camelcase
-							first_name: "test6",
-							// eslint-disable-next-line @typescript-eslint/camelcase
-							last_name: "",
-							lat: "",
-							long: "",
-							respond: false,
-							// eslint-disable-next-line @typescript-eslint/camelcase
-							address_string: "nuortenpalaute.espoo.fi",
-						};*/
+							navigate("/kiitos?ref=palaute", { replace: true });
 
 							axios
 								.post(config.API_URL + "/feedback", data)
