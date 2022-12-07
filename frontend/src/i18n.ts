@@ -81,7 +81,7 @@ i18next.addResources("fi-FI", ns, translationsFi);
 i18next.addResources("sv-FI", ns, translationsSv);
 i18next.addResources("en-FI", ns, translationsEn);
 
-i18next.on("languageChanged", lng => {
+i18next.on("languageChanged", (lng) => {
 	const oldPath = window.location.pathname;
 	const newPath = oldPath.replace(/^\/[^/]+\//, `/${lng}/`);
 	window.location.href = `${window.location.origin}${newPath}${window.location.search}`;

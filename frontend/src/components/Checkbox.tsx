@@ -20,7 +20,7 @@ const Checkbox: React.FunctionComponent<Props> = ({
 		<div className="checkbox-container">
 			<input
 				checked={isChecked}
-				onChange={event => {
+				onChange={(event) => {
 					onChange(event.target.checked);
 				}}
 				name={name}

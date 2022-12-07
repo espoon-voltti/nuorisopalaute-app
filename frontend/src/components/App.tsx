@@ -38,30 +38,22 @@ const App: React.FC = () => {
 							htmlAttributes={{ lang: currentLanguage }}
 						></Helmet>
 						<Routes>
-							<Route path="/" element={<PageLanding/>} />
-							<Route
-								path="/palaute"
-								element={<PageFeedback/>}
-							/>
+							<Route path="/" element={<PageLanding />} />
+							<Route path="/palaute" element={<PageFeedback />} />
 							<Route
 								path="/aloite"
-								element={<PageInitiative/>}
+								element={<PageInitiative />}
 							/>
 							<Route
 								path="/aloitteet"
-								element={<PageViewInitiative/>}
+								element={<PageViewInitiative />}
 							/>
-							<Route
-								path="/kiitos"
-								element={<PageThankYou/>}
-							/>
+							<Route path="/kiitos" element={<PageThankYou />} />
 							<Route
 								path="/saavutettavuus"
-								element={<PageAccessibility/>}
+								element={<PageAccessibility />}
 							/>
-							<Route
-								element={<PageError error="404" />}
-							/>
+							<Route element={<PageError error="404" />} />
 						</Routes>
 					</Router>
 				</div>

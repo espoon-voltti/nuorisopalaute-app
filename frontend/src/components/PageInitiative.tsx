@@ -54,12 +54,12 @@ const PageInitiative: FC = () => {
 						</label>
 						<input
 							required
-							placeholder= {useT("formHeadlinePlaceholder")}
+							placeholder={useT("formHeadlinePlaceholder")}
 							className="input"
 							type="text"
 							id="headline"
 							name="headline"
-							onChange={event =>
+							onChange={(event) =>
 								setInitiativeHeader(event.target.value)
 							}
 						/>
@@ -69,10 +69,10 @@ const PageInitiative: FC = () => {
 					</label>
 					<textarea
 						className="textarea"
-						placeholder= {useT("formInitiativeContentPlaceholder")}
+						placeholder={useT("formInitiativeContentPlaceholder")}
 						required
 						id="initiative"
-						onChange={event =>
+						onChange={(event) =>
 							setInitiativeDescription(event.target.value)
 						}
 					/>
@@ -103,7 +103,9 @@ const PageInitiative: FC = () => {
 							type="text"
 							id="firstname"
 							name="firstname"
-							onChange={event => setFirstname(event.target.value)}
+							onChange={(event) =>
+								setFirstname(event.target.value)
+							}
 						/>
 					</div>
 
@@ -117,7 +119,7 @@ const PageInitiative: FC = () => {
 							type="text"
 							id="lastname"
 							name="lastname"
-							onChange={event => setSurname(event.target.value)}
+							onChange={(event) => setSurname(event.target.value)}
 						/>
 					</div>
 
@@ -132,7 +134,7 @@ const PageInitiative: FC = () => {
 							type="email"
 							id="email"
 							name="email"
-							onChange={event => setEmail(event.target.value)}
+							onChange={(event) => setEmail(event.target.value)}
 						/>
 						<p className="warning-text">
 							{useT("formEmailWarning")}
@@ -151,7 +153,7 @@ const PageInitiative: FC = () => {
 							type="email"
 							id="phonenumber"
 							name="phonenumber"
-							onChange={event =>
+							onChange={(event) =>
 								setPhoneNumber(event.target.value)
 							}
 						/>
@@ -196,8 +198,8 @@ const PageInitiative: FC = () => {
 							data.append(
 								"description",
 								initiativeHeader +
-								"\r\n" +
-								initiativeDescription,
+									"\r\n" +
+									initiativeDescription,
 							);
 							if (phoneNumber) data.append("phone", phoneNumber);
 

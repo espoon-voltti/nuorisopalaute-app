@@ -45,7 +45,7 @@ const PageLanding: FC = () => {
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
-			.then(function(response) {
+			.then(function (response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
 					console.log(initiative);

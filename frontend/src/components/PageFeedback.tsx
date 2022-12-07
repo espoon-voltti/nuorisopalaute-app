@@ -61,7 +61,7 @@ const PageFeedback: FC = () => {
 						required
 						id="feedback"
 						placeholder={useT("feedbackFormPlaceholder")}
-						onChange={event =>
+						onChange={(event) =>
 							setFeedbackDescription(event.target.value)
 						}
 					/>
@@ -82,7 +82,7 @@ const PageFeedback: FC = () => {
 						name={"allow-publish"}
 						isChecked={allowPublish}
 						children={useT("formAllowPublishing")}
-						onChange={newValue => setAllowPublish(newValue)}
+						onChange={(newValue) => setAllowPublish(newValue)}
 					/>
 
 					<Checkbox
@@ -90,7 +90,7 @@ const PageFeedback: FC = () => {
 						name={"response-yes"}
 						isChecked={wantsAnswer}
 						children={useT("formIwantReply")}
-						onChange={newValue => setWantsAnswer(newValue)}
+						onChange={(newValue) => setWantsAnswer(newValue)}
 					/>
 				</section>
 
@@ -110,7 +110,9 @@ const PageFeedback: FC = () => {
 								type="email"
 								id="email"
 								name="email"
-								onChange={event => setEmail(event.target.value)}
+								onChange={(event) =>
+									setEmail(event.target.value)
+								}
 							/>
 							<p className="warning-text">{formEmailWarning}</p>
 						</div>
@@ -127,7 +129,7 @@ const PageFeedback: FC = () => {
 								type="text"
 								id="firstname"
 								name="firstname"
-								onChange={event =>
+								onChange={(event) =>
 									setFirstname(event.target.value)
 								}
 							/>
@@ -145,7 +147,7 @@ const PageFeedback: FC = () => {
 								type="text"
 								id="lastname"
 								name="lastname"
-								onChange={event =>
+								onChange={(event) =>
 									setSurname(event.target.value)
 								}
 							/>

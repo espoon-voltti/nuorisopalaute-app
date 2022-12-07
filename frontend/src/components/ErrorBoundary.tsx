@@ -20,7 +20,7 @@ export default class ErrorBoundary extends React.Component<{}, State> {
 	// }
 
 	componentDidMount(): void {
-		window.addEventListener("unhandledrejection", event => {
+		window.addEventListener("unhandledrejection", (event) => {
 			this.setState({ hasError: true, error: event.reason });
 		});
 	}

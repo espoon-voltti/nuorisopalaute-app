@@ -4,26 +4,34 @@ import "../styles/FileDropzone.scss";
 import { useT } from "../i18n";
 
 function FileDropzone(props: any) {
-	const { acceptedFiles, getRootProps, getInputProps, isDragActive,
+	const {
+		acceptedFiles,
+		getRootProps,
+		getInputProps,
+		isDragActive,
 		isDragAccept,
-		isDragReject } = useDropzone({
-			accept: {
-				'image/jpeg': ['.jpeg', 'jpg'],
-				'image/png': ['.png'],
-				'image/gif': ['.gif'],
-				'image/tiff': ['.tiff'],
-				'application/pdf': ['.pdf'],
-				'application/msword': ['.doc'],
-				'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
-				'text/plain': ['.txt'],
-				'application/zip': ['.zip'],
-				'application/vnd.ms-excel': ['.xls'],
-				'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
-				'application/vnd.ms-powerpoint': ['.ppt'],
-				'application/vnd.openxmlformats-officedocument.presentationml.presentation': ['.pptx'],
-				'application/rtf': ['.rtf'],
-			},
-		});
+		isDragReject,
+	} = useDropzone({
+		accept: {
+			"image/jpeg": [".jpeg", "jpg"],
+			"image/png": [".png"],
+			"image/gif": [".gif"],
+			"image/tiff": [".tiff"],
+			"application/pdf": [".pdf"],
+			"application/msword": [".doc"],
+			"application/vnd.openxmlformats-officedocument.wordprocessingml.document":
+				[".docx"],
+			"text/plain": [".txt"],
+			"application/zip": [".zip"],
+			"application/vnd.ms-excel": [".xls"],
+			"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":
+				[".xlsx"],
+			"application/vnd.ms-powerpoint": [".ppt"],
+			"application/vnd.openxmlformats-officedocument.presentationml.presentation":
+				[".pptx"],
+			"application/rtf": [".rtf"],
+		},
+	});
 
 	const [files, setFiles] = useState<File[]>([]);
 	const [totalSize, setTotalSize] = useState(0);
@@ -35,8 +43,8 @@ function FileDropzone(props: any) {
 		const newFiles = files;
 
 		// Only add those new accepted files that aren't yet in files
-		acceptedFiles.forEach(file => {
-			if (!newFiles.some(el => el.name === file.name))
+		acceptedFiles.forEach((file) => {
+			if (!newFiles.some((el) => el.name === file.name))
 				newFiles.push(file);
 		});
 
@@ -44,30 +52,39 @@ function FileDropzone(props: any) {
 		props.onAttachmentsChanged(newFiles);
 
 		let _totalSize = 0;
-		files.forEach(file => {
+		files.forEach((file) => {
 			_totalSize += file.size;
 		});
 		setTotalSize(_totalSize / 1024.0 / 1024.0);
 	}, [acceptedFiles, props]);
 
 	const handleRemoveFileClick = (name: string) => {
-		const newFiles = files.filter(file => {
-			if (file.name !== name)
-				return true;
+		const newFiles = files.filter((file) => {
+			if (file.name !== name) return true;
 			return false;
-		})
+		});
 		setFiles(newFiles);
-	}
+	};
 
-	const filesDom = files.map(file => {
+	const filesDom = files.map((file) => {
 		let filename = file.name;
 		if (filename.length > 33)
-			filename = filename.substring(0, 22) + "..." + filename.substring(filename.length - 6);
-		return (<li key={file.name} className="dropzone-file">
-			{filename} - {(file.size / 1024.0 / 1024.0).toFixed(1)} {mbText}
-			<button onClick={() => handleRemoveFileClick(file.name)} className="dropzone-file-button">Poista</button>
-		</li>
-	)});
+			filename =
+				filename.substring(0, 22) +
+				"..." +
+				filename.substring(filename.length - 6);
+		return (
+			<li key={file.name} className="dropzone-file">
+				{filename} - {(file.size / 1024.0 / 1024.0).toFixed(1)} {mbText}
+				<button
+					onClick={() => handleRemoveFileClick(file.name)}
+					className="dropzone-file-button"
+				>
+					Poista
+				</button>
+			</li>
+		);
+	});
 
 	return (
 		<section className="dropzone-container">
@@ -77,7 +94,11 @@ function FileDropzone(props: any) {
 			</div>
 			<aside className="dropzone-files">
 				<ul>{filesDom}</ul>
-				<p className="total">{files.length > 1 ? totalSize.toFixed(1) + " " + mbText : ""}</p>
+				<p className="total">
+					{files.length > 1
+						? totalSize.toFixed(1) + " " + mbText
+						: ""}
+				</p>
 			</aside>
 		</section>
 	);
