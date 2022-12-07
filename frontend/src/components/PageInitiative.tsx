@@ -22,7 +22,7 @@ const PageInitiative: FC = () => {
 
 	const navigate = useNavigate();
 
-	const attachmentsChanged = (files: any) => {
+	const attachmentsChanged = (files: any): void => {
 		setAttachments(files);
 	};
 

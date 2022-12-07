@@ -28,7 +28,7 @@ const PageFeedback: FC = () => {
 
 	const navigate = useNavigate();
 
-	const attachmentsChanged = (files: any) => {
+	const attachmentsChanged = (files: any): void => {
 		setAttachments(files);
 	};
 
@@ -81,17 +81,19 @@ const PageFeedback: FC = () => {
 						id={"allow-publish"}
 						name={"allow-publish"}
 						isChecked={allowPublish}
-						children={useT("formAllowPublishing")}
 						onChange={(newValue) => setAllowPublish(newValue)}
-					/>
+					>
+						{useT("formAllowPublishing")}
+					</Checkbox>
 
 					<Checkbox
 						id={"response-yes"}
 						name={"response-yes"}
 						isChecked={wantsAnswer}
-						children={useT("formIwantReply")}
 						onChange={(newValue) => setWantsAnswer(newValue)}
-					/>
+					>
+						{useT("formIwantReply")}
+					</Checkbox>
 				</section>
 
 				{wantsAnswer && (

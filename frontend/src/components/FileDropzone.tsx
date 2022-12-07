@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import "../styles/FileDropzone.scss";
 import { useT } from "../i18n";
 
-function FileDropzone(props: any) {
+function FileDropzone(props: any): any {
 	const {
 		acceptedFiles,
 		getRootProps,
@@ -56,9 +56,9 @@ function FileDropzone(props: any) {
 			_totalSize += file.size;
 		});
 		setTotalSize(_totalSize / 1024.0 / 1024.0);
-	}, [acceptedFiles, props]);
+	}, [acceptedFiles, props, files]);
 
-	const handleRemoveFileClick = (name: string) => {
+	const handleRemoveFileClick = (name: string): void => {
 		const newFiles = files.filter((file) => {
 			if (file.name !== name) return true;
 			return false;

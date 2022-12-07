@@ -3,8 +3,8 @@ import PageError from "./PageError";
 
 type State = { hasError: false } | { hasError: true; error: Error };
 
-export default class ErrorBoundary extends React.Component<{}, State> {
-	constructor(props: {}) {
+export default class ErrorBoundary extends React.Component<any, State> {
+	constructor(props: any) {
 		super(props);
 		this.state = { hasError: false };
 	}
@@ -31,7 +31,6 @@ export default class ErrorBoundary extends React.Component<{}, State> {
 			return <PageError error={this.state.error} />;
 		}
 
-		// @ts-ignore
 		return this.props.children;
 	}
 }
