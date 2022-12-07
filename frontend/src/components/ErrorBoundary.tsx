@@ -31,6 +31,7 @@ export default class ErrorBoundary extends React.Component<{}, State> {
 			return <PageError error={this.state.error} />;
 		}
 
+		// @ts-ignore
 		return this.props.children;
 	}
 }

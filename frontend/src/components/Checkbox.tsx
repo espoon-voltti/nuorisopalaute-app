@@ -6,6 +6,7 @@ interface Props {
 	id: string;
 	isChecked: boolean;
 	onChange: (checked: boolean) => void;
+	children: React.ReactNode;
 }
 
 const Checkbox: React.FunctionComponent<Props> = ({
