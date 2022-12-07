@@ -38,17 +38,14 @@ const PageLanding: FC = () => {
 	const initiativesHeadline = useT("initiativesHeadline");
 
 	const currentLanguage = useCurrentLanguage();
-	console.log(currentLanguage);
 
 	const [initiatives, setInitiatives] = useState<Initiative[] | null>(null);
-	console.log(initiatives);
 	useEffect(() => {
 		axios
 			.get(config.API_URL + "/initiatives")
 			.then(function (response) {
 				const _initiatives: Initiative[] = [];
 				response.data.forEach((initiative: any) => {
-					console.log(initiative);
 					if (initiative.service_request_id) {
 						const text = initiative.description
 							.replace(/\r\n/g, "\n")
@@ -108,7 +105,6 @@ const PageLanding: FC = () => {
 								href="/aloite"
 								className="btn btn-secondary"
 								onClick={(event: any): void => {
-									console.log("Clicked");
 									const url = "/aloite";
 									navigate(url, { replace: true });
 									event.preventDefault();
