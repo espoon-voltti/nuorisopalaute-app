@@ -80,4 +80,3 @@ terraform.tfstate.backup
 terraform.tfstate.d
 
 .idea/
-./frontend/package-lock.json
