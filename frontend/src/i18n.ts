@@ -11,18 +11,18 @@ i18next
 		nsSeparator: ":",
 		keySeparator: false,
 
-		whitelist: ["fi-FI", "sv-FI", "en-FI"],
+		supportedLngs: ["fi-FI", "sv-FI", "en-FI"],
 		fallbackLng: "fi-FI",
 
 		react: {
 			useSuspense: false,
 		},
 
-		detection: {
-			checkWhitelist: true,
-			order: ["path"],
-			caches: [],
-		},
+		// detection: {
+		// 	checkWhitelist: true,
+		// 	order: ["path"],
+		// 	caches: [],
+		// },
 
 		load: "currentOnly",
 
