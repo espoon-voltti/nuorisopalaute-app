@@ -7,13 +7,22 @@ function FileDropzone(props: any) {
 	const { acceptedFiles, getRootProps, getInputProps, isDragActive,
 		isDragAccept,
 		isDragReject } = useDropzone({
-			accept: "image/jpeg, image/png, image/gif, image/tiff, application/pdf,\
-		application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document,\
-		text/plain, application/zip, application/vnd.ms-excel,\
-		application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,\
-		application/vnd.ms-powerpoint,\
-		application/vnd.openxmlformats-officedocument.presentationml.presentation,\
-		application/rtf",
+			accept: {
+				'image/jpeg': ['.jpeg', 'jpg'],
+				'image/png': ['.png'],
+				'image/gif': ['.gif'],
+				'image/tiff': ['.tiff'],
+				'application/pdf': ['.pdf'],
+				'application/msword': ['.doc'],
+				'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
+				'text/plain': ['.txt'],
+				'application/zip': ['.zip'],
+				'application/vnd.ms-excel': ['.xls'],
+				'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': ['.xlsx'],
+				'application/vnd.ms-powerpoint': ['.ppt'],
+				'application/vnd.openxmlformats-officedocument.presentationml.presentation': ['.pptx'],
+				'application/rtf': ['.rtf'],
+			},
 		});
 
 	const [files, setFiles] = useState<File[]>([]);
