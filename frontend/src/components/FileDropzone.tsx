@@ -13,7 +13,7 @@ function FileDropzone(props: any): any {
 		isDragReject,
 	} = useDropzone({
 		accept: {
-			"image/jpeg": [".jpeg", "jpg"],
+			"image/jpeg": [".jpeg", ".jpg"],
 			"image/png": [".png"],
 			"image/gif": [".gif"],
 			"image/tiff": [".tiff"],
