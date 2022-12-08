@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import "../styles/App.scss";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import * as config from "./config";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { useCurrentLanguage, useT } from "../i18n";
 import ErrorBoundary from "./ErrorBoundary";
 import { PageLanding } from "./PageLanding";
@@ -38,37 +37,24 @@ const App: React.FC = () => {
 						<Helmet
 							htmlAttributes={{ lang: currentLanguage }}
 						></Helmet>
-						<Switch>
-							<Route exact path="/" component={PageLanding} />
+						<Routes>
+							<Route path="/" element={<PageLanding />} />
+							<Route path="/palaute" element={<PageFeedback />} />
 							<Route
-								exact
-								path="/palaute"
-								component={PageFeedback}
-							/>
-							<Route
-								exact
 								path="/aloite"
-								component={PageInitiative}
+								element={<PageInitiative />}
 							/>
 							<Route
-								exact
 								path="/aloitteet"
-								component={PageViewInitiative}
+								element={<PageViewInitiative />}
 							/>
+							<Route path="/kiitos" element={<PageThankYou />} />
 							<Route
-								exact
-								path="/kiitos"
-								component={PageThankYou}
-							/>
-							<Route
-								exact
 								path="/saavutettavuus"
-								component={PageAccessibility}
+								element={<PageAccessibility />}
 							/>
-							<Route
-								component={() => <PageError error="404" />}
-							/>
-						</Switch>
+							<Route element={<PageError error="404" />} />
+						</Routes>
 					</Router>
 				</div>
 			</ErrorBoundary>

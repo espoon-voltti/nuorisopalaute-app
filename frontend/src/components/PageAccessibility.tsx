@@ -11,9 +11,14 @@ const PageAccessibility: FC = () => {
 			<Header className="header--landing"></Header>
 			<div className="accessibility-page">
 				<section className="content-block">
-				<h1 className="center accessibility-title">{useT("footerLinkAccessibility")}</h1>
-				<div dangerouslySetInnerHTML={{ __html: useT("accessibilityPageText") }}></div>
-
+					<h1 className="center accessibility-title">
+						{useT("footerLinkAccessibility")}
+					</h1>
+					<div
+						dangerouslySetInnerHTML={{
+							__html: useT("accessibilityPageText"),
+						}}
+					></div>
 				</section>
 				<Footer />
 			</div>

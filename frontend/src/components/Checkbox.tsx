@@ -6,6 +6,7 @@ interface Props {
 	id: string;
 	isChecked: boolean;
 	onChange: (checked: boolean) => void;
+	children: React.ReactNode;
 }
 
 const Checkbox: React.FunctionComponent<Props> = ({
@@ -19,7 +20,7 @@ const Checkbox: React.FunctionComponent<Props> = ({
 		<div className="checkbox-container">
 			<input
 				checked={isChecked}
-				onChange={event => {
+				onChange={(event) => {
 					onChange(event.target.checked);
 				}}
 				name={name}

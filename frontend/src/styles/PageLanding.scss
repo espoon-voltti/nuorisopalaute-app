@@ -5,7 +5,7 @@
 }
 
 .jumbotron {
-	background: transparent url('/hero-image.jpg') center center no-repeat;
+	background: transparent url('/icons/hero-image.jpg') center center no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 	display: flex;
@@ -169,7 +169,7 @@
 
 .teaser--initiative {
 	background: #403F76;
-}  
+}
 
 .teaser--highlight {
 	max-width: 335px;
@@ -276,24 +276,24 @@
 	to {opacity: 1}
 }
 @keyframes bounce {
-    0% {  
-        transform: translateY(0); 
+    0% {
+        transform: translateY(0);
     }
 
-    20% {  
-        transform: translateY(-0.5em);      
+    20% {
+        transform: translateY(-0.5em);
     }
 
-    40% {  
-        transform: translateY(0.3em);     
+    40% {
+        transform: translateY(0.3em);
     }
-    
+
    60% {
-        transform: translateY(-0.15em);     
+        transform: translateY(-0.15em);
     }
 
-    80% {  
-        transform: translateY(0);    
+    80% {
+        transform: translateY(0);
     }
 }
 

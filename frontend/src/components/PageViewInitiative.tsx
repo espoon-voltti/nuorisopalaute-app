@@ -5,11 +5,9 @@ import config from "./config";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useT } from "../i18n";
-import { Trans } from "react-i18next";
-import { useHistory, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import * as queryString from "query-string";
 import { format } from "date-fns";
-import { stringify } from "querystring";
 
 interface Initiative {
 	header: string;
@@ -27,10 +25,9 @@ const PageViewInitiative: FC = () => {
 		description: "",
 		date: new Date(),
 		answer: "",
-		status: ""
+		status: "",
 	});
 
-	const history = useHistory();
 	const location = useLocation();
 
 	const id = queryString.parse(location.search).id;
@@ -58,7 +55,7 @@ const PageViewInitiative: FC = () => {
 						header: header,
 						date: new Date(initiative.requested_datetime),
 						answer: initiative.status_notes,
-						status: initiative.status
+						status: initiative.status,
 					};
 					_initiatives.push(_initiative);
 					if (initiative.service_request_id === id) {
@@ -89,7 +86,9 @@ const PageViewInitiative: FC = () => {
 								return <p key={"line-" + index}>{value}</p>;
 							})}
 					<h2 className="initiative-answer-headline">{answerText}</h2>
-					<p className="initiative-answer-text">{initiative.answer}</p>
+					<p className="initiative-answer-text">
+						{initiative.answer}
+					</p>
 				</section>
 
 				<section className="">

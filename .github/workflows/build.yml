@@ -6,7 +6,7 @@ on: [push]
 env:
   ECR_REGISTRY: 307238562370.dkr.ecr.eu-west-1.amazonaws.com
   AWS_REGION: eu-west-1
-  NODE_VERSION: "12"
+  NODE_VERSION: "16"
   DOCKER_IMAGE_NAME: nuorisopalaute/service
   PROJECT: nuorisopalaute/frontend
 

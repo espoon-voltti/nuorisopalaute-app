@@ -2,12 +2,11 @@ import React, { FC, useState } from "react";
 import "../styles/PageInitiative.scss";
 import axios from "axios";
 import config from "./config";
-import Checkbox from "./Checkbox";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useT } from "../i18n";
 import { Trans } from "react-i18next";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import FileDropzone from "./FileDropzone";
 
 const PageInitiative: FC = () => {
@@ -21,9 +20,9 @@ const PageInitiative: FC = () => {
 	const [surname, setSurname] = useState("");
 	const [attachments, setAttachments] = useState([]);
 
-	const history = useHistory();
+	const navigate = useNavigate();
 
-	const attachmentsChanged = (files: any) => {
+	const attachmentsChanged = (files: any): void => {
 		setAttachments(files);
 	};
 
@@ -55,12 +54,12 @@ const PageInitiative: FC = () => {
 						</label>
 						<input
 							required
-							placeholder= {useT("formHeadlinePlaceholder")}
+							placeholder={useT("formHeadlinePlaceholder")}
 							className="input"
 							type="text"
 							id="headline"
 							name="headline"
-							onChange={event =>
+							onChange={(event) =>
 								setInitiativeHeader(event.target.value)
 							}
 						/>
@@ -70,10 +69,10 @@ const PageInitiative: FC = () => {
 					</label>
 					<textarea
 						className="textarea"
-						placeholder= {useT("formInitiativeContentPlaceholder")}
+						placeholder={useT("formInitiativeContentPlaceholder")}
 						required
 						id="initiative"
-						onChange={event =>
+						onChange={(event) =>
 							setInitiativeDescription(event.target.value)
 						}
 					/>
@@ -104,7 +103,9 @@ const PageInitiative: FC = () => {
 							type="text"
 							id="firstname"
 							name="firstname"
-							onChange={event => setFirstname(event.target.value)}
+							onChange={(event) =>
+								setFirstname(event.target.value)
+							}
 						/>
 					</div>
 
@@ -118,7 +119,7 @@ const PageInitiative: FC = () => {
 							type="text"
 							id="lastname"
 							name="lastname"
-							onChange={event => setSurname(event.target.value)}
+							onChange={(event) => setSurname(event.target.value)}
 						/>
 					</div>
 
@@ -133,7 +134,7 @@ const PageInitiative: FC = () => {
 							type="email"
 							id="email"
 							name="email"
-							onChange={event => setEmail(event.target.value)}
+							onChange={(event) => setEmail(event.target.value)}
 						/>
 						<p className="warning-text">
 							{useT("formEmailWarning")}
@@ -152,7 +153,7 @@ const PageInitiative: FC = () => {
 							type="email"
 							id="phonenumber"
 							name="phonenumber"
-							onChange={event =>
+							onChange={(event) =>
 								setPhoneNumber(event.target.value)
 							}
 						/>
@@ -197,8 +198,8 @@ const PageInitiative: FC = () => {
 							data.append(
 								"description",
 								initiativeHeader +
-								"\r\n" +
-								initiativeDescription,
+									"\r\n" +
+									initiativeDescription,
 							);
 							if (phoneNumber) data.append("phone", phoneNumber);
 
@@ -221,7 +222,7 @@ const PageInitiative: FC = () => {
 									throw error;
 								});
 
-							history.push("/kiitos?ref=aloite");
+							navigate("/kiitos?ref=aloite", { replace: true });
 						}}
 					>
 						{useT("btnSendInitiative")}
