@@ -1,11 +1,6 @@
-import querystring = require("querystring")
-import axios from "axios"
 import fetch, { RequestInit } from "node-fetch"
-import { request } from "http"
-import { RequestOptions } from "http"
-import fs = require('fs');
-
-const FormData = require("form-data")
+import { createReadStream, unlink } from 'fs'
+import * as FormData from "form-data"
 
 const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
 //const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
@@ -21,8 +16,8 @@ export async function SendFeedback(ctx: any) {
 		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
 		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
-	const authOptions = {
-		api_key: process.env.TRIMBLE_KEY,
+	const authOptions: { api_key: string; jurisdiction_id: string; service_code: string } = {
+		api_key: process.env.TRIMBLE_KEY !== undefined ? process.env.TRIMBLE_KEY : '',
 		jurisdiction_id: "nuortenespoo",
 		service_code: serviceCodes["palaute"]
 	}
@@ -43,7 +38,7 @@ export async function SendFeedback(ctx: any) {
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
 		const file: File = ctx.request.files[key]
 		clear_tmp_files.push((file as any).path)
-		data.append("media" + index, fs.createReadStream((file as any).path) as any);
+		data.append("media" + index, createReadStream((file as any).path) as any);
 	})
 
 	console.log((data as any).getHeaders())
@@ -61,7 +56,7 @@ export async function SendFeedback(ctx: any) {
 			console.log("Vastaus:")
 			console.log(json)
 			clear_tmp_files.forEach(path => {
-				fs.unlink(path, (err) => {
+				unlink(path, (err: any) => {
 					if (err) {
 						console.error(err)
 						return
@@ -70,18 +65,6 @@ export async function SendFeedback(ctx: any) {
 				return json
 			})
 		})
-
-	/*axios
-.post(trimbleUrl, data, {
-	headers: {
-		"Content-Type": "multipart/form-data; charset=utf-8"
-	}
-})
-.then(function (response: any) {
-	console.log("Response:")
-	console.log(response)
-})*/
-
 	return "Done"
 }
 
@@ -96,8 +79,8 @@ export async function SendInitiative(ctx: any) {
 		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
 		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
-	const authOptions = {
-		api_key: process.env.TRIMBLE_KEY,
+	const authOptions: { api_key: string; jurisdiction_id: string; service_code: string } = {
+		api_key: process.env.TRIMBLE_KEY !== undefined ? process.env.TRIMBLE_KEY : '',
 		jurisdiction_id: "nuortenespoo",
 		service_code: serviceCodes["aloite"]
 	}
@@ -119,7 +102,7 @@ export async function SendInitiative(ctx: any) {
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
 		const file: File = ctx.request.files[key]
 		clear_tmp_files.push((file as any).path)
-		data.append("media" + index, fs.createReadStream((file as any).path) as any);
+		data.append("media" + index, createReadStream((file as any).path) as any);
 	})
 
 	console.log((data as any).getHeaders())
@@ -137,7 +120,7 @@ export async function SendInitiative(ctx: any) {
 			console.log("Vastaus:")
 			console.log(json)
 			clear_tmp_files.forEach(path => {
-				fs.unlink(path, (err) => {
+				unlink(path, (err: any) => {
 					if (err) {
 						console.error(err)
 						return
@@ -166,17 +149,5 @@ export async function GetInitiatives(ctx: any): Promise<string> {
 
 	Object.keys(params).forEach(key => url.searchParams.append(key, (params as any)[key]))
 
-	return (await fetch(url, options)).text()
-	/*
-	try {
-		fetch(url, options)
-			.then(res => res.text())
-			.then(json => {
-				console.log(json)
-				return "json"
-			})
-	} catch (e) {
-		console.log(e)
-		return e
-	}*/
+	return (await fetch(trimbleUrl, options)).text()
 }
