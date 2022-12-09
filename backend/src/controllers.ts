@@ -16,8 +16,8 @@ export async function SendFeedback(ctx: any) {
 		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
 		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
-	const authOptions = {
-		api_key: process.env.TRIMBLE_KEY,
+	const authOptions: { api_key: string; jurisdiction_id: string; service_code: string } = {
+		api_key: process.env.TRIMBLE_KEY !== undefined ? process.env.TRIMBLE_KEY : '',
 		jurisdiction_id: "nuortenespoo",
 		service_code: serviceCodes["palaute"]
 	}
@@ -65,18 +65,6 @@ export async function SendFeedback(ctx: any) {
 				return json
 			})
 		})
-
-	/*axios
-.post(trimbleUrl, data, {
-	headers: {
-		"Content-Type": "multipart/form-data; charset=utf-8"
-	}
-})
-.then(function (response: any) {
-	console.log("Response:")
-	console.log(response)
-})*/
-
 	return "Done"
 }
 
@@ -91,8 +79,8 @@ export async function SendInitiative(ctx: any) {
 		//palaute: "a4b19165-d81c-ea11-9130-005056b41c86",
 		//aloite: "355f9d7e-d81c-ea11-9130-005056b41c86"
 	}
-	const authOptions = {
-		api_key: process.env.TRIMBLE_KEY,
+	const authOptions: { api_key: string; jurisdiction_id: string; service_code: string } = {
+		api_key: process.env.TRIMBLE_KEY !== undefined ? process.env.TRIMBLE_KEY : '',
 		jurisdiction_id: "nuortenespoo",
 		service_code: serviceCodes["aloite"]
 	}
