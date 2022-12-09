@@ -1,5 +1,5 @@
 import fetch, { RequestInit } from "node-fetch"
-import * as fs from 'fs'
+import { createReadStream, unlink } from 'fs'
 import * as FormData from "form-data"
 
 const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
@@ -38,7 +38,7 @@ export async function SendFeedback(ctx: any) {
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
 		const file: File = ctx.request.files[key]
 		clear_tmp_files.push((file as any).path)
-		data.append("media" + index, fs.createReadStream((file as any).path) as any);
+		data.append("media" + index, createReadStream((file as any).path) as any);
 	})
 
 	console.log((data as any).getHeaders())
@@ -56,7 +56,7 @@ export async function SendFeedback(ctx: any) {
 			console.log("Vastaus:")
 			console.log(json)
 			clear_tmp_files.forEach(path => {
-				fs.unlink(path, (err) => {
+				unlink(path, (err: any) => {
 					if (err) {
 						console.error(err)
 						return
@@ -102,7 +102,7 @@ export async function SendInitiative(ctx: any) {
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
 		const file: File = ctx.request.files[key]
 		clear_tmp_files.push((file as any).path)
-		data.append("media" + index, fs.createReadStream((file as any).path) as any);
+		data.append("media" + index, createReadStream((file as any).path) as any);
 	})
 
 	console.log((data as any).getHeaders())
@@ -120,7 +120,7 @@ export async function SendInitiative(ctx: any) {
 			console.log("Vastaus:")
 			console.log(json)
 			clear_tmp_files.forEach(path => {
-				fs.unlink(path, (err) => {
+				unlink(path, (err: any) => {
 					if (err) {
 						console.error(err)
 						return
