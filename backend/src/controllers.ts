@@ -1,11 +1,6 @@
-import querystring = require("querystring")
-import axios from "axios"
 import fetch, { RequestInit } from "node-fetch"
-import { request } from "http"
-import { RequestOptions } from "http"
-import fs = require('fs');
-
-const FormData = require("form-data")
+import * as fs from 'fs'
+import * as FormData from "form-data"
 
 const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/requests.json"
 //const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
@@ -166,17 +161,5 @@ export async function GetInitiatives(ctx: any): Promise<string> {
 
 	Object.keys(params).forEach(key => url.searchParams.append(key, (params as any)[key]))
 
-	return (await fetch(url, options)).text()
-	/*
-	try {
-		fetch(url, options)
-			.then(res => res.text())
-			.then(json => {
-				console.log(json)
-				return "json"
-			})
-	} catch (e) {
-		console.log(e)
-		return e
-	}*/
+	return (await fetch(trimbleUrl, options)).text()
 }
