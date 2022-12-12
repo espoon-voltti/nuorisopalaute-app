@@ -37,8 +37,8 @@ export async function SendFeedback(ctx: any) {
 	const clear_tmp_files: string[] = []
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
 		const file: File = ctx.request.files[key]
-		clear_tmp_files.push((file as any).path)
-		data.append("media" + index, createReadStream((file as any).path) as any);
+		clear_tmp_files.push((file as any).filepath)
+		data.append("media" + index, createReadStream((file as any).filepath) as any);
 	})
 
 	console.log((data as any).getHeaders())
@@ -101,8 +101,8 @@ export async function SendInitiative(ctx: any) {
 	const clear_tmp_files: string[] = []
 	Object.keys(ctx.request.files).forEach((key: string, index: number) => {
 		const file: File = ctx.request.files[key]
-		clear_tmp_files.push((file as any).path)
-		data.append("media" + index, createReadStream((file as any).path) as any);
+		clear_tmp_files.push((file as any).filepath)
+		data.append("media" + index, createReadStream((file as any).filepath) as any);
 	})
 
 	console.log((data as any).getHeaders())
