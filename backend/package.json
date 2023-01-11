@@ -17,7 +17,7 @@
 		"@types/uuid": "9.0.0",
 		"dotenv": "16.0.3",
 		"form-data": "4.0.0",
-		"knex": "2.3.0",
+		"knex": "2.4.0",
 		"koa": "2.14.1",
 		"koa-body": "6.0.1",
 		"koa-helmet": "6.1.0",
