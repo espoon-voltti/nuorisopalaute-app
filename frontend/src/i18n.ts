@@ -19,7 +19,6 @@ i18next
 		},
 
 		detection: {
-			checkWhitelist: true,
 			order: ["path"],
 			caches: [],
 		},
