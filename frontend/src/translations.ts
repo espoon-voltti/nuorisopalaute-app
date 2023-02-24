@@ -319,7 +319,7 @@ export const translations = {
 	},
 	urlCustomerService: {
 		"fi-FI":
-			"https://www.espoo.fi/fi-FI/Espoon_kaupunki/Organisaatio_ja_yhteystiedot/Yhteystiedot",
+			"https://www.espoo.fi/fi/espoon-kaupunki/asiakaspalvelu",
 		"sv-FI":
 			"https://www.esbo.fi/sv-FI/Esbo_stad/Organisation_och_kontaktuppgifter/Kontaktuppgifter",
 		"en-FI":
