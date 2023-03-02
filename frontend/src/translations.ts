@@ -319,10 +319,9 @@ export const translations = {
 	},
 	urlCustomerService: {
 		"fi-FI": "https://www.espoo.fi/fi/espoon-kaupunki/asiakaspalvelu",
-		"sv-FI":
-			"https://www.esbo.fi/sv-FI/Esbo_stad/Organisation_och_kontaktuppgifter/Kontaktuppgifter",
+		"sv-FI": "https://www.espoo.fi/sv/esbo-stad/kundservice-och-e-tjanster",
 		"en-FI":
-			"http://www.espoo.fi/en-US/City_of_Espoo/Organization_and_contact_information/Contact_information",
+			"https://www.espoo.fi/en/city-espoo/customer-service-and-e-services",
 	},
 	initiativePageHeadline: {
 		"fi-FI": "Vaikuta! Jätä aloite",
