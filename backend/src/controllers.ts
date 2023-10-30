@@ -6,8 +6,9 @@ const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/6aika/req
 //const trimbleUrl = "https://easiointi.espoo.fi/efeedback/api/georeport/v2/requests.json"
 
 export async function SendFeedback(ctx: any) {
-	console.log(ctx.request.body)
-	console.log(ctx.request.files)
+	console.log("SendFeedback received")
+	//console.log(ctx.request.body)
+	//console.log(ctx.request.files)
 
 	const url = trimbleUrl
 	const serviceCodes = {
@@ -41,7 +42,7 @@ export async function SendFeedback(ctx: any) {
 		data.append("media" + index, createReadStream((file as any).filepath) as any);
 	})
 
-	console.log((data as any).getHeaders())
+	//console.log((data as any).getHeaders())
 
 	fetch(trimbleUrl, {
 		method: "POST",
@@ -49,12 +50,12 @@ export async function SendFeedback(ctx: any) {
 		headers: (data as any).getHeaders()
 	})
 		.then(res => {
-			console.log(res)
+			//console.log(res)
 			return res.json()
 		})
 		.then(json => {
-			console.log("Vastaus:")
-			console.log(json)
+			//console.log("Vastaus:")
+			//console.log(json)
 			clear_tmp_files.forEach(path => {
 				unlink(path, (err: any) => {
 					if (err) {
@@ -69,8 +70,9 @@ export async function SendFeedback(ctx: any) {
 }
 
 export async function SendInitiative(ctx: any) {
-	console.log(ctx.request.body)
-	console.log(ctx.request.files)
+	console.log("SendInitiative received")
+	//console.log(ctx.request.body)
+	//console.log(ctx.request.files)
 
 	const url = trimbleUrl
 	const serviceCodes = {
@@ -105,7 +107,7 @@ export async function SendInitiative(ctx: any) {
 		data.append("media" + index, createReadStream((file as any).filepath) as any);
 	})
 
-	console.log((data as any).getHeaders())
+	//console.log((data as any).getHeaders())
 
 	fetch(trimbleUrl, {
 		method: "POST",
@@ -113,12 +115,12 @@ export async function SendInitiative(ctx: any) {
 		headers: (data as any).getHeaders()
 	})
 		.then(res => {
-			console.log(res)
+			//console.log(res)
 			return res.json()
 		})
 		.then(json => {
-			console.log("Vastaus:")
-			console.log(json)
+			//console.log("Vastaus:")
+			//console.log(json)
 			clear_tmp_files.forEach(path => {
 				unlink(path, (err: any) => {
 					if (err) {
