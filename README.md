@@ -18,11 +18,11 @@ Nuortenpalaute-sivulta voi lähettää sekä palautetta että aloitteita. Teknis
 ## Ajaminen
 
 Dockerilla:
-* docker-compose up
+* docker compose up
 
 Ilman Dockeria:
-* backend-hakemistossa: `npm watch-server`
-* frontend-hakemistossa: `npm start`
+* backend-hakemistossa: `yarn install && yarn run watch-server`
+* frontend-hakemistossa: `yarn install && yarn run start`
 
 ## Projektin rakenteesta
 
@@ -33,5 +33,3 @@ Frontend-komponentti on hakemistossa `frontend`. React-komponentit ovat hakemist
 Frontend ei kutsu suoraan Trimbleä, vaan käyttää kutsut backendin kautta.
 
 Backend-puolella kaikki API-pisteet löytyvät tiedostosta `backend/src/routes.ts`.
-
-Projektin infrapuoli on repositoriossa https://github.com/espoon-voltti/nuorisopalaute-infra
