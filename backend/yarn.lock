@@ -224,10 +224,10 @@
   dependencies:
     knex "*"
 
-"@types/koa-bodyparser@4.3.10":
-  version "4.3.10"
-  resolved "https://registry.npmjs.org/@types/koa-bodyparser/-/koa-bodyparser-4.3.10.tgz#02b8d3d57579aa7d491d553f1f4058088bfe127f"
-  integrity sha512-6ae05pjhmrmGhUR8GYD5qr5p9LTEMEGfGXCsK8VaSL+totwigm8+H/7MHW7K4854CMeuwRAubT8qcc/EagaeIA==
+"@types/koa-bodyparser@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@types/koa-bodyparser/-/koa-bodyparser-5.0.2.tgz#bb9236a8f82576c2f9be7bed7914bcf95632fa18"
+  integrity sha512-prJC/gtxnurTTOpYkSwMwzbkiZ6BCW7arIvjmNVbEziauhcndQeCewzsSphmtlI6wnwFnGGAAOznQR1OYrhhgw==
   dependencies:
     "@types/koa" "*"
 

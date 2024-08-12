@@ -9,7 +9,7 @@
 		"@types/dotenv": "8.2.0",
 		"@types/knex": "0.16.1",
 		"@types/koa": "2.13.5",
-		"@types/koa-bodyparser": "4.3.10",
+		"@types/koa-bodyparser": "5.0.2",
 		"@types/koa-helmet": "6.0.4",
 		"@types/koa__router": "12.0.0",
 		"@types/node": "18.11.12",
