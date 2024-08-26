@@ -92,7 +92,7 @@ jobs:
           await github.rest.actions.createWorkflowDispatch({
             owner: 'espoon-voltti',
             repo: 'nuorisopalaute-infra',
-            workflow_id: 'build.yml',
+            workflow_id: 'deploy.yml',
             ref: 'master',
             inputs: {
               version: '${{ github.sha }}',
